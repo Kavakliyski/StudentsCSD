@@ -34,7 +34,7 @@ export default function MasterStudentsTable({ studentsGetData, updateMasterUrl, 
                 </button>
             </StudentsTableAddStyles>
 
-            <p>Общият брой на всички записи в таблицата е: {studentsGetData && studentsGetData.length || <>Зареждам......</>}</p>
+            <p>Общият брой на всички записи в таблицата е: <strong>{studentsGetData && studentsGetData.length || <>Зареждам......</>}</strong></p>
 
             <StudentsTableStyles>
                 <thead>
@@ -140,7 +140,7 @@ export default function MasterStudentsTable({ studentsGetData, updateMasterUrl, 
                     ))}
                 </tbody>
             </StudentsTableStyles>
-            
+
         </>
     )
 }
