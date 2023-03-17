@@ -23,9 +23,9 @@ import InputDropdown from "@/components/inputs/InputDropdown";
 const API_URL = 'http://localhost:3000/api/students/masters/add';
 
 
-export default function createmaster() {
+export default function Createmaster() {
 
-    const router = useRouter();
+    const Router = useRouter();
 
     const { user } = useAuth();                                       // get user email
     const [errorAdd, setErrorAdd] = useState(null);                   // error on adding
@@ -133,7 +133,7 @@ export default function createmaster() {
 
                 console.log("Post created:", res.data);
                 setErrorAdd(null);              // reset error state on success
-                router.push("/masters")
+                Router.push("/masters")
             })
             .catch((err) => {
 
