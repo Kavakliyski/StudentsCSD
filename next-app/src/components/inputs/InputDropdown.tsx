@@ -9,9 +9,9 @@ const SelectContainer = styled.div`
     width: 100%;
 
     .input {
-        background-color: #08b6ce;
+        background-color: white;
         border-radius: 12px;
-        border: 0;
+        border: 1px solid #08b6ce;
         box-sizing: border-box;
         font-size: 18px;
         height: 100%;
@@ -30,7 +30,7 @@ const SelectContainer = styled.div`
         top: -10px;
         transform: translateY(0);
         transition: transform 200ms;
-        width: 85%;
+        width: 80%;
     }
 
     .placeholder {
