@@ -17,24 +17,38 @@ const Navigation = styled.nav`
     flex-direction: row;
     align-items: center;
 
+    font-size: 18px;
+
 
     .TextHolder {
 
         display: flex;
         gap: 25px;
 
-        font-size: 18px;
         color: white;
         
         position: absolute;
         right: 0;
         padding: 0px 8vw 0px 0px;
     }
+
+    @media (max-width: 768px) {
+        background-color: red;
+
+        .TextHolder {
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 0px;
+            margin-left: 100px;
+        }
+    }
 `
 
 const LogoutButton = styled.button`
-    background-color: white;
+
     font-size: 18px;
+
+    background-color: white;
     width: 180px;
     height: auto;
     border: 0;
@@ -53,7 +67,7 @@ export const Headernew = () => {
     }
 
     return (
-        <header style={{ paddingBottom: '100px'}}>
+        <header style={{ paddingBottom: '100px' }}>
             <Navigation>
                 <div className="TextHolder">
 
