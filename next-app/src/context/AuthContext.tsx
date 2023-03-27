@@ -48,10 +48,12 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
 
     const login = async (email: string, password: string) => {
         try {
+
             await signInWithEmailAndPassword(auth, email, password);
             return true;
         } catch (error) {
-            alert(error);
+
+            alert(`Възникна грешка, провете имейла или паролата си! \n ${error}`);
             return false;
         }
     };
