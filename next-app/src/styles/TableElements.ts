@@ -63,6 +63,8 @@ export const StudentsTableAddStyles = styled.div`
     -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: 1px 1px 10px 1px #1c53a4;
+
+    transition: 100ms;
   }
 
   button:hover {

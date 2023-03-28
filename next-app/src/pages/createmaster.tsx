@@ -20,7 +20,7 @@ import InputText from "@/components/inputs/InputText";
 import InputDropdown from "@/components/inputs/InputDropdown";
 
 
-const API_URL = 'http://localhost:3000/api/students/masters/add';
+const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/add`;
 
 
 export default function Createmaster() {

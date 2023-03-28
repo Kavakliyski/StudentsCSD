@@ -16,13 +16,13 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-// user menu search
-import PersonIcon from '@mui/icons-material/Person';
-import Person2Icon from '@mui/icons-material/Person2';
-import Person3Icon from '@mui/icons-material/Person3';
-import Person4Icon from '@mui/icons-material/Person4';
+
+// MUI Icons
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import GroupsIcon from '@mui/icons-material/Groups';
+import PeopleIcon from '@mui/icons-material/People';
+import BarChartIcon from '@mui/icons-material/BarChart';
 
 // styles
 import { SidebarStudentsHeader } from '@/styles/LayoutElements';
@@ -155,23 +155,6 @@ export default function Sidebar() {
                         }
                     </SidebarStudentsHeader>
 
-                    <ListItem disablePadding sx={{ display: 'block' }}>
-                        <ListItemButton sx={{
-                            minHeight: 48,
-                            justifyContent: open ? 'initial' : 'center',
-                            px: 2.5,
-                        }}>
-                            <ListItemIcon sx={{
-                                minWidth: 0,
-                                mr: open ? 3 : 'auto',
-                                justifyContent: 'center',
-                            }}>
-                                <Person3Icon />
-                            </ListItemIcon>
-                            <ListItemText primary={'Добави бакалавър'} sx={{ opacity: open ? 1 : 0 }} />
-                        </ListItemButton>
-                    </ListItem>
-
                     <ListItem
                         onClick={() => router.push('/bachelors')}
                         disablePadding sx={{ display: 'block' }}
@@ -186,7 +169,7 @@ export default function Sidebar() {
                                 mr: open ? 3 : 'auto',
                                 justifyContent: 'center',
                             }}>
-                                <PersonSearchIcon />
+                                <PeopleIcon />
                             </ListItemIcon>
                             <ListItemText
                                 primary={'Всички бакалаври'}
@@ -194,18 +177,8 @@ export default function Sidebar() {
                             />
                         </ListItemButton>
                     </ListItem>
-                </List>
 
-                <List>
-                    <SidebarStudentsHeader>
-                        {
-                            open ? <h3>МАГИСТРИ</h3> : <h3>М</h3>
-                        }
-                    </SidebarStudentsHeader>
-
-                    <ListItem
-                        onClick={() => router.push('/createmaster')}
-                        disablePadding sx={{ display: 'block' }}>
+                    <ListItem disablePadding sx={{ display: 'block' }}>
                         <ListItemButton sx={{
                             minHeight: 48,
                             justifyContent: open ? 'initial' : 'center',
@@ -216,11 +189,20 @@ export default function Sidebar() {
                                 mr: open ? 3 : 'auto',
                                 justifyContent: 'center',
                             }}>
-                                <Person3Icon />
+                                <PersonAddIcon />
                             </ListItemIcon>
-                            <ListItemText primary={'Добави магисър'} sx={{ opacity: open ? 1 : 0 }} />
+                            <ListItemText primary={'Добави бакалавър'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
+
+                </List>
+
+                <List>
+                    <SidebarStudentsHeader>
+                        {
+                            open ? <h3>МАГИСТРИ</h3> : <h3>М</h3>
+                        }
+                    </SidebarStudentsHeader>
 
                     <ListItem
                         onClick={() => router.push('/masters')}
@@ -235,9 +217,66 @@ export default function Sidebar() {
                                 mr: open ? 3 : 'auto',
                                 justifyContent: 'center',
                             }}>
-                                <PersonSearchIcon />
+                                <PeopleIcon />
                             </ListItemIcon>
                             <ListItemText primary={'Всички магистри'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem
+                        onClick={() => router.push('/createmaster')}
+                        disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton sx={{
+                            minHeight: 48,
+                            justifyContent: open ? 'initial' : 'center',
+                            px: 2.5,
+                        }}>
+                            <ListItemIcon sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : 'auto',
+                                justifyContent: 'center',
+                            }}>
+                                <PersonAddIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'Добави магисър'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem
+                        onClick={() => router.push('/masters/statistic')}
+                        disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton sx={{
+                            minHeight: 48,
+                            justifyContent: open ? 'initial' : 'center',
+                            px: 2.5,
+                        }}>
+                            <ListItemIcon sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : 'auto',
+                                justifyContent: 'center',
+                            }}>
+                                <BarChartIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'Статистика'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem
+                        onClick={() => router.push('/masters/query')}
+                        disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton sx={{
+                            minHeight: 48,
+                            justifyContent: open ? 'initial' : 'center',
+                            px: 2.5,
+                        }}>
+                            <ListItemIcon sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : 'auto',
+                                justifyContent: 'center',
+                            }}>
+                                <PersonSearchIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'Търсене/Query'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
 

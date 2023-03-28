@@ -11,7 +11,7 @@ const InputContainer = styled.div`
     .input {
         background-color: white;
         border-radius: 12px;
-        border: 1px solid #08b6ce;
+        border: 1px solid #1976d2;
         box-sizing: border-box;
         font-size: 18px;
         height: 100%;
@@ -43,10 +43,9 @@ const InputContainer = styled.div`
         transform-origin: 0 50%;
         transition: transform 200ms, color 200ms;
         top: 20px;
-        font-size: 20px;
+        font-size: 14px;
         font-weight: bold;
         width: 550px;
-
     }
 
     .input:focus ~ .cut,

@@ -14,7 +14,6 @@ interface IStudentsTableProps {
 }
 
 
-
 export default function MasterStudentsTable({ studentsGetData, updateMasterUrl, createMasterUrl }: IStudentsTableProps & { updateMasterUrl: string; createMasterUrl: string; }) {
 
     const router = useRouter();

@@ -14,8 +14,8 @@ import { StudentFormWrapper } from '@/styles/FormElements';
 import { PageConfig } from '@/styles/PagesConfigElements';
 
 
-const API_URL_GET_ONE = 'http://localhost:3000/api/students/masters/get_one?id=';
-const API_URL_PATCH = 'http://localhost:3000/api/students/masters/update';
+const API_URL_GET_ONE = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_one?id=`;
+const API_URL_PATCH = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/update`;
 
 
 export default function updatemaster({ id, studentData }: IStudentGetData) {

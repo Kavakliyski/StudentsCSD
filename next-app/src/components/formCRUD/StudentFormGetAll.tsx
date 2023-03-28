@@ -11,7 +11,7 @@ import React, { useEffect, useState, } from "react";
 import router from "next/router";
 
 
-const API_URL = 'http://localhost:3000/api/students/bachelor/get_all';
+const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/bachelor/get_all`;
 
 
 interface Student {
