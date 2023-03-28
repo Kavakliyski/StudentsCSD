@@ -8,7 +8,11 @@ import axios from 'axios';
 
 // interface
 import { IStudentGetData } from '@/interfaces/IStudent';
+
+// styles
+import { StudentFormWrapper } from '@/styles/FormElements';
 import { PageConfig } from '@/styles/PagesConfigElements';
+
 
 const API_URL_GET_ONE = 'http://localhost:3000/api/students/masters/get_one?id=';
 const API_URL_PATCH = 'http://localhost:3000/api/students/masters/update';
@@ -21,19 +25,27 @@ export default function updatemaster({ id, studentData }: IStudentGetData) {
 
     return (
         <PageConfig>
-            <h1>Редактиране на МАГИСТЪР с ID: {id}</h1>
-            <div>
-                <p>Distinction: {distinction}</p>
-                <p>Faculty Number: {faculty_number}</p>
-                <p>Status of KSK: {status_of_ksk}</p>
-                <p>N of Enrollment Order: {n_of_enrollment_order}</p>
-                <p>Names: {names}</p>
-                <p>EGN: {egn}</p>
-                <p>Names Latin: {names_latin}</p>
-                <p>Phone Number: {phone_number}</p>
-                <p>Email: {email}</p>
-                <p>In front of school: {in_front_of_school}</p>
-            </div>
+
+            <StudentFormWrapper>
+
+                <h1>Редактиране на МАГИСТЪР с ID: {id}</h1>
+                <p>Тук можете да редактирате записите на </p>
+
+                <div>
+                    <p>Distinction: {distinction}</p>
+                    <p>Faculty Number: {faculty_number}</p>
+                    <p>Status of KSK: {status_of_ksk}</p>
+                    <p>N of Enrollment Order: {n_of_enrollment_order}</p>
+                    <p>Names: {names}</p>
+                    <p>EGN: {egn}</p>
+                    <p>Names Latin: {names_latin}</p>
+                    <p>Phone Number: {phone_number}</p>
+                    <p>Email: {email}</p>
+                    <p>In front of school: {in_front_of_school}</p>
+                </div>
+
+            </StudentFormWrapper>
+            
         </PageConfig>
     )
 }

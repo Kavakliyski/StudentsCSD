@@ -1,6 +1,6 @@
 // styles
 import { PageConfig } from "@/styles/PagesConfigElements";
-import { StudentFormCU } from "@/styles/FormElements";
+import { StudentFormCU, StudentFormWrapper } from "@/styles/FormElements";
 
 // auth
 import { useAuth } from "@/context/AuthContext";
@@ -12,7 +12,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-// Material Ui
+// Material UI
 import Button from '@mui/material/Button';
 
 // components
@@ -23,9 +23,9 @@ import InputDropdown from "@/components/inputs/InputDropdown";
 const API_URL = 'http://localhost:3000/api/students/masters/add';
 
 
-export default function createmaster() {
+export default function Createmaster() {
 
-    const router = useRouter();
+    const Router = useRouter();
 
     const { user } = useAuth();                                       // get user email
     const [errorAdd, setErrorAdd] = useState(null);                   // error on adding
@@ -133,7 +133,7 @@ export default function createmaster() {
 
                 console.log("Post created:", res.data);
                 setErrorAdd(null);              // reset error state on success
-                router.push("/masters")
+                Router.push("/masters")
             })
             .catch((err) => {
 
@@ -218,55 +218,59 @@ export default function createmaster() {
     return (
         <PageConfig>
 
-            <div><h1>Създаване на Магистър</h1></div>
+            <StudentFormWrapper>
 
-            <StudentFormCU>
+                <div><h1>Създаване на Магистър</h1></div>
+                <p>Тук можете да създатете нов запис в базата данни с магистри.</p>
+                <br />
 
-                <InputText label='Отличителност' onChange={(e) => setDistinction(e)} />
-                <InputText label='Факултент номер' onChange={(e) => setFaculty_number(e)} />
-                <InputDropdown label="Статус на КСК" options={optionsStatus_of_ksk} onChange={(e) => setStatus_of_ksk(e)} />
-                <InputText label='№ на заповед за записване' onChange={(e) => setN_of_enrollment_order(e)} />
-                <InputText label='Три имена' onChange={(e) => setNames(e)} />
-                <InputText label='Имена на латиница' onChange={(e) => setNames_latin(e)} />
-                <InputText label='Телефон' onChange={(e) => setPhone_number(e)} />
-                <InputText label='Имейл' onChange={(e) => setEmail(e)} />
-                <InputText label='ЕГН' onChange={(e) => setEgn(e)} />
-                <InputText label='Пред. Учебно Заведение' onChange={(e) => setIn_front_of_school(e)} />
-                <InputText label='Местонахождение на преходното учебно заведение' onChange={(e) => setLocation_of_the_transitional_educationa_institution(e)} />
-                <InputDropdown label="Професионално направление/ квалификация" options={optionsProfessional_qualification} onChange={(e) => setProfessional_qualification(e)} />
-                <InputDropdown label="Потвърждение от Нацид" options={optionsConfirmation_by_nacid} onChange={(e) => setConfirmation_by_nacid(e)} />
-                <InputDropdown label="Желана Специалност TODO" options={optionsConfirmation_by_nacid} onChange={(e) => setDesired_major(e)} />
-                <InputDropdown label="Желана форма" options={optionsDesired_shape} onChange={(e) => setDesired_shape(e)} />
-                <InputDropdown label="Продължителност на обучение и дали съкращава" options={optionsLength_of_study} onChange={(e) => setLength_of_study(e)} />
-                <InputDropdown label="КОХОРТ В МООДЛЕ" options={optionsCohort_in_moodle} onChange={(e) => setCohort_in_moodle(e)} />
-                <InputDropdown label="Начин на кандидатстване" options={optionsMethod_of_application} onChange={(e) => setMethod_of_application(e)} />
-                <InputText label='Дата на първоначален контакт' onChange={(e) => setDate_of_initial_contact(e)} />
-                <InputText label="Източник на контакт" onChange={(e) => setContact_source(e)} />
-                <InputDropdown label="Заплатил КСК" options={optionsPaid_ksk} onChange={(e) => setPaid_ksk(e)} />
-                <InputText label="Дата плащане КСК" onChange={(e) => setDate_of_payment_ksk(e)} />
-                <InputText label="Коментар - документи за КСК" onChange={(e) => setComment_ksk(e)} />
-                <InputText label="Платена сем. такса" onChange={(e) => setSem_fee_paid(e)} />
-                <InputText label="Дата на платена сем. такса" onChange={(e) => setDate_of_sem_fee_paid(e)} />
-                <InputDropdown label="Период на подаване в АдминУни" options={optionsSubmission_period_in_adminuni} onChange={(e) => setSubmission_period_in_adminuni(e)} />
+                <StudentFormCU>
+
+                    <InputText label='Отличителност' onChange={(e) => setDistinction(e)} />
+                    <InputText label='Факултент номер' onChange={(e) => setFaculty_number(e)} />
+                    <InputDropdown label="Статус на КСК" options={optionsStatus_of_ksk} onChange={(e) => setStatus_of_ksk(e)} />
+                    <InputText label='№ на заповед за записване' onChange={(e) => setN_of_enrollment_order(e)} />
+                    <InputText label='Три имена' onChange={(e) => setNames(e)} />
+                    <InputText label='Имена на латиница' onChange={(e) => setNames_latin(e)} />
+                    <InputText label='Телефон' onChange={(e) => setPhone_number(e)} />
+                    <InputText label='Имейл' onChange={(e) => setEmail(e)} />
+                    <InputText label='ЕГН' onChange={(e) => setEgn(e)} />
+                    <InputText label='Пред. Учебно Заведение' onChange={(e) => setIn_front_of_school(e)} />
+                    <InputText label='Местонахождение на преходното учебно заведение' onChange={(e) => setLocation_of_the_transitional_educationa_institution(e)} />
+                    <InputDropdown label="Професионално направление/ квалификация" options={optionsProfessional_qualification} onChange={(e) => setProfessional_qualification(e)} />
+                    <InputDropdown label="Потвърждение от Нацид" options={optionsConfirmation_by_nacid} onChange={(e) => setConfirmation_by_nacid(e)} />
+                    <InputDropdown label="Желана Специалност TODO" options={optionsConfirmation_by_nacid} onChange={(e) => setDesired_major(e)} />
+                    <InputDropdown label="Желана форма" options={optionsDesired_shape} onChange={(e) => setDesired_shape(e)} />
+                    <InputDropdown label="Продължителност на обучение и дали съкращава" options={optionsLength_of_study} onChange={(e) => setLength_of_study(e)} />
+                    <InputDropdown label="КОХОРТ В МООДЛЕ" options={optionsCohort_in_moodle} onChange={(e) => setCohort_in_moodle(e)} />
+                    <InputDropdown label="Начин на кандидатстване" options={optionsMethod_of_application} onChange={(e) => setMethod_of_application(e)} />
+                    <InputText label='Дата на първоначален контакт' onChange={(e) => setDate_of_initial_contact(e)} />
+                    <InputText label="Източник на контакт" onChange={(e) => setContact_source(e)} />
+                    <InputDropdown label="Заплатил КСК" options={optionsPaid_ksk} onChange={(e) => setPaid_ksk(e)} />
+                    <InputText label="Дата плащане КСК" onChange={(e) => setDate_of_payment_ksk(e)} />
+                    <InputText label="Коментар - документи за КСК" onChange={(e) => setComment_ksk(e)} />
+                    <InputText label="Платена сем. такса" onChange={(e) => setSem_fee_paid(e)} />
+                    <InputText label="Дата на платена сем. такса" onChange={(e) => setDate_of_sem_fee_paid(e)} />
+                    <InputDropdown label="Период на подаване в АдминУни" options={optionsSubmission_period_in_adminuni} onChange={(e) => setSubmission_period_in_adminuni(e)} />
+
+                </StudentFormCU>
 
 
+                <div>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color={errorAdd ? "error" : "primary"}
+                        sx={{ mt: 3, mb: 2 }}
+                        onClick={handleSubmit}
+                    >
+                        Добави студент
+                    </Button>
+                </div>
 
+            </StudentFormWrapper>
 
-            </StudentFormCU>
-
-
-            <div>
-                <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color={errorAdd ? "error" : "primary"}
-                    sx={{ mt: 3, mb: 2 }}
-                    onClick={handleSubmit}
-                >
-                    Добави студент
-                </Button>
-            </div>
         </PageConfig >
     )
 }

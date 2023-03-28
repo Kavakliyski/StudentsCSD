@@ -16,6 +16,7 @@ import ProtectedRoute from '@/context/ProtectedRoutes';             // protected
 
 // component
 import SignIn from '@/components/SignIn';
+import { Headernew } from '@/components/navigation/Headernew';
 
 
 
@@ -35,7 +36,8 @@ export default function App({ Component, pageProps, ...appProps }: AppProps) {
         <AuthContextProvider>
             <ProtectedRoute>
                 {/* <WebSocketContextProvider> */}
-                    <Header />
+                    {/* <Header /> to delete later */}
+                    <Headernew />
                     <Sidebar />
                     <Component {...pageProps} />
                 {/* </WebSocketContextProvider> */}

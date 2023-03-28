@@ -20,7 +20,7 @@ const updateMasterUrl = '/updatemaster?id=';
 const createMasterUrl = '/createmaster';
 
 
-export default function masters() {
+export default function Masters() {
     
     useEffect(() => {
         axios.get<IStudent[]>(API_URL)
