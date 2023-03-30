@@ -16,6 +16,7 @@ import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable"
 
 
 const ENTRIES_API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_entries`;
+const updateMasterUrl = '/updatemaster?id=';
 
 
 export default function query() {
@@ -71,7 +72,7 @@ export default function query() {
                 submitted &&
                 <MasterStudentsTable
                     studentsGetData={studentsGetEntryData}
-                    updateMasterUrl={''}
+                    updateMasterUrl={updateMasterUrl}
                 />
             }
         </PageConfig>

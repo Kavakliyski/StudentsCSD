@@ -25,7 +25,6 @@ export default function App({ Component, pageProps, ...appProps }: AppProps) {
     if ([`/login`].includes(appProps.router.pathname)) {
         return (
             <AuthContextProvider>
-                <h1>VUZF Students CSD</h1>
                 <SignIn />
             </AuthContextProvider>
         )

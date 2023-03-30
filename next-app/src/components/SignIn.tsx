@@ -1,6 +1,7 @@
 // next
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
+import Image from 'next/image';
 
 // Material UI
 import Avatar from '@mui/material/Avatar';
@@ -20,8 +21,11 @@ import { SingInWrapper } from '@/styles/SingInElements';
 // auth
 import { useAuth } from '../context/AuthContext';
 
-const theme = createTheme();
+// logo
+import Logo from '../../public/VUZF logo.png'
 
+
+const theme = createTheme();
 
 
 export default function SignIn() {
@@ -58,6 +62,19 @@ export default function SignIn() {
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
+                <div style={{
+                    display: 'flex',
+                    textAlign: 'center',
+                    justifyContent: 'center'
+                }} >
+                    <Image
+                        src={Logo}
+                        alt={''}
+                        width={350} />
+                </div>
+                
+                <br />
+
                 <SingInWrapper>
                     <CssBaseline />
                     <Box
