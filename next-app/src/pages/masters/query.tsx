@@ -11,50 +11,69 @@ import axios from "axios";
 // interface
 import { IStudent } from "@/interfaces/IStudent";
 
+// table
+import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable";
+
 
 const ENTRIES_API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_entries`;
 
 
 export default function query() {
-
-    const [isLoading, setIsLoading] = useState(true);
     const [studentsGetEntryData, setStudentsGetEntryData] = useState<IStudent[]>([]);
+    const [submitted, setSubmitted] = useState(false);
 
-    const [query, setQuery] = useState('');
-    const router = useRouter();
+    const [params, setParams] = useState<any>({});
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        router.push(`/api/get_entries?query=${encodeURIComponent(query)}`);
-    };
+    const handleSubmit = (event?: React.FormEvent<HTMLFormElement>) => {
+        event?.preventDefault();
+        setSubmitted(true);
 
-    useEffect(() => {
         axios
-            .get<IStudent[]>(ENTRIES_API_URL)
+            .get<IStudent[]>(ENTRIES_API_URL, { params })
             .then((res) => setStudentsGetEntryData(res.data))
             .catch((err) => console.log("Error fetching students:", err))
-        setIsLoading(false)
-    }, [])
+    };
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setParams({
+            ...params,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    console.log(studentsGetEntryData);
 
     return (
         <PageConfig>
+            <div style={{
+                display: 'inline block'
+            }}>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        name="names"
+                        placeholder="Търси по име"
+                        onChange={handleChange}
+                    />
+                    <input
+                        type="text"
+                        name="status_of_ksk"
+                        placeholder="Търси по статус"
+                        onChange={handleChange}
+                    />
+                    {/* Add more fields as needed */}
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
 
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Query:
-                    <input type="text" value={query} onChange={(event) => setQuery(event.target.value)} />
-                </label>
-                <button type="submit">Submit</button>
-            </form>
-
+            {/* Render the search results */}
             {
-                isLoading ?
-                    <div>заредих</div>
-                    :
-                    <div>Зареждам</div>
+                submitted &&
+                <MasterStudentsTable
+                    studentsGetData={studentsGetEntryData}
+                    updateMasterUrl={''}
+                />
             }
-
         </PageConfig>
-    )
+    );
 }

@@ -14,7 +14,7 @@ interface IStudentsTableProps {
 }
 
 
-export default function MasterStudentsTable({ studentsGetData, updateMasterUrl, createMasterUrl }: IStudentsTableProps & { updateMasterUrl: string; createMasterUrl: string; }) {
+export default function MasterStudentsTable({ studentsGetData, updateMasterUrl, createMasterUrl }: IStudentsTableProps & { updateMasterUrl: string; createMasterUrl?: string; }) {
 
     const router = useRouter();
 
@@ -27,11 +27,16 @@ export default function MasterStudentsTable({ studentsGetData, updateMasterUrl, 
     return (
         <>
 
-            <StudentsTableAddStyles>
-                <button onClick={() => router.push(`${createMasterUrl}`)}>
-                    Добави Студент
-                </button>
-            </StudentsTableAddStyles>
+            {
+                createMasterUrl &&
+                
+                <StudentsTableAddStyles>
+                    <button onClick={() => router.push(`${createMasterUrl}`)}>
+                        Добави Студент
+                    </button>
+                </StudentsTableAddStyles>
+            }
+
 
             <p>Общият брой на всички записи в таблицата е: <strong>{studentsGetData && studentsGetData.length || <>Зареждам......</>}</strong></p>
 
