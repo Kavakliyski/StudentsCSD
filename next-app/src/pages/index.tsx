@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 import { PageConfig } from '@/styles/PagesConfigElements';
 
 // components
-import StudentFrom from '@/components/formCRUD/StudentFrom';
 import { Button } from '@mui/material';
 
 

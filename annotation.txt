@@ -10,7 +10,7 @@
 Имейл       -   email
 Пред. Учебно Заведение      -       in_front_of_school
 Местонахождение на преходното учебно заведение      -   location_of_the_transitional_educationa_institution
-Професионално направление/ квалификация     -   professional_qualification
+Професионално направление / квалификация     -   professional_qualification
 Потвърждение от Нацид       -   confirmation_by_nacid
 Желана Специалност      -   desired_major
 Желана форма        -   desired_shape
