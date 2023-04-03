@@ -11,7 +11,7 @@ import axios from "axios";
 import { IStudent } from "@/interfaces/IStudent";
 
 // table
-import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable";
+import StudentsTable from "@/components/studentsTable/StudentsTable";
 
 // Material UI
 import { Box, Button, TextField } from "@mui/material";
@@ -50,7 +50,7 @@ export default function query() {
     return (
         <PageConfig>
 
-            <h1>Търсене / Query</h1>
+            <h1>Търсене / Query, Магистри</h1>
 
             <div>
 
@@ -71,20 +71,24 @@ export default function query() {
                     <TextField label="№ на заповед за записване" name="n_of_enrollment_order" variant="standard" onChange={handleChange} />
                     <TextField label="Име" name="names" variant="standard" onChange={handleChange} />
                     <TextField label="ЕГН" name="egn" variant="standard" onChange={handleChange} />
-
                     <TextField label="Имена на латиница" name="names_latin" variant="standard" onChange={handleChange} />
                     <TextField label="Телефон" name="phone_number" variant="standard" onChange={handleChange} />
                     <TextField label="Имейл" name="email" variant="standard" onChange={handleChange} />
                     <TextField label="Пред. Учебно Заведение" name="in_front_of_school" variant="standard" onChange={handleChange} />
-                    <TextField label="Местонахождение на преходното учебно заведение" name="location_of_the_transitional_educationa_institution" variant="standard" onChange={handleChange} />
+
+                    {/* <TextField label="Местонахождение на преходното учебно заведение" name="location_of_the_transitional_educationa_institution" variant="standard" onChange={handleChange} /> */}
                     <TextField label="Професионално направление / квалификация" name="professional_qualification" variant="standard" onChange={handleChange} />
                     <TextField label="Потвърждение от Нацид" name="confirmation_by_nacid" variant="standard" onChange={handleChange} />
                     <TextField label="Желана Специалност" name="desired_major" variant="standard" onChange={handleChange} />
-                    <TextField label="Желана форма" name="desired_shape" variant="standard" onChange={handleChange} />
+                    {/* <TextField label="Желана форма" name="desired_shape" variant="standard" onChange={handleChange} /> */}
                     <TextField label="Продължителност на обучение" name="length_of_study" variant="standard" onChange={handleChange} />
                     <TextField label="КОХОРТ В МООДЛЕ " name="cohort_in_moodle" variant="standard" onChange={handleChange} />
-                    <TextField label="Начин на кандидатстване" name="method_of_application" variant="standard" onChange={handleChange} />
+                    {/* <TextField label="Начин на кандидатстване" name="method_of_application" variant="standard" onChange={handleChange} /> */}
+
                     <TextField label="Дата на първоначален контакт" name="date_of_initial_contact" variant="standard" onChange={handleChange} />
+                    <TextField label="G-MAIL" name="university_email" variant="standard" onChange={handleChange} />
+                    <TextField label="_ID" name="_id" variant="standard" onChange={handleChange} />
+
 
                     <br />
                     <Button variant="contained" type="submit">Търси</Button>
@@ -94,7 +98,7 @@ export default function query() {
             {/* Render the search results */}
             {
                 submitted &&
-                <MasterStudentsTable
+                <StudentsTable
                     studentsGetData={studentsGetEntryData}
                     updateMasterUrl={updateMasterUrl}
                 />

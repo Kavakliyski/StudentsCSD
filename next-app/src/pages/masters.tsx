@@ -5,14 +5,13 @@ import React, { useEffect, useState, } from "react";
 import axios from "axios";
 
 // components
-import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable";
+import StudentsTable from "@/components/studentsTable/StudentsTable";
 
 // styles
 import { PageConfig } from "@/styles/PagesConfigElements";
 
 // interface
 import { IStudent } from "@/interfaces/IStudent";
-
 
 
 const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_all`;
@@ -43,7 +42,7 @@ export default function Masters() {
                 isLoading ? (
                     <p>Loading...</p>
                 ) : (
-                    <MasterStudentsTable
+                    <StudentsTable
                         studentsGetData={studentsGetData}
                         updateMasterUrl={updateMasterUrl}
                         createMasterUrl={createMasterUrl}

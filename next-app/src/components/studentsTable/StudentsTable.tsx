@@ -1,7 +1,7 @@
 // next
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // styles
 import { StudentsTableAddStyles, StudentsTableStyles } from "@/styles/TableElements";
@@ -14,7 +14,19 @@ interface IStudentsTableProps {
 }
 
 
-export default function MasterStudentsTable({ studentsGetData, updateMasterUrl, createMasterUrl }: IStudentsTableProps & { updateMasterUrl: string; createMasterUrl?: string; }) {
+export default function StudentsTable({ studentsGetData, updateMasterUrl, createMasterUrl }: IStudentsTableProps & { updateMasterUrl: string; createMasterUrl?: string; }) {
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(100);
+
+    const handlePageChange = (newPage: number) => {
+        setCurrentPage(newPage);
+    };
+
+    const getPageNumbers = (totalItems: number, itemsPerPage: number) => {
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        return Array.from({ length: totalPages }, (_, i) => i + 1);
+    };
 
     const router = useRouter();
 
@@ -29,7 +41,7 @@ export default function MasterStudentsTable({ studentsGetData, updateMasterUrl, 
 
             {
                 createMasterUrl &&
-                
+
                 <StudentsTableAddStyles>
                     <button onClick={() => router.push(`${createMasterUrl}`)}>
                         Добави Студент
@@ -90,58 +102,59 @@ export default function MasterStudentsTable({ studentsGetData, updateMasterUrl, 
                 </thead>
 
                 <tbody>
-                    {studentsGetData.map((student) => (
-                        <tr
-                            key={student._id}
-                            onClick={() => setIsSelected(student._id)}
-                            style={{
-                                backgroundColor: isSelected === student._id ? 'lightblue' : '',
-                            }}
-                        >
-                            <td>{student.distinction}</td>
-                            <td>{student.faculty_number}</td>
-                            <td>{student.status_of_ksk}</td>
-                            <td>{student.n_of_enrollment_order}</td>
-                            <td>{student.names}</td>
-                            <td>{student.egn}</td>
-                            <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }} onClick={() => handleUpdateStudent(student._id)}><Image src={EditIcon} alt="РЕДАКТИРАЙ" width="40" /></td>
-                            <td>{student.names_latin}</td>
-                            <td>{student.phone_number}</td>
-                            <td>{student.email}</td>
-                            <td>{student.in_front_of_school}</td>
-                            <td>{student.location_of_the_transitional_educationa_institution}</td>
-                            <td>{student.professional_qualification}</td>
-                            <td>{student.confirmation_by_nacid}</td>
-                            <td>{student.desired_major}</td>
-                            <td>{student.desired_shape}</td>
-                            <td>{student.length_of_study}</td>
-                            <td>{student.cohort_in_moodle}</td>
-                            <td>{student.method_of_application}</td>
-                            <td>{student.date_of_initial_contact}</td>
-                            <td>{student.contact_source}</td>
-                            <td>{student.paid_ksk}</td>
-                            <td>{student.date_of_payment_ksk}</td>
-                            <td>{student.comment_ksk}</td>
-                            <td>{student.sem_fee_paid}</td>
-                            <td>{student.date_of_sem_fee_paid}</td>
-                            <td>{student.submission_period_in_adminuni}</td>
-                            <td>{student.school_year}</td>
-                            <td>{student.contract_issue_date}</td>
-                            <td>{student.sem_Fee}</td>
-                            <td>{student.discount}</td>
-                            <td>{student.comment}</td>
-                            <td>{student.sent_faculty_number}</td>
-                            <td>{student.university_email}</td>
-                            <td>{student.moodle_profile_created}</td>
-                            <td>{student.email_sent_to_access_moodle}</td>
-                            <td>{student.entered_into_cohort}</td>
-                            <td>{student.entered_in_admin}</td>
-                            <td>{student.dateOfCreation}</td>
-                            <td>{student.lastEditEmail}</td>
-                            <td>{student.lastEditDate}</td>
-                            <td>{student._id}</td>
-                        </tr>
-                    ))}
+                    {studentsGetData
+                        .map((student) => (
+                            <tr
+                                key={student._id}
+                                onClick={() => setIsSelected(student._id)}
+                                style={{
+                                    backgroundColor: isSelected === student._id ? 'lightblue' : '',
+                                }}
+                            >
+                                <td>{student.distinction}</td>
+                                <td>{student.faculty_number}</td>
+                                <td>{student.status_of_ksk}</td>
+                                <td>{student.n_of_enrollment_order}</td>
+                                <td>{student.names}</td>
+                                <td>{student.egn}</td>
+                                <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }} onClick={() => handleUpdateStudent(student._id)}><Image src={EditIcon} alt="РЕДАКТИРАЙ" width="40" /></td>
+                                <td>{student.names_latin}</td>
+                                <td>{student.phone_number}</td>
+                                <td>{student.email}</td>
+                                <td>{student.in_front_of_school}</td>
+                                <td>{student.location_of_the_transitional_educationa_institution}</td>
+                                <td>{student.professional_qualification}</td>
+                                <td>{student.confirmation_by_nacid}</td>
+                                <td>{student.desired_major}</td>
+                                <td>{student.desired_shape}</td>
+                                <td>{student.length_of_study}</td>
+                                <td>{student.cohort_in_moodle}</td>
+                                <td>{student.method_of_application}</td>
+                                <td>{student.date_of_initial_contact}</td>
+                                <td>{student.contact_source}</td>
+                                <td>{student.paid_ksk}</td>
+                                <td>{student.date_of_payment_ksk}</td>
+                                <td>{student.comment_ksk}</td>
+                                <td>{student.sem_fee_paid}</td>
+                                <td>{student.date_of_sem_fee_paid}</td>
+                                <td>{student.submission_period_in_adminuni}</td>
+                                <td>{student.school_year}</td>
+                                <td>{student.contract_issue_date}</td>
+                                <td>{student.sem_Fee}</td>
+                                <td>{student.discount}</td>
+                                <td>{student.comment}</td>
+                                <td>{student.sent_faculty_number}</td>
+                                <td>{student.university_email}</td>
+                                <td>{student.moodle_profile_created}</td>
+                                <td>{student.email_sent_to_access_moodle}</td>
+                                <td>{student.entered_into_cohort}</td>
+                                <td>{student.entered_in_admin}</td>
+                                <td>{student.dateOfCreation}</td>
+                                <td>{student.lastEditEmail}</td>
+                                <td>{student.lastEditDate}</td>
+                                <td>{student._id}</td>
+                            </tr>
+                        ))}
                 </tbody>
             </StudentsTableStyles>
 
