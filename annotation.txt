@@ -38,7 +38,14 @@ G-mail                              -       university_email
 Вкаран в Кохорт                     -       entered_into_cohort
 Въведени в Админ                    -       entered_in_admin
 
-
+// bachelor
+Лице за контакт (като коментар)     -       person_to_contact
+Среден успех от дипломата за средно образование     -   high_school_diploma_gpa
+Удостоверение от РУО                -       certificate_from_ruo
+Курс                                -       bachelor_course
+Продължителност семестри            -       duration_semesters
+Начин на обучение                   -       way_of_learning
+Изпратен имейл с факултетен номер   -       email_sent_with_faculty_number
 
 
 {student.status_of_ksk}

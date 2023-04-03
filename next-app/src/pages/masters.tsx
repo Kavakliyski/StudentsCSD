@@ -1,5 +1,6 @@
 // next
 import React, { useEffect, useState, } from "react";
+import { useRouter } from "next/router";
 
 // axios
 import axios from "axios";
@@ -9,17 +10,20 @@ import StudentsTable from "@/components/studentsTable/StudentsTable";
 
 // styles
 import { PageConfig } from "@/styles/PagesConfigElements";
+import { StudentsTableAddStyles } from "@/styles/TableElements";
 
 // interface
 import { IStudent } from "@/interfaces/IStudent";
 
 
 const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_all`;
-const updateMasterUrl = '/updatemaster?id=';
+const updateUrl = '/updatemaster?id=';
 const createMasterUrl = '/createmaster';
 
 
 export default function Masters() {
+
+    const router = useRouter();
 
     useEffect(() => {
         axios
@@ -36,7 +40,14 @@ export default function Masters() {
 
     return (
         <PageConfig>
-            <h1>Кандидат студентски документи - Магистри</h1>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <StudentsTableAddStyles>
+                    <button onClick={() => router.push(`${createMasterUrl}`)}>
+                        Добави Студент
+                    </button>
+                </StudentsTableAddStyles>
+                <h1>Кандидат студентски документи - Магистри</h1>
+            </div>
 
             {
                 isLoading ? (
@@ -44,10 +55,10 @@ export default function Masters() {
                 ) : (
                     <StudentsTable
                         studentsGetData={studentsGetData}
-                        updateMasterUrl={updateMasterUrl}
-                        createMasterUrl={createMasterUrl}
+                        updateUrl={updateUrl}
                     />
-                )}
+                )
+            }
 
         </PageConfig>
     )

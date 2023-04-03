@@ -28,6 +28,7 @@ export const StudentsTableStyles = styled.table`
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
     padding: 25px;
+    border-bottom: 1px solid black;
   }
 
   tr:hover {
@@ -36,7 +37,7 @@ export const StudentsTableStyles = styled.table`
 
   thead{
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.003em;
     padding: 10px;
   }
 `
@@ -64,11 +65,6 @@ export const StudentsTableAddStyles = styled.div`
     touch-action: manipulation;
     box-shadow: 1px 1px 10px 1px #1c53a4;
 
-    transition: 100ms;
-  }
-
-  button:hover {
-    box-shadow: 2px 2px 11px 3px #1c53a4;
   }
 
   @media (min-width: 1024px) {
@@ -79,4 +75,8 @@ export const StudentsTableAddStyles = styled.div`
     }
   }
     
+`
+
+export const StudentsTablePageNumbers = styled.div`
+  display: flex;
 `

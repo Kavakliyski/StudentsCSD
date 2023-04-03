@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 // styles
-import { StudentsTableAddStyles, StudentsTableStyles } from "@/styles/TableElements";
+import { StudentsTableAddStyles, StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
 import EditIcon from "public/edit_icon.svg"
 
 // interfaces
@@ -14,10 +14,10 @@ interface IStudentsTableProps {
 }
 
 
-export default function StudentsTable({ studentsGetData, updateMasterUrl, createMasterUrl }: IStudentsTableProps & { updateMasterUrl: string; createMasterUrl?: string; }) {
+export default function StudentsTable({ studentsGetData, updateUrl }: IStudentsTableProps & { updateUrl: string; }) {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(100);
+    const [itemsPerPage, setItemsPerPage] = useState(50);
 
     const handlePageChange = (newPage: number) => {
         setCurrentPage(newPage);
@@ -33,23 +33,11 @@ export default function StudentsTable({ studentsGetData, updateMasterUrl, create
     const [isSelected, setIsSelected] = useState<string | null>(null);
 
     const handleUpdateStudent = (id: string) => {
-        router.push(`${updateMasterUrl}${id}`);
+        router.push(`${updateUrl}${id}`);
     };
 
     return (
         <>
-
-            {
-                createMasterUrl &&
-
-                <StudentsTableAddStyles>
-                    <button onClick={() => router.push(`${createMasterUrl}`)}>
-                        Добави Студент
-                    </button>
-                </StudentsTableAddStyles>
-            }
-
-
             <p>Общият брой на всички записи в таблицата е: <strong>{studentsGetData && studentsGetData.length || <>Зареждам......</>}</strong></p>
 
             <StudentsTableStyles>
@@ -103,6 +91,7 @@ export default function StudentsTable({ studentsGetData, updateMasterUrl, create
 
                 <tbody>
                     {studentsGetData
+                        .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
                         .map((student) => (
                             <tr
                                 key={student._id}
@@ -157,7 +146,25 @@ export default function StudentsTable({ studentsGetData, updateMasterUrl, create
                         ))}
                 </tbody>
             </StudentsTableStyles>
-
+            <StudentsTablePageNumbers>
+                {
+                    getPageNumbers(studentsGetData.length, itemsPerPage).map((pageNumber) => (
+                        <button
+                            key={pageNumber}
+                            onClick={() => handlePageChange(pageNumber)}
+                            style={{
+                                background: pageNumber === currentPage ? "blue" : "white",
+                                color: pageNumber === currentPage ? "white" : "black",
+                                padding: "5px",
+                                margin: "2px",
+                                cursor: "pointer",
+                            }}
+                        >
+                            {pageNumber}
+                        </button>
+                    ))
+                }
+            </StudentsTablePageNumbers>
         </>
     )
 }
