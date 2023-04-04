@@ -45,8 +45,8 @@ export default function statistic() {
                 stats && stats
                     .slice()
                     .reverse()
-                    .map((yearData, index) => (
-                        <StatisticTable key={index} StudyYear={yearData.schoolYear} majors={yearData.majors} />
+                    .map((stat, index) => (
+                        <StatisticTable key={index} StudyYear={stat} />
                     ))
             }
         </PageConfig>
