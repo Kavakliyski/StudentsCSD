@@ -14,7 +14,7 @@ interface IStudentsTableProps {
 }
 
 
-export default function StudentsTable({ studentsGetData, updateUrl }: IStudentsTableProps & { updateUrl: string; }) {
+export default function MasterStudentsTable({ studentsGetData }: IStudentsTableProps) {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(50);
@@ -33,7 +33,7 @@ export default function StudentsTable({ studentsGetData, updateUrl }: IStudentsT
     const [isSelected, setIsSelected] = useState<string | null>(null);
 
     const handleUpdateStudent = (id: string) => {
-        router.push(`${updateUrl}${id}`);
+        router.push(`/masters/update?id=${id}`);
     };
 
     return (

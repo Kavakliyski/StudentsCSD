@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 
 // components
-import StudentsTable from "@/components/studentsTable/StudentsTable";
+import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable";
 
 // styles
 import { PageConfig } from "@/styles/PagesConfigElements";
@@ -17,8 +17,6 @@ import { IStudent } from "@/interfaces/IStudent";
 
 
 const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_all`;
-const updateUrl = '/updatemaster?id=';
-const createMasterUrl = '/createmaster';
 
 
 export default function Masters() {
@@ -42,7 +40,7 @@ export default function Masters() {
         <PageConfig>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <StudentsTableAddStyles>
-                    <button onClick={() => router.push(`${createMasterUrl}`)}>
+                    <button onClick={() => router.push('/masters/create')}>
                         Добави Студент
                     </button>
                 </StudentsTableAddStyles>
@@ -53,10 +51,7 @@ export default function Masters() {
                 isLoading ? (
                     <p>Loading...</p>
                 ) : (
-                    <StudentsTable
-                        studentsGetData={studentsGetData}
-                        updateUrl={updateUrl}
-                    />
+                    <MasterStudentsTable studentsGetData={studentsGetData} />
                 )
             }
 

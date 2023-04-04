@@ -27,7 +27,7 @@ export default function updatemaster({ id, studentData }: IStudentGetData) {
             <StudentFormWrapper>
 
                 <h1>Редактиране на МАГИСТЪР с ID: {id}</h1>
-                <p>Тук можете да редактирате записите на </p>
+                <p><strong>Тук можете да редактирате записите за - {names}</strong></p>
 
                 <div>
                     <p>Distinction: {distinction}</p>
@@ -43,7 +43,7 @@ export default function updatemaster({ id, studentData }: IStudentGetData) {
                 </div>
 
             </StudentFormWrapper>
-            
+
         </PageConfig>
     )
 }

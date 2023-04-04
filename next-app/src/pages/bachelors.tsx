@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 
 // components
-import StudentsTable from "@/components/studentsTable/StudentsTable";
+import StudentsTable from "@/components/studentsTable/MasterStudentsTable";
 
 // styles
 import { PageConfig } from "@/styles/PagesConfigElements";

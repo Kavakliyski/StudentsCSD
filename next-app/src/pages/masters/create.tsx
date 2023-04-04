@@ -19,6 +19,9 @@ import Button from '@mui/material/Button';
 import InputText from "@/components/inputs/InputText";
 import InputDropdown from "@/components/inputs/InputDropdown";
 
+// majors
+import { MajorsMasters } from "@/majors/MajorsMasters";
+
 
 const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/add`;
 
@@ -239,7 +242,7 @@ export default function Createmaster() {
                     <InputText label='Местонахождение на преходното учебно заведение' onChange={(e) => setLocation_of_the_transitional_educationa_institution(e)} />
                     <InputDropdown label="Професионално направление/ квалификация" options={optionsProfessional_qualification} onChange={(e) => setProfessional_qualification(e)} />
                     <InputDropdown label="Потвърждение от Нацид" options={optionsConfirmation_by_nacid} onChange={(e) => setConfirmation_by_nacid(e)} />
-                    <InputDropdown label="Желана Специалност TODO" options={optionsConfirmation_by_nacid} onChange={(e) => setDesired_major(e)} />
+                    <InputDropdown label="Желана Специалност" options={MajorsMasters} onChange={(e) => setDesired_major(e)} />
                     <InputDropdown label="Желана форма" options={optionsDesired_shape} onChange={(e) => setDesired_shape(e)} />
                     <InputDropdown label="Продължителност на обучение и дали съкращава" options={optionsLength_of_study} onChange={(e) => setLength_of_study(e)} />
                     <InputDropdown label="КОХОРТ В МООДЛЕ" options={optionsCohort_in_moodle} onChange={(e) => setCohort_in_moodle(e)} />

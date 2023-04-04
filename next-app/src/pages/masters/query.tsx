@@ -11,7 +11,7 @@ import axios from "axios";
 import { IStudent } from "@/interfaces/IStudent";
 
 // table
-import StudentsTable from "@/components/studentsTable/StudentsTable";
+import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable";
 
 // Material UI
 import { Box, Button, TextField } from "@mui/material";
@@ -19,7 +19,6 @@ import { Box, Button, TextField } from "@mui/material";
 
 
 const ENTRIES_API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_entries`;
-const updateMasterUrl = '/updatemaster?id=';
 
 
 export default function query() {
@@ -98,10 +97,7 @@ export default function query() {
             {/* Render the search results */}
             {
                 submitted &&
-                <StudentsTable
-                    studentsGetData={studentsGetEntryData}
-                    updateMasterUrl={updateMasterUrl}
-                />
+                <MasterStudentsTable studentsGetData={studentsGetEntryData} />
             }
         </PageConfig>
     );

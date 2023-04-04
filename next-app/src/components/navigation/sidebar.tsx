@@ -224,7 +224,7 @@ export default function Sidebar() {
                     </ListItem>
 
                     <ListItem
-                        onClick={() => router.push('/createmaster')}
+                        onClick={() => router.push('/masters/create')}
                         disablePadding sx={{ display: 'block' }}>
                         <ListItemButton sx={{
                             minHeight: 48,
