@@ -255,6 +255,7 @@ export default function Createmaster() {
                     <InputText label="Платена сем. такса" onChange={(e) => setSem_fee_paid(e)} />
                     <InputText label="Дата на платена сем. такса" onChange={(e) => setDate_of_sem_fee_paid(e)} />
                     <InputDropdown label="Период на подаване в АдминУни" options={optionsSubmission_period_in_adminuni} onChange={(e) => setSubmission_period_in_adminuni(e)} />
+                    <InputText label="Учебна година" onChange={(e) => setSchool_year(e)} />
 
                 </StudentFormCU>
 
