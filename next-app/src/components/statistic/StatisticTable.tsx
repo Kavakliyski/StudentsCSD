@@ -2,13 +2,14 @@
 import { StatisticTableContainer } from "@/styles/StatisticTableElements";
 
 
-export default function StatisticTable(Statistic: any, majors: any) {
+export default function StatisticTable(Statistic: any) {
 
-    console.log(Statistic && Statistic)
+    // console.log('statistictable.tsx');
+    console.log(Statistic && Statistic.StudyYear.majors)
 
     return (
         <StatisticTableContainer>
-            <h2>{Statistic.StudyYear}</h2>
+            <h2>{Statistic.StudyYear.schoolYear}</h2>
             <table>
                 <thead>
                     <tr>
@@ -19,14 +20,12 @@ export default function StatisticTable(Statistic: any, majors: any) {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {
-                       majors && majors.map((majorData: any, index: any) => (
-                            <tr key={index}>
-                                <td>{majorData.major}</td>
-                                <td>{majorData.count}</td>
-                            </tr>
-                        ))
-                    } */}
+                    {/* {majors.map((majorData, index) => (
+                        <tr key={index}>
+                            <td>{majorData.major}</td>
+                            <td>{majorData.count}</td>
+                        </tr>
+                    ))} */}
                 </tbody>
             </table>
         </StatisticTableContainer>
