@@ -26,6 +26,16 @@ export default function StatisticTable(Statistic: any) {
                             <td>{majorData.count}</td>
                         </tr>
                     ))} */}
+                    {
+                        Statistic.StudyYear.majors.map((majorData: {major: string, count: string}, index: string) => (
+                            <tr key={index}>
+                                <td>{majorData.major}</td>
+                                <td>{majorData.count}</td>
+                            </tr>
+                        ))
+                    }
+
+
                 </tbody>
             </table>
         </StatisticTableContainer>

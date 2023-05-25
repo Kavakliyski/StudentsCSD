@@ -14,6 +14,20 @@ export const StudentFormCU = styled.div`
     }
 `
 
+export const StudentFormUpdateStudent = styled.div`
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+    grid-gap: 30px;
+    width: 60%;
+
+    @media (max-width: 768px) {
+        width: 100vw;
+        
+    }
+`
+
+
 export const StudentFormWrapper = styled.div`
 
     box-shadow: 1px 1px 8px 2px #1976d2;

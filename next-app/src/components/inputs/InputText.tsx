@@ -43,9 +43,9 @@ const InputContainer = styled.div`
         transform-origin: 0 50%;
         transition: transform 200ms, color 200ms;
         top: 20px;
-        font-size: 14px;
+        font-size: 19px;
         font-weight: bold;
-        width: 550px;
+        width: 300px;
     }
 
     .input:focus ~ .cut,
@@ -66,14 +66,20 @@ const InputContainer = styled.div`
 
 interface InputTextProps {
     label: string;
+    name?: string;
+    value?: string;
     onChange: (value: string) => void;
 }
 
 export default function InputText(props: InputTextProps) {
 
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(props.value || '');
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+        console.log("Event --> ", event.target.name)
+
         setValue(event.target.value);
         props.onChange(event.target.value);
     };
@@ -81,7 +87,13 @@ export default function InputText(props: InputTextProps) {
 
     return (
         <InputContainer>
-            <input className="input" type="text" placeholder=" " onChange={handleChange}/>
+            <input
+                className="input"
+                type="text"
+                placeholder=" "
+                value={value}
+                onChange={handleChange}
+            />
             <div className="cut"></div>
             <label className="placeholder">{props.label}</label>
         </InputContainer>

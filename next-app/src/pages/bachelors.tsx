@@ -57,7 +57,6 @@ export default function bachelors() {
                     ) : (
                         <StudentsTable
                             studentsGetData={studentsGetData}
-                            updateUrl={updateUrl}
                         />
                     )
                 }
