@@ -21,7 +21,7 @@ const updateUrl = '/updatemaster?id=';
 const createBachelorUrl = '/createbachelor';
 
 
-export default function bachelors() {
+export default function Bachelors() {
 
     const router = useRouter();
 

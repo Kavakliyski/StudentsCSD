@@ -19,7 +19,7 @@ const API_STATISTIC_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/m
 
 
 
-export default function statistic() {
+export default function Statistic() {
 
 
     useEffect(() => {

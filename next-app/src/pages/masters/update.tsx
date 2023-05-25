@@ -28,7 +28,7 @@ const API_URL_GET_ONE = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/mas
 const API_URL_PATCH = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/update`;
 
 
-export default function updatemaster({ id, studentData }: IStudentGetData) {
+export default function Updatemaster({ id, studentData }: IStudentGetData) {
 
 
     const [studentFetchedData, setStudentFetchedData] = useState(studentData.student);
@@ -146,7 +146,7 @@ export default function updatemaster({ id, studentData }: IStudentGetData) {
                         value={studentFetchedData.professional_qualification || ''}
                         onChange={handleChange}
                     />
-                    
+
                 </StudentFormUpdateStudent>
 
             </StudentFormWrapper>
