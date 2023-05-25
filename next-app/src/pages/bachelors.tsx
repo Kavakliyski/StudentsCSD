@@ -1,6 +1,7 @@
 // next
 import React, { useEffect, useState, } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 // axios
 import axios from "axios";
@@ -36,27 +37,32 @@ export default function bachelors() {
     const [studentsGetData, setStudentsGetData] = useState<IStudent[]>([]);
 
     return (
-        <PageConfig>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <StudentsTableAddStyles>
-                    <button onClick={() => router.push(`${createBachelorUrl}`)}>
-                        Добави Студент
-                    </button>
-                </StudentsTableAddStyles>
-                <h1>Кандидат студентски документи - Бакалаври</h1>
-            </div>
+        <>
+            <Head>
+                <title>VUZF Students • Bachelors</title>
+            </Head>
+            <PageConfig>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <StudentsTableAddStyles>
+                        <button onClick={() => router.push(`${createBachelorUrl}`)}>
+                            Добави Студент
+                        </button>
+                    </StudentsTableAddStyles>
+                    <h1>Кандидат студентски документи - Бакалаври</h1>
+                </div>
 
-            {
-                isLoading ? (
-                    <p>Loading...</p>
-                ) : (
-                    <StudentsTable
-                        studentsGetData={studentsGetData}
-                        updateUrl={updateUrl}
-                    />
-                )
-            }
+                {
+                    isLoading ? (
+                        <p>Loading...</p>
+                    ) : (
+                        <StudentsTable
+                            studentsGetData={studentsGetData}
+                            updateUrl={updateUrl}
+                        />
+                    )
+                }
 
-        </PageConfig>
+            </PageConfig>
+        </>
     )
 }

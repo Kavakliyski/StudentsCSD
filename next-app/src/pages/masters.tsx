@@ -1,6 +1,7 @@
 // next
 import React, { useEffect, useState, } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 // axios
 import axios from "axios";
@@ -37,24 +38,29 @@ export default function Masters() {
 
 
     return (
-        <PageConfig>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <StudentsTableAddStyles>
-                    <button onClick={() => router.push('/masters/create')}>
-                        Добави Студент
-                    </button>
-                </StudentsTableAddStyles>
-                <h1>Кандидат студентски документи - Магистри</h1>
-            </div>
+        <>
+            <Head>
+                <title>VUZF Students • Masters</title>
+            </Head>
+            <PageConfig>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <StudentsTableAddStyles>
+                        <button onClick={() => router.push('/masters/create')}>
+                            Добави Студент
+                        </button>
+                    </StudentsTableAddStyles>
+                    <h1>Кандидат студентски документи - Магистри</h1>
+                </div>
 
-            {
-                isLoading ? (
-                    <p>Loading...</p>
-                ) : (
-                    <MasterStudentsTable studentsGetData={studentsGetData} />
-                )
-            }
+                {
+                    isLoading ? (
+                        <p>Loading...</p>
+                    ) : (
+                        <MasterStudentsTable studentsGetData={studentsGetData} />
+                    )
+                }
 
-        </PageConfig>
+            </PageConfig>
+        </>
     )
 }

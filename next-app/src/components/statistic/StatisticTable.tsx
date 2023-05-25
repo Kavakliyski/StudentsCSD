@@ -19,12 +19,14 @@ export default function StatisticTable(Statistic: any, majors: any) {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {majors.map((majorData, index) => (
-                        <tr key={index}>
-                            <td>{majorData.major}</td>
-                            <td>{majorData.count}</td>
-                        </tr>
-                    ))} */}
+                    {/* {
+                       majors && majors.map((majorData: any, index: any) => (
+                            <tr key={index}>
+                                <td>{majorData.major}</td>
+                                <td>{majorData.count}</td>
+                            </tr>
+                        ))
+                    } */}
                 </tbody>
             </table>
         </StatisticTableContainer>

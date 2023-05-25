@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const StudentsTableStyles = styled.table`
   
   font-family: 'lato', sans-serif;
-  box-shadow: 10px 10px 8px 10px black;
+  box-shadow: 0px -3px 8px 1px black;
 
   border-collapse: collapse;
   width: 100%;
@@ -79,4 +79,25 @@ export const StudentsTableAddStyles = styled.div`
 
 export const StudentsTablePageNumbers = styled.div`
   display: flex;
+
+  box-shadow: 1px 1px 8px 1px black;
+
+  width: fit-content;
+  margin-bottom: 30px;
+  border-radius: 0px 0px 6px 6px;
+
+
+  button {
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+    font-weight: 700;
+
+    width: 110px;
+    height: 60px;
+
+    border: 2px solid #1976d2;
+    border-radius: 6px;
+  }
+
 `

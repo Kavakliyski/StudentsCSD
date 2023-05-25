@@ -17,6 +17,7 @@ import ProtectedRoute from '@/context/ProtectedRoutes';             // protected
 // component
 import SignIn from '@/components/SignIn';
 import { Headernew } from '@/components/navigation/Headernew';
+import Head from 'next/head';
 
 
 
@@ -32,15 +33,20 @@ export default function App({ Component, pageProps, ...appProps }: AppProps) {
 
 
     return (
-        <AuthContextProvider>
-            <ProtectedRoute>
-                {/* <WebSocketContextProvider> */}
+        <>
+            <Head>
+                <title>VUZF Students</title>
+            </Head>
+            <AuthContextProvider>
+                <ProtectedRoute>
+                    {/* <WebSocketContextProvider> */}
                     {/* <Header /> to delete later */}
                     <Headernew />
                     <Sidebar />
                     <Component {...pageProps} />
-                {/* </WebSocketContextProvider> */}
-            </ProtectedRoute>
-        </AuthContextProvider>
+                    {/* </WebSocketContextProvider> */}
+                </ProtectedRoute>
+            </AuthContextProvider>
+        </>
     )
 }

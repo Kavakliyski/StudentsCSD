@@ -1,7 +1,7 @@
 // next
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 // styles
 import { StudentsTableAddStyles, StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
@@ -153,11 +153,10 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                             key={pageNumber}
                             onClick={() => handlePageChange(pageNumber)}
                             style={{
-                                background: pageNumber === currentPage ? "blue" : "white",
+                                background: pageNumber === currentPage ? "#1976d2" : "white",
+                                boxShadow: pageNumber === currentPage ? "0px 0px 0px 3px #1976d2" : "",
                                 color: pageNumber === currentPage ? "white" : "black",
-                                padding: "5px",
-                                margin: "2px",
-                                cursor: "pointer",
+                                zIndex: pageNumber === currentPage ? "1" : "",
                             }}
                         >
                             {pageNumber}

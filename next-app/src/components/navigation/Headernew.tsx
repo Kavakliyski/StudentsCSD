@@ -45,6 +45,7 @@ const Navigation = styled.nav`
 `
 
 const LogoutButton = styled.button`
+    cursor: pointer;
 
     font-size: 18px;
 
