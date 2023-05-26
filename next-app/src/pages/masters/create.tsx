@@ -21,7 +21,7 @@ import InputDropdown from "@/components/inputs/InputDropdown";
 
 // majors, options
 import { MajorsMasters } from "@/majors/MajorsMasters";
-import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_shape, optionsLength_of_study, optionsMethod_of_application, optionsPaid_ksk, optionsProfessional_qualification, optionsStatus_of_ksk, optionsSubmission_period_in_adminuni } from "@/components/inputs/selectorsForDropdown";
+import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_shape, optionsEmail_sent_to_access_moodle, optionsEntered_in_admin, optionsEntered_into_cohort, optionsLength_of_study, optionsMethod_of_application, optionsMoodle_profile_created, optionsPaid_ksk, optionsProfessional_qualification, optionsSent_faculty_number, optionsStatus_of_ksk, optionsSubmission_period_in_adminuni } from "@/components/inputs/selectorsForDropdown";
 
 
 const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/add`;
@@ -114,6 +114,7 @@ export default function Createmaster() {
                 paid_ksk: paid_ksk,
                 date_of_payment_ksk: date_of_payment_ksk,
                 comment_ksk: comment_ksk,
+                sem_Fee: sem_Fee,
                 sem_fee_paid: sem_fee_paid,
                 date_of_sem_fee_paid: date_of_sem_fee_paid,
                 submission_period_in_adminuni: submission_period_in_adminuni,
@@ -187,7 +188,16 @@ export default function Createmaster() {
                     <InputText label="Дата на платена сем. такса" onChange={(e) => setDate_of_sem_fee_paid(e)} />
                     <InputDropdown label="Период на подаване в АдминУни" options={optionsSubmission_period_in_adminuni} onChange={(e) => setSubmission_period_in_adminuni(e)} />
                     <InputText label="Учебна година" onChange={(e) => setSchool_year(e)} />
-
+                    <InputText label="Дата на издаване на договор" onChange={(e) => setContract_issue_date(e)} />
+                    <InputText label="Сем. Такса" onChange={(e) => setSem_Fee(e)} />
+                    <InputText label="Отстъпка" onChange={(e) => setDiscount(e)} />
+                    <InputText label="Коментар" onChange={(e) => setComment(e)} />
+                    <InputDropdown label="Изпратен фак. номер" options={optionsSent_faculty_number} onChange={(e) => setSent_faculty_number(e)} />
+                    <InputText label="Университетски e-mail" onChange={(e) => setUniversity_email(e)} />
+                    <InputDropdown label="Създаден профил в Мудъл" options={optionsMoodle_profile_created} onChange={(e) => setMoodle_profile_created(e)} />
+                    <InputDropdown label="Изпратен имейл за достъп до Мудъл" options={optionsEmail_sent_to_access_moodle} onChange={(e) => setEmail_sent_to_access_moodle(e)} />
+                    <InputDropdown label="Вкаран в Кохорт" options={optionsEntered_into_cohort} onChange={(e) => setEntered_into_cohort(e)} />
+                    <InputDropdown label="Въведен в Админ" options={optionsEntered_in_admin} onChange={(e) => setEntered_in_admin(e)} />
                 </StudentFormCU>
 
 

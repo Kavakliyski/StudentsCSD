@@ -376,13 +376,6 @@ export default function Updatemaster({ id, studentData }: IStudentGetData) {
                         onChange={handleChange}
                     />
 
-                    <TextField id="outlined-basic" variant="outlined"
-                        label="Коментар"
-                        name="comment"
-                        value={studentFetchedData.comment || ''}
-                        onChange={handleChange}
-                    />
-
                     <FormControl variant="standard">
                         <InputLabel id="demo-simple-select-label">Изпратен фак. номер</InputLabel>
                         <Select value={studentFetchedData.sent_faculty_number || ''} name="sent_faculty_number" onChange={handleSelectChange}>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 // styles
-import { StudentsTableAddStyles, StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
+import { StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
 import EditIcon from "public/edit_icon.svg"
 
 // interfaces
