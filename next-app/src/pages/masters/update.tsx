@@ -1,6 +1,7 @@
 // next
 import { GetServerSideProps } from 'next';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 // axios
 import axios from 'axios';
@@ -14,14 +15,15 @@ import { PageConfig } from '@/styles/PagesConfigElements';
 
 // components
 import TextField from '@mui/material/TextField';
-
-// majors. options
-import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_shape, optionsEmail_sent_to_access_moodle, optionsEntered_in_admin, optionsEntered_into_cohort, optionsLength_of_study, optionsMethod_of_application, optionsMoodle_profile_created, optionsPaid_ksk, optionsProfessional_qualification, optionsSent_faculty_number, optionsStatus_of_ksk, optionsSubmission_period_in_adminuni } from '@/components/inputs/selectorsForDropdown';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
+
+// majors. options
+import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_shape, optionsEmail_sent_to_access_moodle, optionsEntered_in_admin, optionsEntered_into_cohort, optionsLength_of_study, optionsMethod_of_application, optionsMoodle_profile_created, optionsPaid_ksk, optionsProfessional_qualification, optionsSent_faculty_number, optionsStatus_of_ksk, optionsSubmission_period_in_adminuni } from '@/components/inputs/selectorsForDropdown';
+
 import { MajorsMasters } from '@/majors/MajorsMasters';
 
 
@@ -51,7 +53,32 @@ export default function Updatemaster({ id, studentData }: IStudentGetData) {
         });
     };
 
-    console.log(studentFetchedData)
+
+    const router = useRouter();
+    const [errorAdd, setErrorAdd] = useState(null);                   // error on update
+    const handleSubmit = (event: any) => {
+        event.preventDefault();
+
+        console.log("sending this data --->", studentFetchedData)
+
+        axios
+            .patch(API_URL_PATCH,
+                studentFetchedData
+            )
+            .then((res) => {
+
+                console.log("Post updated:", res.data);
+                setErrorAdd(null);              // reset error state on success
+                router.push("/masters")
+            })
+            .catch((err) => {
+
+                alert("Error durging writing");
+                console.error("Error durging writing");
+                setErrorAdd(err);
+                console.log("Error:", err);
+            })
+    };
 
 
     return (
@@ -435,9 +462,9 @@ export default function Updatemaster({ id, studentData }: IStudentGetData) {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        // color={errorAdd ? "error" : "primary"}
+                        color={errorAdd ? "error" : "primary"}
                         sx={{ mt: 3, mb: 2 }}
-                    // onClick={handleSubmit}
+                        onClick={handleSubmit}
                     >
                         актуализирай студент / отрази промените
                     </Button>

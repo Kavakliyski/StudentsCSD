@@ -28,6 +28,7 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
         return Array.from({ length: totalPages }, (_, i) => i + 1);
     };
 
+
     const router = useRouter();
 
     const [isSelected, setIsSelected] = useState<string | null>(null);
@@ -147,22 +148,26 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                 </tbody>
             </StudentsTableStyles>
             <StudentsTablePageNumbers>
+
                 {
-                    getPageNumbers(studentsGetData.length, itemsPerPage).map((pageNumber) => (
-                        <button
-                            key={pageNumber}
-                            onClick={() => handlePageChange(pageNumber)}
-                            style={{
-                                background: pageNumber === currentPage ? "#1976d2" : "white",
-                                boxShadow: pageNumber === currentPage ? "0px 0px 0px 3px #1976d2" : "",
-                                color: pageNumber === currentPage ? "white" : "black",
-                                zIndex: pageNumber === currentPage ? "1" : "",
-                            }}
-                        >
-                            {pageNumber}
-                        </button>
-                    ))
+                    getPageNumbers(studentsGetData.length, itemsPerPage).length > 1 ? (
+                        getPageNumbers(studentsGetData.length, itemsPerPage).map((pageNumber) => (
+                            <button
+                                key={pageNumber}
+                                onClick={() => handlePageChange(pageNumber)}
+                                style={{
+                                    background: pageNumber === currentPage ? "#1976d2" : "white",
+                                    boxShadow: pageNumber === currentPage ? "0px 0px 0px 3px #1976d2" : "",
+                                    color: pageNumber === currentPage ? "white" : "black",
+                                    zIndex: pageNumber === currentPage ? "1" : "",
+                                }}
+                            >
+                                {pageNumber}
+                            </button>
+                        ))
+                    ) : null
                 }
+
             </StudentsTablePageNumbers>
         </>
     )
