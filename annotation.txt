@@ -24,7 +24,7 @@
 Дата плащане КСК        -       date_of_payment_ksk
 Коментар - документи за КСК         -      comment_ksk
 Платена сем. такса              -      sem_fee_paid (weekly_fee_paid)
-Дата на платена сем. такса      -      date_of_paid_weekly_fee
+Дата на платена сем. такса      -      date_of_sem_fee_paid (date_of_paid_weekly_fee)
 Период на подаване в АдминУни       -      submission_period_in_adminuni
 Учебна година                       -       school_year
 Дата на издаване на договор             -         contract_issue_date

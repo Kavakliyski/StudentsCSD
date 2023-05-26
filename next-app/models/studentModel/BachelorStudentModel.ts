@@ -28,6 +28,7 @@ const bachelorStudentSchema = new Schema({
     date_of_payment_ksk: 'string',
     comment_ksk: 'string',
     weekly_fee_paid: 'string',
+    sem_fee_paid: "string",
     date_of_paid_weekly_fee: 'string',
     submission_period_in_adminuni: 'string',
     school_year: 'string',

@@ -81,10 +81,10 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                         <th>Изпратен имейл за достъп до Мудъл</th>
                         <th>Вкаран в Кохорт</th>
                         <th>Въведени в Админ</th>
-                        <th>dateOfCreation</th>
-                        <th>lastEditEmail</th>
-                        <th>lastEditDate</th>
-                        <th>_id</th>
+                        <th>Дата на създаване</th>
+                        <th>Имейл на последна редакция</th>
+                        <th>Дата на последна редакция</th>
+                        <th>Идентификатор (_id)</th>
 
                     </tr>
                 </thead>

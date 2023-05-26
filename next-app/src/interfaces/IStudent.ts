@@ -49,6 +49,7 @@ export interface IStudentGetData {
     id: string;
     studentData: {
         student: {
+            sem_fee_paid: string;
             distinction: string;
             faculty_number: string;
             status_of_ksk: string;
@@ -73,12 +74,12 @@ export interface IStudentGetData {
             paid_ksk: string;
             date_of_payment_ksk: string;
             comment_ksk: string;
-            weekly_fee_paid: string;
             date_of_paid_weekly_fee: string;
             submission_period_in_adminuni: string;
             school_year: string;
             contract_issue_date: string;
             sem_Fee: string;
+            date_of_sem_fee_paid: string;
             discount: string;
             comment: string;
             sent_faculty_number: string;

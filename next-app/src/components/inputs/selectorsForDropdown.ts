@@ -67,3 +67,33 @@ export const optionsSubmission_period_in_adminuni = [
     { label: "Зимен", value: "Зимен" },
     { label: "Летен", value: "Летен" },
 ];
+
+export const optionsSent_faculty_number = [
+    { label: "", value: "" },
+    { label: "Да", value: "Да" },
+    { label: "Не", value: "Не" },
+];
+
+export const optionsMoodle_profile_created = [
+    { label: "", value: "" },
+    { label: "Да", value: "Да" },
+    { label: "Не", value: "Не" },
+];
+
+export const optionsEmail_sent_to_access_moodle = [
+    { label: "", value: "" },
+    { label: "Да", value: "Да" },
+    { label: "Не", value: "Не" },
+];
+
+export const optionsEntered_into_cohort = [
+    { label: "", value: "" },
+    { label: "Да", value: "Да" },
+    { label: "Не", value: "Не" },
+];
+
+export const optionsEntered_in_admin = [
+    { label: "", value: "" },
+    { label: "Да", value: "Да" },
+    { label: "Не", value: "Не" },
+];
