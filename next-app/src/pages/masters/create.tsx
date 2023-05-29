@@ -86,8 +86,6 @@ export default function Createmaster() {
     const handleSubmit = (event: any) => {
         event.preventDefault();
 
-        console.log(distinction)
-
         axios
             .post(API_URL, {
                 faculty_number: faculty_number,

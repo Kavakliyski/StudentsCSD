@@ -5,15 +5,15 @@ mongoose.set('strictQuery', false);
 
 const connectMongoDB = async () => {
 
-    console.log("mongoose - Connecting to MongoDB");
+    console.log("Mongoose: Connecting to MongoDB...");
 
     try {
 
-        await mongoose.connect('mongodb://127.0.0.1:27017/StudentsCSD');
-        console.log("mongoose - Connected to MongoDB");
+        await mongoose.connect(`${process.env.NEXT_PUBLIC_MONGODB_ATLAS}`);
+        console.log("Mongoose: Connected to MongoDB! :)");
     } catch (err) {
 
-        console.log("mongoose - Error connecting to MongoDB");
+        console.log("Mongoose: Error connecting to MongoDB! :(");
         console.error(err);
     };
 

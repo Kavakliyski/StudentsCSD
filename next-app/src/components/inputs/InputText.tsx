@@ -78,8 +78,6 @@ export default function InputText(props: InputTextProps) {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
-        console.log("Event --> ", event.target.name)
-
         setValue(event.target.value);
         props.onChange(event.target.value);
     };
