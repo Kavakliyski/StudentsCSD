@@ -9,12 +9,16 @@ const connectMongoDB = async () => {
 
     try {
 
-        await mongoose.connect(`${process.env.NEXT_PUBLIC_MONGODB_ATLAS}`);
+        await mongoose.connect(`${process.env.NEXT_PUBLIC_MONGODB_ATLAS}`, {
+            dbName: 'StudentsCSD',
+            retryWrites: true,
+            w: 'majority'
+        });
         console.log("Mongoose: Connected to MongoDB! :)");
     } catch (err) {
 
         console.log("Mongoose: Error connecting to MongoDB! :(");
-        console.error(err);
+        console.error('ERROR', err);
     };
 
 };

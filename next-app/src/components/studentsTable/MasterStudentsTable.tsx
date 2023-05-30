@@ -16,6 +16,8 @@ interface IStudentsTableProps {
 
 export default function MasterStudentsTable({ studentsGetData }: IStudentsTableProps) {
 
+    console.log(studentsGetData)
+
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(50);
 
@@ -39,7 +41,7 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
 
     return (
         <>
-            <p>Общият брой на всички записи в таблицата е: <strong>{studentsGetData && studentsGetData.length || <>Зареждам......</>}</strong></p>
+            <p>Общият брой на всички записи в таблицата е: <strong>{studentsGetData && studentsGetData.length || <>Няма Записи</>}</strong></p>
 
             <StudentsTableStyles>
                 <thead>
