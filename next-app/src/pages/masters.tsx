@@ -17,7 +17,8 @@ import { StudentsTableAddStyles } from "@/styles/TableElements";
 import { IStudent } from "@/interfaces/IStudent";
 
 
-const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_all`;
+// const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_all`;
+const API_URL = '/api/students/masters/get_all';
 
 
 export default function Masters() {
