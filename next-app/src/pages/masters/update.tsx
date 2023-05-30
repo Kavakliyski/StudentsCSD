@@ -27,10 +27,7 @@ import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_s
 import { MajorsMasters } from '@/majors/MajorsMasters';
 
 
-const API_URL_GET_ONE = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_one?id=`;
 const API_URL_PATCH = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/update`;
-// const API_URL_GET_ONE = '/api/students/masters/get_one?id=';
-// const API_URL_PATCH = '/api/students/masters/update';
 
 
 export default function Update({ id, studentData }: IStudentGetData) {
@@ -473,10 +470,9 @@ export default function Update({ id, studentData }: IStudentGetData) {
 
 
 export const getServerSideProps: GetServerSideProps<any> = async (context) => {
-    // Fetch the data to be edited from the API
+
     const { id } = await context.query;
 
-    // Make sure id is defined
     if (!id) {
         return {
             notFound: true,
@@ -484,7 +480,7 @@ export const getServerSideProps: GetServerSideProps<any> = async (context) => {
     }
 
     // Fetch student data from the API
-    const res = await axios.get<IStudentGetData>(`https://students-csd.vercel.app/api/students/masters/get_one?id=${id}`);
+    const res = await axios.get<IStudentGetData>(`${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_one?id=${id}`);
     const studentData = res.data;
 
     // Return not found if there's no student data
