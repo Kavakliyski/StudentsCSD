@@ -33,10 +33,6 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
 
     const [isSelected, setIsSelected] = useState<string | null>(null);
 
-    const handleUpdateStudent = (id: string) => {
-        router.push(`/masters/update?id=${id}`);
-    };
-
     return (
         <>
             <p>Общият брой на всички записи в таблицата е: <strong>{studentsGetData && studentsGetData.length == 0 ? <>Няма намерени записи</> : <>{studentsGetData.length}</>}</strong></p>
@@ -107,7 +103,11 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                                 <td>{student.n_of_enrollment_order}</td>
                                 <td>{student.names}</td>
                                 <td>{student.egn}</td>
-                                <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }} onClick={() => handleUpdateStudent(student._id)}><Image src={EditIcon} alt="РЕДАКТИРАЙ" width="40" /></td>
+                                <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
+                                    <a href={`/masters/update?id=${student._id}`}>
+                                        <Image src={EditIcon} alt="РЕДАКТИРАЙ" width="40" />
+                                    </a>
+                                </td>
                                 <td>{student.names_latin}</td>
                                 <td>{student.phone_number}</td>
                                 <td>{student.email}</td>
