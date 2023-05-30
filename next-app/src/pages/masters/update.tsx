@@ -27,9 +27,9 @@ import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_s
 import { MajorsMasters } from '@/majors/MajorsMasters';
 
 
-const API_URL_GET_ONE = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_one?id=`;
+// const API_URL_GET_ONE = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_one?id=`;
 // const API_URL_PATCH = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/update`;
-// const API_URL_GET_ONE = '/api/students/masters/get_one?id=';
+const API_URL_GET_ONE = '/api/students/masters/get_one?id=';
 const API_URL_PATCH = '/api/students/masters/update';
 
 
