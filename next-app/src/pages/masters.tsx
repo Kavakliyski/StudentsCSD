@@ -16,6 +16,9 @@ import { StudentsTableAddStyles } from "@/styles/TableElements";
 // interface
 import { IStudent } from "@/interfaces/IStudent";
 
+// Material UI Spinner
+import LinearProgress from '@mui/material/LinearProgress';
+import Box from '@mui/material/Box';
 
 // const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_all`;
 const API_URL = '/api/students/masters/get_all';
@@ -26,16 +29,23 @@ export default function Masters() {
     const router = useRouter();
 
     useEffect(() => {
+
+        setIsLoading(true);
+
         axios
             .get<IStudent[]>(API_URL)
-            .then((res) => setStudentsGetData(res.data))
-            .catch((err) => console.log("Error fetching students:", err))
-        setIsLoading(false);
-    }, [])
+            .then((res) => {
+                setStudentsGetData(res.data);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.log("Error fetching students:", err);
+                setIsLoading(false);
+            });
+    }, []);
 
     const [isLoading, setIsLoading] = useState(true);                   // wait for fetch request
     const [studentsGetData, setStudentsGetData] = useState<IStudent[]>([]);
-
 
 
     return (
@@ -55,13 +65,17 @@ export default function Masters() {
 
                 {
                     isLoading ? (
-                        <p>Loading...</p>
+                        <>
+                            <Box sx={{ width: '100%' }}>
+                                <LinearProgress />
+                            </Box>
+                        </>
+
                     ) : (
                         <MasterStudentsTable studentsGetData={studentsGetData} />
                     )
                 }
-
-            </PageConfig>
+            </PageConfig >
         </>
     )
 }

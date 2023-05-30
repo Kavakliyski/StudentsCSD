@@ -15,8 +15,8 @@ import axios from "axios";
 import { IStats } from "@/interfaces/IStatistics";
 
 
-const API_STATISTIC_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_statistic`;
-
+// const API_STATISTIC_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_statistic`;
+const API_STATISTIC_URL = '/api/students/masters/get_statistic';
 
 
 export default function Statistic() {

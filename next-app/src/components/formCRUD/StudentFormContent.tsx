@@ -16,7 +16,8 @@ import { useAuth } from "@/context/AuthContext";
 // import WebSocketContext from "@/context/WebSocketContext";
 
 
-const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/bachelor/add`;
+// const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/bachelor/add`;
+const API_URL = '/api/students/bachelor/add';
 
 
 interface IHandleClose {

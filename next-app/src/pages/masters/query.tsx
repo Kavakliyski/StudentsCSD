@@ -17,7 +17,8 @@ import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable"
 import { Box, Button, TextField } from "@mui/material";
 
 
-const ENTRIES_API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_entries`;
+// const ENTRIES_API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_entries`;
+const ENTRIES_API_URL = '/api/students/masters/get_entries';
 
 
 export default function Query() {
@@ -43,7 +44,6 @@ export default function Query() {
         });
     };
 
-    console.log(studentsGetEntryData);
 
     return (
         <PageConfig>

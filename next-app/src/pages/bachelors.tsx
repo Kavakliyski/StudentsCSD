@@ -16,7 +16,8 @@ import { StudentsTableAddStyles } from "@/styles/TableElements";
 // interface
 import { IStudent } from "@/interfaces/IStudent";
 
-const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/bachelor/get_all`;
+// const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/bachelor/get_all`;
+const API_URL = '/api/students/bachelor/get_all';
 const updateUrl = '/updatemaster?id=';
 const createBachelorUrl = '/createbachelor';
 
