@@ -1,6 +1,8 @@
-export interface IStats {
-    studyYear: string;
-    majors: any;
-
+export interface IStatisticData {
+    majors: {
+      askCount: string;
+      major: string;
+      paidCount: string;
+    }[];
     schoolYear: string;
-}
+  }

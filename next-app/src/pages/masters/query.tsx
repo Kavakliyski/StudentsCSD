@@ -15,6 +15,7 @@ import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable"
 
 // Material UI
 import { Box, Button, TextField } from "@mui/material";
+import LinearProgress from '@mui/material/LinearProgress';
 
 
 // const ENTRIES_API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_entries`;
@@ -24,6 +25,7 @@ const ENTRIES_API_URL = '/api/students/masters/get_entries';
 export default function Query() {
     const [studentsGetEntryData, setStudentsGetEntryData] = useState<IStudent[]>([]);
     const [submitted, setSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);                   // wait for fetch request
 
     const [params, setParams] = useState<any>({});
 
@@ -31,10 +33,18 @@ export default function Query() {
         event?.preventDefault();
         setSubmitted(true);
 
+        setIsLoading(true);
+
         axios
             .get<IStudent[]>(ENTRIES_API_URL, { params })
-            .then((res) => setStudentsGetEntryData(res.data))
-            .catch((err) => console.log("Error fetching students:", err))
+            .then((res) => {
+                setStudentsGetEntryData(res.data)
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.log("Error fetching students:", err)
+                setIsLoading(false);
+            })
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -96,7 +106,16 @@ export default function Query() {
             {/* Render the search results */}
             {
                 submitted &&
-                <MasterStudentsTable studentsGetData={studentsGetEntryData} />
+                    isLoading ? (
+                    <>
+                        <Box sx={{ width: '95%' }}>
+                            <LinearProgress />
+                        </Box>
+                    </>
+
+                ) : (
+                    <MasterStudentsTable studentsGetData={studentsGetEntryData} />
+                )
             }
         </PageConfig>
     );

@@ -2,9 +2,6 @@
 import StatisticTable from "@/components/statistic/StatisticTable";
 import { PageConfig } from "@/styles/PagesConfigElements";
 
-// majors
-import { MajorsMasters } from "@/majors/MajorsMasters";
-
 // next
 import { useEffect, useState } from "react";
 
@@ -12,7 +9,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 // interfaces
-import { IStats } from "@/interfaces/IStatistics";
+import { IStatisticData } from "@/interfaces/IStatistics";
 
 
 // const API_STATISTIC_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_statistic`;
@@ -30,10 +27,10 @@ export default function Statistic() {
         setIsLoading(false);
     }, [])
 
-    const [stats, setStats] = useState<IStats[]>([]);
+    const [stats, setStats] = useState<IStatisticData[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    console.log(stats && stats)
+    console.log('stats', stats)
 
     if (isLoading) return <h1>Зареждам...</h1>
 

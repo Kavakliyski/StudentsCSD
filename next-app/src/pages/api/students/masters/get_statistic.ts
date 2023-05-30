@@ -21,12 +21,21 @@ export default async function getStats(req: NextApiRequest, res: NextApiResponse
             schoolYears.map(async (year) => {
                 const yearMajors = await masterStudent.aggregate([
                     { $match: { school_year: year } },
-                    { $group: { _id: '$desired_major', count: { $sum: 1 } } },
+                    {
+                        $group: {
+                            _id: '$desired_major',
+                            askCount: { $sum: 1 },
+                            paidCount: {
+                                $sum: { $cond: [{ $eq: ['$paid_ksk', 'Да'] }, 1, 0] }
+                            }
+                        }
+                    },
+
                 ]);
 
                 return {
                     schoolYear: year,
-                    majors: yearMajors.map(({ _id, count }) => ({ major: _id, count })),
+                    majors: yearMajors.map(({ _id, askCount, paidCount }) => ({ major: _id, askCount, paidCount })),
                 };
             }),
         );

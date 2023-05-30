@@ -1,11 +1,25 @@
 // styles
 import { StatisticTableContainer } from "@/styles/StatisticTableElements";
 
+interface IStatisticData {
+    StudyYear: {
+        majors: {
+            askCount: string;
+            major: string;
+            paidCount: string;
+        }[];
+        schoolYear: string;
+    };
+}
 
-export default function StatisticTable(Statistic: any) {
 
-    // console.log('statistictable.tsx');
-    console.log(Statistic && Statistic.StudyYear.majors)
+export default function StatisticTable(Statistic: IStatisticData) {
+
+
+    const majors = Statistic.StudyYear.majors;
+    const totalAskCount = majors.reduce((sum, majorData) => sum + parseInt(majorData.askCount), 0);
+    const totalPaidCount = majors.reduce((sum, majorData) => sum + parseInt(majorData.paidCount), 0);
+    
 
     return (
         <StatisticTableContainer>
@@ -20,22 +34,21 @@ export default function StatisticTable(Statistic: any) {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {majors.map((majorData, index) => (
-                        <tr key={index}>
-                            <td>{majorData.major}</td>
-                            <td>{majorData.count}</td>
-                        </tr>
-                    ))} */}
                     {
-                        Statistic.StudyYear.majors.map((majorData: {major: string, count: string}, index: string) => (
+                        Statistic.StudyYear.majors.map((majorData: { major: string, askCount: string, paidCount: string; }, index: number) => (
                             <tr key={index}>
                                 <td>{majorData.major}</td>
-                                <td>{majorData.count}</td>
+                                <td>{majorData.askCount}</td>
+                                <td>{majorData.paidCount}</td>
                             </tr>
                         ))
                     }
-
-
+                    <tr className="GrandTotal">
+                        <td>GrandTotal</td>
+                        <td>{totalAskCount}</td>
+                        <td>{totalPaidCount}</td>
+                        <td>To be</td>
+                    </tr>
                 </tbody>
             </table>
         </StatisticTableContainer>

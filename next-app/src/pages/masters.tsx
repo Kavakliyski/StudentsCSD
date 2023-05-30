@@ -20,7 +20,6 @@ import { IStudent } from "@/interfaces/IStudent";
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 
-// const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_all`;
 const API_URL = '/api/students/masters/get_all';
 
 
@@ -66,7 +65,7 @@ export default function Masters() {
                 {
                     isLoading ? (
                         <>
-                            <Box sx={{ width: '100%' }}>
+                            <Box sx={{ width: '95%' }}>
                                 <LinearProgress />
                             </Box>
                         </>

@@ -23,6 +23,7 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import GroupsIcon from '@mui/icons-material/Groups';
 import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 // styles
 import { SidebarStudentsHeader } from '@/styles/LayoutElements';
@@ -280,6 +281,24 @@ export default function Sidebar() {
                         </ListItemButton>
                     </ListItem>
 
+                    <ListItem
+                        onClick={() => router.push('/masters/funnel')}
+                        disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton sx={{
+                            minHeight: 48,
+                            justifyContent: open ? 'initial' : 'center',
+                            px: 2.5,
+                        }}>
+                            <ListItemIcon sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : 'auto',
+                                justifyContent: 'center',
+                            }}>
+                                <FilterAltIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'КСК Маркетинг Фуния'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
                     <Divider />
 
                 </List>
