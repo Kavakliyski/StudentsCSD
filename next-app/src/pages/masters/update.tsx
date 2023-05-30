@@ -474,7 +474,7 @@ export default function Update({ id, studentData }: IStudentGetData) {
 
 export const getServerSideProps: GetServerSideProps<any> = async (context) => {
     // Fetch the data to be edited from the API
-    const { id } = context.query;
+    const { id } = await context.query;
 
     // Make sure id is defined
     if (!id) {
@@ -484,7 +484,7 @@ export const getServerSideProps: GetServerSideProps<any> = async (context) => {
     }
 
     // Fetch student data from the API
-    const res = await axios.get<IStudentGetData>(`${API_URL_GET_ONE}${id}`);
+    const res = await axios.get<IStudentGetData>(`https://students-csd.vercel.app/api/students/masters/get_one?id=${id}`);
     const studentData = res.data;
 
     // Return not found if there's no student data
