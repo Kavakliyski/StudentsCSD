@@ -35,6 +35,7 @@ export default function App({ Component, pageProps, ...appProps }: AppProps) {
     return (
         <>
             <Head>
+                <meta name="description" content="Author: Kavakliyski; Web Application made for VUZF to store their students in recent campaigns." />
                 <title>VUZF Students</title>
             </Head>
             <AuthContextProvider>
