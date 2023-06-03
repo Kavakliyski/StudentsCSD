@@ -79,9 +79,11 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                         <th>Изпратен имейл за достъп до Мудъл</th>
                         <th>Вкаран в Кохорт</th>
                         <th>Въведени в Админ</th>
-                        <th>Дата на създаване</th>
+
                         <th>Имейл на последна редакция</th>
                         <th>Дата на последна редакция</th>
+                        <th>Имейл на създаване</th>
+                        <th>Дата на създаване</th>
                         <th>Идентификатор (_id)</th>
 
                     </tr>
@@ -146,9 +148,11 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                                 <td>{student.email_sent_to_access_moodle}</td>
                                 <td>{student.entered_into_cohort}</td>
                                 <td>{student.entered_in_admin}</td>
-                                <td>{student.dateOfCreation}</td>
+
                                 <td>{student.lastEditEmail}</td>
                                 <td>{student.lastEditDate}</td>
+                                <td>{student.email_of_creation}</td>
+                                <td>{student.dateOfCreation}</td>
                                 <td>{student._id}</td>
                             </tr>
                         ))}

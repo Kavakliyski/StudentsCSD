@@ -65,7 +65,7 @@ export default function Masters() {
                 {
                     isLoading ? (
                         <>
-                            <Box sx={{ width: '95%' }}>
+                            <Box sx={{ width: '99%' }}>
                                 <LinearProgress />
                             </Box>
                         </>

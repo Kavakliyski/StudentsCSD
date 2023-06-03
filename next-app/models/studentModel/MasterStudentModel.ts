@@ -45,9 +45,10 @@ const masterStudentSchema = new Schema({
     entered_in_admin: 'string',
 
 
-    dateOfCreation: 'string',
     lastEditEmail: 'string',
     lastEditDate: 'string',
+    email_of_creation: 'string',
+    dateOfCreation: 'string'
 });
 
 const masterStudent = models.MasterStudent || model('MasterStudent', masterStudentSchema);

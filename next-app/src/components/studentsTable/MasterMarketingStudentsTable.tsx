@@ -59,9 +59,10 @@ export default function MasterMarketingStudentsTable({ studentsGetData }: IStude
                         <th>Заплатено КСК</th>
                         <th>Заплатил сем такса</th>
 
-                        <th>Дата на създаване</th>
                         <th>Имейл на последна редакция</th>
                         <th>Дата на последна редакция</th>
+                        <th>Имейл на създаване</th>
+                        <th>Дата на създаване</th>
                         <th>Идентификатор (_id)</th>
                     </tr>
                 </thead>
@@ -88,15 +89,21 @@ export default function MasterMarketingStudentsTable({ studentsGetData }: IStude
                                 <td>{student.desired_shape}</td>
                                 <td>{student.contact_source}</td>
 
-                                <td>{student.status_of_ksk}</td>
+                                <td style={{
+                                    backgroundColor:
+                                        student.status_of_ksk === 'Приет' ? 'green' :
+                                            student.status_of_ksk === 'Отписан' ? 'red' :
+                                                student.status_of_ksk === 'В процес' ? 'orange' : 'transparent'
+                                }}>{student.status_of_ksk}</td>
                                 <td>todo: дата на обработка</td>
                                 <td>todo: онлайн форма</td>
                                 <td>{student.paid_ksk}</td>
                                 <td>{student.sem_fee_paid}</td>
 
-                                <td>{student.dateOfCreation}</td>
                                 <td>{student.lastEditEmail}</td>
                                 <td>{student.lastEditDate}</td>
+                                <td>{student.email_of_creation}</td>
+                                <td>{student.dateOfCreation}</td>
                                 <td>{student._id}</td>
                             </tr>
                         ))}

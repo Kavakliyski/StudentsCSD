@@ -37,6 +37,7 @@ G-mail                              -       university_email
 Изпратен имейл за достъп до Мудъл   -       email_sent_to_access_moodle
 Вкаран в Кохорт                     -       entered_into_cohort
 Въведени в Админ                    -       entered_in_admin
+Имейл на създаване                  -       email_of_creation
 
 // bachelor
 Лице за контакт (като коментар)     -       person_to_contact

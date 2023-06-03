@@ -35,10 +35,13 @@ export const StudentsTableStyles = styled.table`
     background-color: #ddd;
   }
 
-  thead{
+  thead {
     text-transform: uppercase;
     letter-spacing: 0.003em;
     padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
 `
 

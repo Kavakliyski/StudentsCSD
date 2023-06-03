@@ -126,6 +126,7 @@ export default function StudentFormContent(props: IHandleClose) {
 
                 lastEditEmail: user.email,
                 lastEditDate: formattedDate,
+                email_of_creation: user.email,
                 dateOfCreation: formattedDate,
             })
             .then((res) => {

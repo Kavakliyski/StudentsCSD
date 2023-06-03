@@ -39,9 +39,10 @@ export interface IStudent {
     entered_into_cohort: string;
     entered_in_admin: string;
 
-    dateOfCreation: string;
     lastEditEmail: string;
     lastEditDate: string;
+    email_of_creation: string;
+    dateOfCreation: string;
 };
 
 
@@ -89,9 +90,10 @@ export interface IStudentGetData {
             entered_into_cohort: string;
             entered_in_admin: string;
 
-            dateOfCreation: string;
             lastEditEmail: string;
             lastEditDate: string;
+            email_of_creation: string;
+            dateOfCreation: string;
         }
     };
 };

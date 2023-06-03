@@ -46,10 +46,11 @@ export default async function addStudent(req: NextApiRequest, res: NextApiRespon
         entered_into_cohort,
         entered_in_admin,
 
-        dateOfCreation,
         lastEditEmail,
-        lastEditDate
-
+        lastEditDate,
+        email_of_creation,
+        dateOfCreation
+        
     } = req.body;
 
     try {
@@ -97,9 +98,10 @@ export default async function addStudent(req: NextApiRequest, res: NextApiRespon
             entered_into_cohort,
             entered_in_admin,
 
-            dateOfCreation,
             lastEditEmail,
-            lastEditDate
+            lastEditDate,
+            email_of_creation,
+            dateOfCreation
         });
 
         console.log('Created document for Student Master');

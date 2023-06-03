@@ -19,6 +19,7 @@ const Navigation = styled.nav`
 
     font-size: 18px;
 
+    margin-left: 70px;
 
     .TextHolder {
 

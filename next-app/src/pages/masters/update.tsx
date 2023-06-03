@@ -13,6 +13,9 @@ import { IStudentGetData } from '@/interfaces/IStudent';
 import { StudentFormUpdateStudent, StudentFormWrapper } from '@/styles/FormElements';
 import { PageConfig } from '@/styles/PagesConfigElements';
 
+// auth
+import { useAuth } from "@/context/AuthContext";
+
 // components
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
@@ -23,7 +26,6 @@ import Button from '@mui/material/Button';
 
 // majors. options
 import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_shape, optionsEmail_sent_to_access_moodle, optionsEntered_in_admin, optionsEntered_into_cohort, optionsLength_of_study, optionsMethod_of_application, optionsMoodle_profile_created, optionsPaid_ksk, optionsProfessional_qualification, optionsSent_faculty_number, optionsStatus_of_ksk, optionsSubmission_period_in_adminuni } from '@/components/inputs/selectorsForDropdown';
-
 import { MajorsMasters } from '@/majors/MajorsMasters';
 
 
@@ -32,14 +34,28 @@ const API_URL_PATCH = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/maste
 
 export default function Update({ id, studentData }: IStudentGetData) {
 
+    const router = useRouter();
+    const { user } = useAuth();                                       // get user email
 
     const [studentFetchedData, setStudentFetchedData] = useState(studentData.student);
+    const [errorAdd, setErrorAdd] = useState(null);                   // error on update
+
+    // format the date - dd.mm.year clock
+    const formattedDate = new Date().toLocaleString("bg-BG", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+    });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
         setStudentFetchedData({
             ...studentFetchedData,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            lastEditEmail: user.email,
+            lastEditDate: formattedDate
         });
     };
 
@@ -52,13 +68,10 @@ export default function Update({ id, studentData }: IStudentGetData) {
         });
     };
 
-
-    const router = useRouter();
-    const [errorAdd, setErrorAdd] = useState(null);                   // error on update
     const handleSubmit = (event: any) => {
         event.preventDefault();
 
-        console.log("sending this data --->", studentFetchedData)
+        console.log("Updating data", studentFetchedData)
 
         axios
             .patch(API_URL_PATCH,
