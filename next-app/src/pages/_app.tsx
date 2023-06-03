@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app'
 
 // styles
 import '../styles/styles.css';
-import Header from '@/components/navigation/header';
 import Sidebar from '@/components/navigation/sidebar';
 
 // react
