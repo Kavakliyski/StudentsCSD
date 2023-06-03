@@ -7,6 +7,7 @@ interface IStatisticData {
             askCount: string;
             major: string;
             paidCount: string;
+            acceptedCount: string;
         }[];
         schoolYear: string;
     };
@@ -19,7 +20,8 @@ export default function StatisticTable(Statistic: IStatisticData) {
     const majors = Statistic.StudyYear.majors;
     const totalAskCount = majors.reduce((sum, majorData) => sum + parseInt(majorData.askCount), 0);
     const totalPaidCount = majors.reduce((sum, majorData) => sum + parseInt(majorData.paidCount), 0);
-    
+    const totalAcceptedCount = majors.reduce((sum, majorData) => sum + parseInt(majorData.acceptedCount), 0);
+
 
     return (
         <StatisticTableContainer>
@@ -40,6 +42,7 @@ export default function StatisticTable(Statistic: IStatisticData) {
                                 <td>{majorData.major}</td>
                                 <td>{majorData.askCount}</td>
                                 <td>{majorData.paidCount}</td>
+                                <td>{majorData.acceptedCount}</td>
                             </tr>
                         ))
                     }
@@ -47,7 +50,7 @@ export default function StatisticTable(Statistic: IStatisticData) {
                         <td>GrandTotal</td>
                         <td>{totalAskCount}</td>
                         <td>{totalPaidCount}</td>
-                        <td>To be</td>
+                        <td>{totalAcceptedCount}</td>
                     </tr>
                 </tbody>
             </table>

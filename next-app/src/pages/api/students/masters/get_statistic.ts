@@ -27,6 +27,9 @@ export default async function getStats(req: NextApiRequest, res: NextApiResponse
                             askCount: { $sum: 1 },
                             paidCount: {
                                 $sum: { $cond: [{ $eq: ['$paid_ksk', 'Да'] }, 1, 0] }
+                            },
+                            acceptedCount: {
+                                $sum: { $cond: [{ $eq: ['$status_of_ksk', 'Приет'] }, 1, 0] }
                             }
                         }
                     },
@@ -35,7 +38,7 @@ export default async function getStats(req: NextApiRequest, res: NextApiResponse
 
                 return {
                     schoolYear: year,
-                    majors: yearMajors.map(({ _id, askCount, paidCount }) => ({ major: _id, askCount, paidCount })),
+                    majors: yearMajors.map(({ _id, askCount, paidCount, acceptedCount }) => ({ major: _id, askCount, paidCount, acceptedCount })),
                 };
             }),
         );

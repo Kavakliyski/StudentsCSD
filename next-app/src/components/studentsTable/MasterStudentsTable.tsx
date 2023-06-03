@@ -6,6 +6,7 @@ import { useState } from "react";
 // styles
 import { StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
 import EditIcon from "public/edit_icon.svg"
+import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 
 // interfaces
 import { IStudent } from "@/interfaces/IStudent";
@@ -99,13 +100,19 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                             >
                                 <td>{student.distinction}</td>
                                 <td>{student.faculty_number}</td>
-                                <td>{student.status_of_ksk}</td>
+                                <td style={{
+                                    backgroundColor:
+                                        student.status_of_ksk === 'Приет' ? 'green' :
+                                            student.status_of_ksk === 'Отписан' ? 'red' :
+                                                student.status_of_ksk === 'В процес' ? 'orange' : 'transparent'
+                                }}>{student.status_of_ksk}</td>
                                 <td>{student.n_of_enrollment_order}</td>
                                 <td>{student.names}</td>
                                 <td>{student.egn}</td>
                                 <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
                                     <a href={`/masters/update?id=${student._id}`}>
-                                        <Image src={EditIcon} alt="РЕДАКТИРАЙ" width="40" />
+                                        {/* <Image src={ModeEditOutlineIcon} alt="РЕДАКТИРАЙ" width="40" /> */}
+                                        <ModeEditOutlineIcon sx={{ fontSize: 60 }} />
                                     </a>
                                 </td>
                                 <td>{student.names_latin}</td>

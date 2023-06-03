@@ -239,7 +239,7 @@ export default function Sidebar() {
                             }}>
                                 <PersonAddIcon />
                             </ListItemIcon>
-                            <ListItemText primary={'Добави магисър'} sx={{ opacity: open ? 1 : 0 }} />
+                            <ListItemText primary={'Добави магистър'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
 
@@ -296,7 +296,7 @@ export default function Sidebar() {
                             }}>
                                 <FilterAltIcon />
                             </ListItemIcon>
-                            <ListItemText primary={'КСК Маркетинг Фуния'} sx={{ opacity: open ? 1 : 0 }} />
+                            <ListItemText primary={'Маркетинг Фуния'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
                     <Divider />
