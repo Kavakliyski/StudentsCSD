@@ -4,8 +4,8 @@ import { StatisticTableContainer } from "@/styles/StatisticTableElements";
 interface IStatisticData {
     StudyYear: {
         majors: {
-            askCount: string;
             major: string;
+            askCount: string;
             paidCount: string;
             acceptedCount: string;
         }[];
@@ -37,7 +37,7 @@ export default function StatisticTable(Statistic: IStatisticData) {
                 </thead>
                 <tbody>
                     {
-                        Statistic.StudyYear.majors.map((majorData: { major: string, askCount: string, paidCount: string; }, index: number) => (
+                        Statistic.StudyYear.majors.map((majorData: { major: string, askCount: string, paidCount: string; acceptedCount: string; }, index: number) => (
                             <tr key={index}>
                                 <td>{majorData.major}</td>
                                 <td>{majorData.askCount}</td>
