@@ -12,10 +12,6 @@ import { FormControl } from "@mui/material";
 // auth
 import { useAuth } from "@/context/AuthContext";
 
-// WebSocket
-// import WebSocketContext from "@/context/WebSocketContext";
-
-
 // const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/bachelor/add`;
 const API_URL = '/api/students/bachelor/add';
 

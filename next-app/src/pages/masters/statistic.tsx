@@ -30,7 +30,6 @@ export default function Statistic() {
     const [stats, setStats] = useState<IStatisticData[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    console.log('stats', stats)
 
     if (isLoading) return <h1>Зареждам...</h1>
 

@@ -11,7 +11,6 @@ import React from 'react';
 // Context
 import { AuthContextProvider } from '../context/AuthContext';       // auth
 import ProtectedRoute from '@/context/ProtectedRoutes';             // protected routes
-// import { WebSocketContextProvider } from '@/context/WebSocketContext';          // web socket for table refresh
 
 // component
 import SignIn from '@/components/SignIn';
@@ -39,12 +38,9 @@ export default function App({ Component, pageProps, ...appProps }: AppProps) {
             </Head>
             <AuthContextProvider>
                 <ProtectedRoute>
-                    {/* <WebSocketContextProvider> */}
-                    {/* <Header /> to delete later */}
                     <Headernew />
                     <Sidebar />
                     <Component {...pageProps} />
-                    {/* </WebSocketContextProvider> */}
                 </ProtectedRoute>
             </AuthContextProvider>
         </>
