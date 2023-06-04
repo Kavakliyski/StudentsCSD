@@ -12,10 +12,10 @@ export default async function getStudent(req: NextApiRequest, res: NextApiRespon
         connectMongoDB();
         console.log('Mongoose: getting docs for Student Master...');
 
-        const allDocs = await masterStudent.find().sort({ dateOfCreation: -1 });
+        const StudentDataSorted = await masterStudent.find().sort({ dateOfCreation: -1 });
         
-        console.log(`Mongoose: Student Master --> Mongoose found items ${allDocs.length}`);
-        res.status(200).json(allDocs);
+        console.log(`Mongoose: Student Master --> Mongoose found items ${StudentDataSorted.length}`);
+        res.status(200).json(StudentDataSorted);
     } catch (error) {
         
         res.status(500).send(error);
