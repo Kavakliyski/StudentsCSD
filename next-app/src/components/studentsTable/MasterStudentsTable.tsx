@@ -3,7 +3,6 @@ import { useState } from "react";
 
 // styles
 import { StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
-import EditIcon from "public/edit_icon.svg"
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 
 // interfaces

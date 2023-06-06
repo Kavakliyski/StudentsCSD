@@ -11,17 +11,17 @@ import { PageConfig } from "@/styles/PagesConfigElements";
 import { StudentsTableAddStyles } from "@/styles/TableElements";
 
 // interface
-import { IStudent } from "@/interfaces/IStudent";
+import { IStudentBachelor } from "@/interfaces/IStudent";
 
 // Material UI Spinner
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 
 // components
-import MasterMarketingStudentsTable from "@/components/studentsTable/MasterMarketingStudentsTable";
+import BachelorMarketingStudentsTable from "@/components/studentsTable/BachelorMarketingStudentsTable";
 
 
-const API_URL = '/api/students/masters/get_all';
+const API_URL = '/api/students/bachelor/get_all';
 
 
 export default function Funnel() {
@@ -33,7 +33,7 @@ export default function Funnel() {
         setIsLoading(true);
 
         axios
-            .get<IStudent[]>(API_URL)
+            .get<IStudentBachelor[]>(API_URL)
             .then((res) => {
                 setStudentsGetData(res.data);
                 setIsLoading(false);
@@ -45,22 +45,22 @@ export default function Funnel() {
     }, []);
 
     const [isLoading, setIsLoading] = useState(true);                   // wait for fetch request
-    const [studentsGetData, setStudentsGetData] = useState<IStudent[]>([]);
+    const [studentsGetData, setStudentsGetData] = useState<IStudentBachelor[]>([]);
 
 
     return (
         <>
             <Head>
-                <title>VUZF • Masters • Funnel</title>
+                <title>VUZF • Bachelors • Funnel</title>
             </Head>
             <PageConfig>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                     <StudentsTableAddStyles>
-                        <button onClick={() => router.push('/masters/create')}>
+                        <button onClick={() => router.push('/bachelors/create')}>
                             Добави Студент
                         </button>
                     </StudentsTableAddStyles>
-                    <h1>КСК Маркетинг ФУНИЯ - Магистри</h1>
+                    <h1>КСК Маркетинг ФУНИЯ - Бакалаври</h1>
                 </div>
 
                 {
@@ -72,8 +72,8 @@ export default function Funnel() {
                         </>
 
                     ) : (
-                        <MasterMarketingStudentsTable studentsGetData={studentsGetData}/>
-                        )
+                        <BachelorMarketingStudentsTable studentsGetData={studentsGetData} />
+                    )
                 }
             </PageConfig >
         </>
