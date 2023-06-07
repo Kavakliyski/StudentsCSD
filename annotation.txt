@@ -49,6 +49,8 @@ G-mail                              -       university_email
 Изпратен имейл с факултетен номер   -       email_sent_with_faculty_number
 
 
+
+
 {student.status_of_ksk}
 {student.n_of_enrollment_order}
 {student.names}
@@ -131,3 +133,48 @@ G-mail
 Изпратен имейл за достъп до Мудъл
 Вкаран в Кохорт
 Въведени в Админ
+
+
+
+
+
+Бакалаври - таблица
+
+distinction	
+faculty_number
+status_of_ksk
+n_of_enrollment_order
+names
+names_latin
+phone_number
+email
+egn
+person_to_contact                                       -   Лице за контакт (като коментар)
+in_front_of_school                                      -   Пред. Учебно Заведение
+location_of_the_transitional_educationa_institution     -   Местонахождение на предходното училище
+high_school_diploma_gpa                                 -   Среден успех от дипломата за средно образование
+certificate_from_ruo                                    -   Удостоверение от РУО
+desired_major                                           -   Желана Специалност
+desired_shape                                           -   Желана форма
+bachelor_course                                         -   Курс
+duration_semesters                                      -   Продължителност семестри
+form_of_study                                           -   Начин на обучение
+method_of_application                                   -   Начин на кандидатстване
+date_of_initial_contact                                 -   Дата на първоначален контакт
+contact_source                                          -   Източник на контакт
+paid_ksk                                                -   Заплатил КСК
+date_of_payment_ksk                                     -   Дата плащане КСК
+sem_fee_paid                                            -   Платена сем. такса
+date_of_paid_sem_fee                                    -   Дата на платена сем. такса
+submission_period_in_adminuni                           -   Период на подаване в АдминУни
+school_year                                             -   Учебна година
+contract_issue_date                                     -   Дата на издаване на договор
+sem_Fee                                                 -   Сем. Такса
+discount                                                -   Отстъпка
+reason_for_discount                                     -   Основание за отстъпката
+email_sent_with_faculty_number                          -   Изпратен имейл с факултетен номер
+university_email                                        -   Създаден g-mail
+moodle_profile_created                                  -   Създаден профил в Мудъл
+email_sent_to_access_moodle                             -   Изпратен имейл за достъп до Мудъл
+entered_in_admin                                        -   Въведени в Админ/Регистъра
+entered_into_cohort                                     -   Вкаран в кохорт в Moodle

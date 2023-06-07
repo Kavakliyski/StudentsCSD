@@ -7,19 +7,21 @@ import Head from "next/head";
 import axios from "axios";
 
 // components
-import StudentsTable from "@/components/studentsTable/MasterStudentsTable";
+import BachelorStudentsTable from "@/components/studentsTable/BachelorStudentsTable";
 
 // styles
 import { PageConfig } from "@/styles/PagesConfigElements";
 import { StudentsTableAddStyles } from "@/styles/TableElements";
 
 // interface
-import { IStudent } from "@/interfaces/IStudent";
+import { IStudentBachelor } from "@/interfaces/IStudent";
 
-// const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/bachelor/get_all`;
+// Material UI Spinner
+import LinearProgress from '@mui/material/LinearProgress';
+import Box from '@mui/material/Box';
+
+
 const API_URL = '/api/students/bachelor/get_all';
-const updateUrl = '/updatemaster?id=';
-const createBachelorUrl = '/createbachelor';
 
 
 export default function Bachelors() {
@@ -28,14 +30,14 @@ export default function Bachelors() {
 
     useEffect(() => {
         axios
-            .get<IStudent[]>(API_URL)
+            .get<IStudentBachelor[]>(API_URL)
             .then((res) => setStudentsGetData(res.data))
             .catch((err) => console.log("Error fetching students:", err))
         setIsLoading(false);
     }, [])
 
     const [isLoading, setIsLoading] = useState(true);                   // wait for fetch request
-    const [studentsGetData, setStudentsGetData] = useState<IStudent[]>([]);
+    const [studentsGetData, setStudentsGetData] = useState<IStudentBachelor[]>([]);
 
     return (
         <>
@@ -45,7 +47,7 @@ export default function Bachelors() {
             <PageConfig>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                     <StudentsTableAddStyles>
-                        <button onClick={() => router.push(`${createBachelorUrl}`)}>
+                        <button onClick={() => router.push('/bachelors/create')}>
                             Добави Студент
                         </button>
                     </StudentsTableAddStyles>
@@ -54,14 +56,16 @@ export default function Bachelors() {
 
                 {
                     isLoading ? (
-                        <p>Loading...</p>
+                        <>
+                            <Box sx={{ width: '99%' }}>
+                                <LinearProgress />
+                            </Box>
+                        </>
+
                     ) : (
-                        <StudentsTable
-                            studentsGetData={studentsGetData}
-                        />
+                        <BachelorStudentsTable studentsGetData={studentsGetData} />
                     )
                 }
-
             </PageConfig>
         </>
     )

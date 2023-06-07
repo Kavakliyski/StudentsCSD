@@ -3,16 +3,17 @@ import { useState } from "react";
 
 // styles
 import { StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
+import EditIcon from "public/edit_icon.svg"
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 
 // interfaces
-import { IStudent } from "@/interfaces/IStudent";
+import { IStudentBachelor } from "@/interfaces/IStudent";
 interface IStudentsTableProps {
-    studentsGetData: IStudent[];
+    studentsGetData: IStudentBachelor[];
 }
 
 
-export default function MasterMarketingStudentsTable({ studentsGetData }: IStudentsTableProps) {
+export default function BachelorMarketingStudentsTable({ studentsGetData }: IStudentsTableProps) {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(50);
@@ -41,13 +42,14 @@ export default function MasterMarketingStudentsTable({ studentsGetData }: IStude
                         <th>Три Имена</th>
                         <th>Телефон</th>
                         <th>Имейл</th>
-                        <th>Редактиране</th>
                         <th>Пред. Учебно Заведение</th>
                         <th>Местонахождение на предходното училище</th>
                         <th>Желана Специалност</th>
                         <th>Желана форма</th>
+                        <th>Начин на кандидатстване</th>
+                        <th>Дата на първоначален контакт</th>
                         <th>От къде идва контакт</th>
-
+                        <th>Изпратен имейл с информация</th>
                         <th>В процес - Учебен Отдел</th>
                         <th>Дата на обработка от Учебен Отдел</th>
                         <th>Попълнена онлайн форма</th>
@@ -74,32 +76,25 @@ export default function MasterMarketingStudentsTable({ studentsGetData }: IStude
                                         backgroundColor: isSelected === student._id ? 'lightblue' : '',
                                     }}
                                 >
-                                    <td>to do: семестър</td>
+                                    <td>{student.submission_period_in_adminuni}</td>
                                     <td>{student.school_year}</td>
                                     <td>{student.names}</td>
                                     <td>{student.phone_number}</td>
                                     <td>{student.email}</td>
-                                    <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
-                                        <a href={`/masters/update?id=${student._id}`}>
-                                            <ModeEditOutlineIcon sx={{ fontSize: 60 }} />
-                                        </a>
-                                    </td>
                                     <td>{student.in_front_of_school}</td>
                                     <td>{student.location_of_the_transitional_educationa_institution}</td>
                                     <td>{student.desired_major}</td>
                                     <td>{student.desired_shape}</td>
+                                    <td>{student.method_of_application}</td>
+                                    <td>{student.date_of_initial_contact}</td>
                                     <td>{student.contact_source}</td>
-
-                                    <td style={{
-                                        backgroundColor:
-                                            student.status_of_ksk === 'Приет' ? 'green' :
-                                                student.status_of_ksk === 'Отписан' ? 'red' :
-                                                    student.status_of_ksk === 'В процес' ? 'orange' : 'transparent'
-                                    }}>{student.status_of_ksk}</td>
-                                    <td>todo: дата на обработка</td>
-                                    <td>todo: онлайн форма</td>
+                                    <td>Изпратен имейл с информация</td>
+                                    <td>{student.status_of_ksk}</td>
+                                    <td>ДАТА НА ОБРАБОТКА ОТ УЧЕБЕН ОТДЕЛ</td>
+                                    <td>Попълнена онлайн форма</td>
                                     <td>{student.paid_ksk}</td>
                                     <td>{student.sem_fee_paid}</td>
+
 
                                     <td>{student.lastEditEmail}</td>
                                     <td>{student.lastEditDate}</td>
