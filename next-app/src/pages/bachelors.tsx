@@ -29,15 +29,25 @@ export default function Bachelors() {
     const router = useRouter();
 
     useEffect(() => {
+
+        setIsLoading(true);
+
         axios
             .get<IStudentBachelor[]>(API_URL)
-            .then((res) => setStudentsGetData(res.data))
-            .catch((err) => console.log("Error fetching students:", err))
-        setIsLoading(false);
-    }, [])
+            .then((res) => {
+                setStudentsGetData(res.data);
+                setIsLoading(false);
+
+            })
+            .catch((err) => {
+                console.log("Error fetching students:", err);
+                setIsLoading(false);
+            })
+    }, []);
 
     const [isLoading, setIsLoading] = useState(true);                   // wait for fetch request
     const [studentsGetData, setStudentsGetData] = useState<IStudentBachelor[]>([]);
+
 
     return (
         <>
