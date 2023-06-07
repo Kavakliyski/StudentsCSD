@@ -14,7 +14,7 @@ export default async function getAllBachelorStudent(req: NextApiRequest, res: Ne
 
         const SortedBachelorsDocs = await bachelorStudent.find().sort({ dateOfCreation: -1 });
 
-        console.log(`Mongoose: Students BACHELOR -> Mongoose found items ${SortedBachelorsDocs.length}`);
+        console.log('\x1b[32m%s\x1b[0m', `Mongoose: Students BACHELOR --> Mongoose found items ${SortedBachelorsDocs.length}`)
         res.status(200).json(SortedBachelorsDocs);
     } catch (error) {
 
