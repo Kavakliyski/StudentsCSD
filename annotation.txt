@@ -140,15 +140,15 @@ G-mail
 
 Бакалаври - таблица
 
-distinction	
-faculty_number
-status_of_ksk
-n_of_enrollment_order
-names
-names_latin
-phone_number
-email
-egn
+distinction	                                            -   Отличителност
+faculty_number                                          -   Факултетен номер
+status_of_ksk                                           -   Статус на КСК
+n_of_enrollment_order                                   -   № на заповед за записване
+names                                                   -   Три имена
+names_latin                                             -   Имена на латиница
+phone_number                                            -   Телефон
+email                                                   -   Имейл
+egn                                                     -   ЕГН
 person_to_contact                                       -   Лице за контакт (като коментар)
 in_front_of_school                                      -   Пред. Учебно Заведение
 location_of_the_transitional_educationa_institution     -   Местонахождение на предходното училище

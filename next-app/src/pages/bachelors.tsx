@@ -21,7 +21,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 
 
-const API_URL = '/api/students/bachelor/get_all';
+const API_URL = '/api/students/bachelors/get_all';
 
 
 export default function Bachelors() {

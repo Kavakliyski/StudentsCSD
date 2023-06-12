@@ -21,7 +21,7 @@ import Box from '@mui/material/Box';
 import BachelorMarketingStudentsTable from "@/components/studentsTable/BachelorMarketingStudentsTable";
 
 
-const API_URL = '/api/students/bachelor/get_all';
+const API_URL = '/api/students/bachelors/get_all';
 
 
 export default function Funnel() {
