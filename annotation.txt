@@ -178,3 +178,8 @@ moodle_profile_created                                  -   Създаден п�
 email_sent_to_access_moodle                             -   Изпратен имейл за достъп до Мудъл
 entered_in_admin                                        -   Въведени в Админ/Регистъра
 entered_into_cohort                                     -   Вкаран в кохорт в Moodle
+
+lastEditEmail                                           -
+lastEditDate                                            -
+email_of_creation                                       -
+dateOfCreation                                          -

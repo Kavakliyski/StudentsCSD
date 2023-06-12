@@ -1,6 +1,6 @@
 // next
 import { GetServerSideProps } from 'next';
-import { useState, useEffect } from 'react';
+import { useState, } from 'react';
 import { useRouter } from 'next/router';
 
 // axios
@@ -510,4 +510,4 @@ export const getServerSideProps: GetServerSideProps<any> = async (context) => {
             studentData
         },
     };
-}
+};
