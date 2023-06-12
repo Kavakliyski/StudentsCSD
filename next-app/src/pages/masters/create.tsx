@@ -161,35 +161,45 @@ export default function Createmaster() {
 
                 <StudentFormCU>
 
-                    <InputText label='Отличителност' onChange={(e) => setDistinction(e)} />
-                    <InputText label='Факултент номер' onChange={(e) => setFaculty_number(e)} />
-                    <InputDropdown label="Статус на КСК" options={optionsStatus_of_ksk} onChange={(e) => setStatus_of_ksk(e)} />
-                    <InputText label='№ на заповед за записване' onChange={(e) => setN_of_enrollment_order(e)} />
+                    {/* marketing information */}
+                    <InputText label="Прием (семестър) TODO" onChange={(e) => setSchool_year(e)} /> {/* todo */}
+                    <InputText label="Учебна година" onChange={(e) => setSchool_year(e)} />
                     <InputText label='Три имена' onChange={(e) => setNames(e)} />
-                    <InputText label='Имена на латиница' onChange={(e) => setNames_latin(e)} />
                     <InputText label='Телефон' onChange={(e) => setPhone_number(e)} />
                     <InputText label='Имейл' onChange={(e) => setEmail(e)} />
-                    <InputText label='ЕГН' onChange={(e) => setEgn(e)} />
                     <InputText label='Пред. Учебно Заведение' onChange={(e) => setIn_front_of_school(e)} />
                     <InputText label='Местонахождение на преходното учебно заведение' onChange={(e) => setLocation_of_the_transitional_educationa_institution(e)} />
-                    <InputDropdown label="Професионално направление/ квалификация" options={optionsProfessional_qualification} onChange={(e) => setProfessional_qualification(e)} />
-                    <InputDropdown label="Потвърждение от Нацид" options={optionsConfirmation_by_nacid} onChange={(e) => setConfirmation_by_nacid(e)} />
                     <InputDropdown label="Желана Специалност" options={MajorsMasters} onChange={(e) => setDesired_major(e)} />
                     <InputDropdown label="Желана форма" options={optionsDesired_shape} onChange={(e) => setDesired_shape(e)} />
+                    <InputText label="Източник на контакт" onChange={(e) => setContact_source(e)} />
+                    <InputDropdown label="Статус на КСК" options={optionsStatus_of_ksk} onChange={(e) => setStatus_of_ksk(e)} />
+                    <InputText label="todo: дата на обработка" onChange={(e) => setSchool_year(e)} /> {/* todo */}
+                    <InputText label="todo: онлайн форма" onChange={(e) => setSchool_year(e)} /> {/* todo */}
+                    <InputDropdown label="Заплатил КСК" options={optionsPaid_ksk} onChange={(e) => setPaid_ksk(e)} />
+                    <InputText label="Дата плащане КСК" onChange={(e) => setDate_of_payment_ksk(e)} />
+                    <InputText label="Платена сем. такса" onChange={(e) => setSem_fee_paid(e)} />
+                    <InputText label="Дата на платена сем. такса" onChange={(e) => setDate_of_sem_fee_paid(e)} />
+                    <InputText label="Сем. Такса" onChange={(e) => setSem_Fee(e)} />
+
+                    <div className="Separator"></div>
+                    <div className="Separator"></div>
+
+
+                    {/* UO infromation */}
+                    <InputText label='Отличителност' onChange={(e) => setDistinction(e)} />
+                    <InputText label='Факултент номер' onChange={(e) => setFaculty_number(e)} />
+                    <InputText label='№ на заповед за записване' onChange={(e) => setN_of_enrollment_order(e)} />
+                    <InputText label='Имена на латиница' onChange={(e) => setNames_latin(e)} />
+                    <InputText label='ЕГН' onChange={(e) => setEgn(e)} />
+                    <InputDropdown label="Професионално направление/ квалификация" options={optionsProfessional_qualification} onChange={(e) => setProfessional_qualification(e)} />
+                    <InputDropdown label="Потвърждение от Нацид" options={optionsConfirmation_by_nacid} onChange={(e) => setConfirmation_by_nacid(e)} />
                     <InputDropdown label="Продължителност на обучение и дали съкращава" options={optionsLength_of_study} onChange={(e) => setLength_of_study(e)} />
                     <InputDropdown label="КОХОРТ В МООДЛЕ" options={optionsCohort_in_moodle} onChange={(e) => setCohort_in_moodle(e)} />
                     <InputDropdown label="Начин на кандидатстване" options={optionsMethod_of_application} onChange={(e) => setMethod_of_application(e)} />
                     <InputText label='Дата на първоначален контакт' onChange={(e) => setDate_of_initial_contact(e)} />
-                    <InputText label="Източник на контакт" onChange={(e) => setContact_source(e)} />
-                    <InputDropdown label="Заплатил КСК" options={optionsPaid_ksk} onChange={(e) => setPaid_ksk(e)} />
-                    <InputText label="Дата плащане КСК" onChange={(e) => setDate_of_payment_ksk(e)} />
                     <InputText label="Коментар - документи за КСК" onChange={(e) => setComment_ksk(e)} />
-                    <InputText label="Платена сем. такса" onChange={(e) => setSem_fee_paid(e)} />
-                    <InputText label="Дата на платена сем. такса" onChange={(e) => setDate_of_sem_fee_paid(e)} />
                     <InputDropdown label="Период на подаване в АдминУни" options={optionsSubmission_period_in_adminuni} onChange={(e) => setSubmission_period_in_adminuni(e)} />
-                    <InputText label="Учебна година" onChange={(e) => setSchool_year(e)} />
                     <InputText label="Дата на издаване на договор" onChange={(e) => setContract_issue_date(e)} />
-                    <InputText label="Сем. Такса" onChange={(e) => setSem_Fee(e)} />
                     <InputText label="Отстъпка" onChange={(e) => setDiscount(e)} />
                     <InputText label="Коментар" onChange={(e) => setComment(e)} />
                     <InputDropdown label="Изпратен фак. номер" options={optionsSent_faculty_number} onChange={(e) => setSent_faculty_number(e)} />

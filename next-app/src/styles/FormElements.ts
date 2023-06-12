@@ -8,6 +8,10 @@ export const StudentFormCU = styled.div`
     grid-gap: 30px;
     width: 100%;
 
+    .Separator{
+        padding-bottom: 200px;
+    }
+
     @media (max-width: 768px) {
         width: 100vw;
         
