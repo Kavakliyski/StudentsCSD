@@ -179,7 +179,7 @@ export default function Sidebar() {
                         </ListItemButton>
                     </ListItem>
 
-                    <ListItem 
+                    <ListItem
                         onClick={() => router.push('/bachelors/create')}
                         disablePadding sx={{ display: 'block' }}>
                         <ListItemButton sx={{
@@ -195,6 +195,25 @@ export default function Sidebar() {
                                 <PersonAddIcon />
                             </ListItemIcon>
                             <ListItemText primary={'Добави бакалавър'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem
+                        onClick={() => router.push('/bachelors/query')}
+                        disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton sx={{
+                            minHeight: 48,
+                            justifyContent: open ? 'initial' : 'center',
+                            px: 2.5,
+                        }}>
+                            <ListItemIcon sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : 'auto',
+                                justifyContent: 'center',
+                            }}>
+                                <PersonSearchIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'Търсене/Query'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
 

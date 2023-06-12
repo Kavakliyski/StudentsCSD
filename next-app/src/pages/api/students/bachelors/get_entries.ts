@@ -1,15 +1,16 @@
 import connectMongoDB from 'utils/connectMongoDB';
-import masterStudent from 'models/studentModel/MasterStudentModel';
+import bachelorStudent from 'models/studentModel/BachelorStudentModel';
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function getEntries(req: NextApiRequest, res: NextApiResponse) {
+
 
     try {
 
         connectMongoDB();
-        console.log('(Query) getting entries for Student Master...');
+        console.log('(Query) getting entries for Student Bachelor...');
 
         const { query } = req;
 
@@ -18,16 +19,14 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         Object.entries(query).forEach(([key, value]) => {
             searchParams[key] = new RegExp((value as string), 'i');
         });
-                
 
-        const entries = await masterStudent.find(searchParams).sort({ dateOfCreation: -1 });
+
+        const entries = await bachelorStudent.find(searchParams).sort({ dateOfCreation: -1 });
         
-        console.log('\x1b[32m%s\x1b[0m', `Mongoose: Students MASTER Query --> Mongoose found items ${entries.length}`)
+        console.log('\x1b[32m%s\x1b[0m', `Mongoose: Students BACHELOR Query --> Mongoose found items ${entries.length}`)
         res.status(200).json(entries);
     } catch (error) {
 
         res.status(500).send(error);
     }
 }
-
-export default handler;

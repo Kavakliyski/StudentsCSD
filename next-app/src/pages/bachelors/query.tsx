@@ -8,23 +8,22 @@ import { useState } from 'react';
 import axios from "axios";
 
 // interface
-import { IStudent } from "@/interfaces/IStudent";
+import { IStudentBachelor } from "@/interfaces/IStudent";
 
 // table
-import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable";
+import BachelorStudentsTable from "@/components/studentsTable/BachelorStudentsTable";
 
 // Material UI
 import { Box, Button, TextField } from "@mui/material";
 import LinearProgress from '@mui/material/LinearProgress';
 
 
-// const ENTRIES_API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_entries`;
-const ENTRIES_API_URL = '/api/students/masters/get_entries';
+const ENTRIES_API_URL = '/api/students/bachelors/get_entries';
 
 
 export default function Query() {
-    
-    const [studentsGetEntryData, setStudentsGetEntryData] = useState<IStudent[]>([]);
+
+    const [studentsGetEntryData, setStudentsGetEntryData] = useState<IStudentBachelor[]>([]);
     const [submitted, setSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(true);                   // wait for fetch request
 
@@ -37,7 +36,7 @@ export default function Query() {
         setIsLoading(true);
 
         axios
-            .get<IStudent[]>(ENTRIES_API_URL, { params })
+            .get<IStudentBachelor[]>(ENTRIES_API_URL, { params })
             .then((res) => {
                 setStudentsGetEntryData(res.data)
                 setIsLoading(false);
@@ -54,12 +53,10 @@ export default function Query() {
             [e.target.name]: e.target.value,
         });
     };
-
-
     return (
         <PageConfig>
 
-            <h1>Търсене / Query, Магистри</h1>
+            <h1>Търсене / Query, Бакалаври</h1>
 
             <div>
 
@@ -115,9 +112,9 @@ export default function Query() {
                     </>
 
                 ) : (
-                    <MasterStudentsTable studentsGetData={studentsGetEntryData} />
+                    <BachelorStudentsTable studentsGetData={studentsGetEntryData} />
                 )
             }
         </PageConfig>
-    );
+    )
 }
