@@ -20,19 +20,44 @@ export const StudentsTableStyles = styled.table`
     background-color: #1c53e9;
   }
 
-  tr:nth-child(even) {
-    background-color: #F2F3F5;
-  }
-
   tr {
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
     padding: 25px;
     border-bottom: 1px solid black;
+
+    &:nth-child(even) {
+      background-color: #F2F3F5;
+
+      .column-sticky {
+        background-color: #F2F3F5;
+
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+
+      .column-sticky {
+        background-color: white;
+
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
   }
 
   tr:hover {
     background-color: #ddd;
+  }
+
+  .column-sticky {
+    position: sticky;
+    left: 0;
+    padding-left: 68px;
   }
 
   thead {

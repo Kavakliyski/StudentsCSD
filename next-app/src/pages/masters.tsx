@@ -44,13 +44,6 @@ export default function Masters() {
     }, []);
 
 
-
-    // ======scoket.io config======
-
-
-    // ======scoket.io config======
-
-
     const [isLoading, setIsLoading] = useState(true);                   // wait for fetch request
     const [studentsGetData, setStudentsGetData] = useState<IStudent[]>([]);
 

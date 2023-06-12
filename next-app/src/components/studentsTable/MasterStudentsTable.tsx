@@ -16,7 +16,7 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
 
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(50);
-    
+
     const [isSelected, setIsSelected] = useState<string | null>(null);
 
     const handlePageChange = (newPage: number) => {
@@ -98,21 +98,28 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                             >
                                 <td>{student.distinction}</td>
                                 <td>{student.faculty_number}</td>
+
                                 <td style={{
                                     backgroundColor:
                                         student.status_of_ksk === 'Приет' ? 'green' :
                                             student.status_of_ksk === 'Отписан' ? 'red' :
                                                 student.status_of_ksk === 'В процес' ? 'orange' : 'transparent'
                                 }}>{student.status_of_ksk}</td>
+
                                 <td>{student.n_of_enrollment_order}</td>
-                                <td>{student.names}</td>
+
+                                <td className="column-sticky"
+                                    style={{ backgroundColor: isSelected === student._id ? 'lightblue' : '', }}
+                                >{student.names}</td>
+
                                 <td>{student.egn}</td>
+
                                 <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
                                     <a href={`/masters/update?id=${student._id}`}>
-                                        {/* <Image src={ModeEditOutlineIcon} alt="РЕДАКТИРАЙ" width="40" /> */}
                                         <ModeEditOutlineIcon sx={{ fontSize: 60 }} />
                                     </a>
                                 </td>
+
                                 <td>{student.names_latin}</td>
                                 <td>{student.phone_number}</td>
                                 <td>{student.email}</td>

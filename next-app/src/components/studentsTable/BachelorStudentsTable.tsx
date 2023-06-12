@@ -3,7 +3,6 @@ import { useState } from "react";
 
 // styles
 import { StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
-import EditIcon from "public/edit_icon.svg"
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 
 // interfaces
@@ -102,18 +101,25 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                             >
                                 <td>{student.distinction}</td>
                                 <td>{student.faculty_number}</td>
+
                                 <td style={{
                                     backgroundColor:
                                         student.status_of_ksk === 'Приет' ? 'green' :
                                             student.status_of_ksk === 'Отписан' ? 'red' :
                                                 student.status_of_ksk === 'В процес' ? 'orange' : 'transparent'
                                 }}>{student.status_of_ksk}</td>
+
                                 <td>{student.n_of_enrollment_order}</td>
-                                <td>{student.names}</td>
+
+                                <td className="column-sticky"
+                                    style={{ backgroundColor: isSelected === student._id ? 'lightblue' : '', }}
+                                >{student.names}</td>
+
                                 <td>{student.names_latin}</td>
                                 <td>{student.phone_number}</td>
                                 <td>{student.email}</td>
                                 <td>{student.egn}</td>
+
                                 <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
                                     <a href={`/masters/update?id=${student._id}`}>
                                         <ModeEditOutlineIcon sx={{ fontSize: 60 }} />
