@@ -144,7 +144,7 @@ distinction	                                            -   Отличителн
 faculty_number                                          -   Факултетен номер
 status_of_ksk                                           -   Статус на КСК
 n_of_enrollment_order                                   -   № на заповед за записване
-names                                                   -   Три имена
+names                                                   -   Име Презиме Фамилия
 names_latin                                             -   Имена на латиница
 phone_number                                            -   Телефон
 email                                                   -   Имейл

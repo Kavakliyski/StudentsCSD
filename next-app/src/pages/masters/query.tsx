@@ -17,13 +17,14 @@ import MasterStudentsTable from "@/components/studentsTable/MasterStudentsTable"
 import { Box, Button, TextField } from "@mui/material";
 import LinearProgress from '@mui/material/LinearProgress';
 
+import ExportXLSXButton from '@/components/ExportXLSXButton';
 
 // const ENTRIES_API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_entries`;
 const ENTRIES_API_URL = '/api/students/masters/get_entries';
 
 
 export default function Query() {
-    
+
     const [studentsGetEntryData, setStudentsGetEntryData] = useState<IStudent[]>([]);
     const [submitted, setSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(true);                   // wait for fetch request
@@ -56,10 +57,16 @@ export default function Query() {
     };
 
 
+    console.log('====================================');
+    console.log(studentsGetEntryData);
+    console.log('====================================');
+
     return (
         <PageConfig>
 
             <h1>Търсене / Query, Магистри</h1>
+
+            <ExportXLSXButton data={studentsGetEntryData}/>
 
             <div>
 
