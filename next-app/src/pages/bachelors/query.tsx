@@ -17,6 +17,9 @@ import BachelorStudentsTable from "@/components/studentsTable/BachelorStudentsTa
 import { Box, Button, TextField } from "@mui/material";
 import LinearProgress from '@mui/material/LinearProgress';
 
+// ExcelJS
+import ExportXLSXButtonBachelors from "@/components/ExportToXLSX/ExportXLSXButtonBachelors";
+
 
 const ENTRIES_API_URL = '/api/students/bachelors/get_entries';
 
@@ -60,6 +63,8 @@ export default function Query() {
         <PageConfig>
 
             <h1>Търсене / Query, Бакалаври</h1>
+
+            <ExportXLSXButtonBachelors data={studentsGetEntryData} />
 
             <div>
 

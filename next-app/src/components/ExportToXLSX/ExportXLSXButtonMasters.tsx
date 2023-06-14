@@ -11,7 +11,7 @@ import { Button } from '@mui/material';
 import { IStudent } from '@/interfaces/IStudent';
 
 
-const ExportXLSXButton = ({ data }: any) => {
+export default function ExportXLSXButtonMasters({ data }: any) {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleExport = () => {
@@ -138,10 +138,7 @@ const ExportXLSXButton = ({ data }: any) => {
 
     return (
         <Button variant="contained" disabled={isLoading} onClick={handleExport} color="success">
-            {isLoading ? 'Exporting...' : 'Export to XLSX'}
+            {isLoading ? 'Exporting...' : 'Експортирай в XLSX(EXCEL)'}
         </Button>
     );
 };
-
-
-export default ExportXLSXButton;
