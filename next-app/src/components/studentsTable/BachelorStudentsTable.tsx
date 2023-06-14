@@ -41,7 +41,7 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                         <th>Факултетен номер</th>
                         <th>Статус на КСК</th>
                         <th>№ на заповед за записване</th>
-                        <th>Име Презиме Фамилия</th>
+                        <th id="column-sticky">Име Презиме Фамилия</th>
                         <th>Имена на латиница</th>
                         <th>Телефон</th>
                         <th>Личен Имейл</th>
@@ -73,7 +73,7 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                         <th>Отстъпка</th>
                         <th>Основание за отстъпката</th>
                         <th>Изпратен имейл с факултетен номер</th>
-                        <th>Създаден g-mail</th>
+                        <th>Студентски имейл</th>
                         <th>Създаден профил в Мудъл</th>
                         <th>Изпратен имейл за достъп до Мудъл</th>
                         <th>Въведени в Админ/Регистъра</th>
@@ -112,7 +112,7 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                                 <td>{student.n_of_enrollment_order}</td>
 
                                 <td className="column-sticky"
-                                
+
                                     style={{ backgroundColor: isSelected === student._id ? 'lightblue' : '', }}
                                 ><p>{student.names}</p></td>
 

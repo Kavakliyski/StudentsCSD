@@ -41,7 +41,7 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                         <th>Факултетен номер</th>
                         <th>Статус на КСК</th>
                         <th>№ на заповед за записване</th>
-                        <th>Име Презиме Фамилия</th>
+                        <th id="column-sticky">Име Презиме Фамилия</th>
                         <th>ЕГН</th>
                         <th>редактиране</th>
                         <th>Имена на латиница</th>
@@ -70,7 +70,7 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                         <th>Отстъпка</th>
                         <th>Коментар</th>
                         <th>Изпратен фак. номер</th>
-                        <th>G-mail</th>
+                        <th>Студентски имейл</th>
                         <th>Създаден профил в Мудъл</th>
                         <th>Изпратен имейл за достъп до Мудъл</th>
                         <th>Вкаран в Кохорт</th>

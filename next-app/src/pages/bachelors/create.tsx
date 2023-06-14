@@ -200,7 +200,7 @@ export default function Createbachelor() {
                     <InputText label="Отстъпка" onChange={(e) => setdiscount(e)} /> 
                     <InputText label="Основание за отстъпката" onChange={(e) => setreason_for_discount(e)} /> 
                     <InputText label="Изпратен имейл с факултетен номер" onChange={(e) => setemail_sent_with_faculty_number(e)} /> 
-                    <InputText label="Създаден g-mail" onChange={(e) => setuniversity_email(e)} /> 
+                    <InputText label="Студентски имейл" onChange={(e) => setuniversity_email(e)} /> 
                     <InputText label="Създаден профил в Мудъл" onChange={(e) => setmoodle_profile_created(e)} /> 
                     <InputText label="Изпратен имейл за достъп до Мудъл" onChange={(e) => setemail_sent_to_access_moodle(e)} /> 
                     <InputText label="Въведени в Админ/Регистъра" onChange={(e) => setentered_in_admin(e)} /> 

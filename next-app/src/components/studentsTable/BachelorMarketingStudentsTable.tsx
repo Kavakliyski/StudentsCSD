@@ -39,7 +39,7 @@ export default function BachelorMarketingStudentsTable({ studentsGetData }: IStu
                     <tr>
                         <th>Прием</th>
                         <th>Академична Година</th>
-                        <th>Три Имена</th>
+                        <th id="column-sticky">Три Имена</th>
                         <th>Телефон</th>
                         <th>Имейл</th>
                         <th>Пред. Учебно Заведение</th>

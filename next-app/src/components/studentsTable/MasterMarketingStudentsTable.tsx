@@ -38,7 +38,7 @@ export default function MasterMarketingStudentsTable({ studentsGetData }: IStude
                     <tr>
                         <th>Прием</th>
                         <th>Академична Година</th>
-                        <th>Три Имена</th>
+                        <th id="column-sticky">Три Имена</th>
                         <th>Телефон</th>
                         <th>Имейл</th>
                         <th>Редактиране</th>
@@ -74,7 +74,7 @@ export default function MasterMarketingStudentsTable({ studentsGetData }: IStude
                                         backgroundColor: isSelected === student._id ? 'lightblue' : '',
                                     }}
                                 >
-                                    <td>to do: семестър</td>
+                                    <td>{student.submission_period_in_adminuni}</td>
                                     <td>{student.school_year}</td>
                                     <td className="column-sticky"
                                         style={{ backgroundColor: isSelected === student._id ? 'lightblue' : '', }}

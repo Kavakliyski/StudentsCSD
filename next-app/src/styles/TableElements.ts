@@ -28,7 +28,7 @@ export const StudentsTableStyles = styled.table`
 
     p {
       border-right: 1px solid black;
-      padding: 0px 10px 10px 60px;
+      padding: 0px 10px 10px 65px;
     }
 
     &:nth-child(even) {
@@ -62,7 +62,12 @@ export const StudentsTableStyles = styled.table`
   .column-sticky {
     position: sticky;
     left: 0;
-    // padding-left: 68px;
+  }
+
+  #column-sticky {
+    position: sticky;
+    left: 0;
+    padding-left: 65px;
   }
 
   thead {
