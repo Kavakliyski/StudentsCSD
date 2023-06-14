@@ -11,9 +11,10 @@ export default async function getEntries(req: NextApiRequest, res: NextApiRespon
 
         connectMongoDB();
         console.log('(Query) getting entries for Student Bachelor...');
-
+        
         const { query } = req;
-
+        
+        console.log(query);
         const searchParams: any = {};
 
         Object.entries(query).forEach(([key, value]) => {

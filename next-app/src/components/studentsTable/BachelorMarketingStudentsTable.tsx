@@ -78,7 +78,9 @@ export default function BachelorMarketingStudentsTable({ studentsGetData }: IStu
                                 >
                                     <td>{student.submission_period_in_adminuni}</td>
                                     <td>{student.school_year}</td>
-                                    <td>{student.names}</td>
+                                    <td className="column-sticky"
+                                        style={{ backgroundColor: isSelected === student._id ? 'lightblue' : '', }}
+                                    ><p>{student.names}</p></td>
                                     <td>{student.phone_number}</td>
                                     <td>{student.email}</td>
                                     <td>{student.in_front_of_school}</td>

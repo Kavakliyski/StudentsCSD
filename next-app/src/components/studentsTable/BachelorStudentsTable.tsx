@@ -112,8 +112,9 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                                 <td>{student.n_of_enrollment_order}</td>
 
                                 <td className="column-sticky"
+                                
                                     style={{ backgroundColor: isSelected === student._id ? 'lightblue' : '', }}
-                                >{student.names}</td>
+                                ><p>{student.names}</p></td>
 
                                 <td>{student.names_latin}</td>
                                 <td>{student.phone_number}</td>

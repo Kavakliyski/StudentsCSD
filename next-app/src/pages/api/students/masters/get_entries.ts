@@ -12,7 +12,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         console.log('(Query) getting entries for Student Master...');
 
         const { query } = req;
-
         const searchParams: any = {};
 
         Object.entries(query).forEach(([key, value]) => {

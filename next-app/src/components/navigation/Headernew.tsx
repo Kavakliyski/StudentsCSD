@@ -34,8 +34,6 @@ const Navigation = styled.nav`
     }
 
     @media (max-width: 768px) {
-        background-color: red;
-
         .TextHolder {
             flex-direction: column;
             flex-wrap: wrap;

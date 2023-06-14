@@ -26,6 +26,11 @@ export const StudentsTableStyles = styled.table`
     padding: 25px;
     border-bottom: 1px solid black;
 
+    p {
+      border-right: 1px solid black;
+      padding: 0px 10px 10px 60px;
+    }
+
     &:nth-child(even) {
       background-color: #F2F3F5;
 
@@ -39,7 +44,7 @@ export const StudentsTableStyles = styled.table`
     }
 
     &:nth-child(odd) {
-
+      
       .column-sticky {
         background-color: white;
 
@@ -57,7 +62,7 @@ export const StudentsTableStyles = styled.table`
   .column-sticky {
     position: sticky;
     left: 0;
-    padding-left: 68px;
+    // padding-left: 68px;
   }
 
   thead {

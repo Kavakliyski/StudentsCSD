@@ -110,7 +110,7 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
 
                                 <td className="column-sticky"
                                     style={{ backgroundColor: isSelected === student._id ? 'lightblue' : '', }}
-                                >{student.names}</td>
+                                ><p>{student.names}</p></td>
 
                                 <td>{student.egn}</td>
 
