@@ -21,6 +21,8 @@ const Navigation = styled.nav`
 
     margin-left: 70px;
 
+    box-shadow: 20px 0px 30px 1px black;
+
     .TextHolder {
 
         display: flex;
