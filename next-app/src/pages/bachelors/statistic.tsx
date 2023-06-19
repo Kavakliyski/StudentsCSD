@@ -36,7 +36,7 @@ export default function Statistic() {
     return (
         <PageConfig>
 
-            <h1>Справка от кандидатстудентска кампания</h1>
+            <h1>Справка от кандидатстудентска кампания - Бакалаври</h1>
             {
                 isLoading ? (
                     <>
