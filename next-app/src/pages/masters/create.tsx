@@ -162,7 +162,7 @@ export default function Createmaster() {
                 <StudentFormCU>
 
                     {/* marketing information */}
-                    <InputText label="Прием (семестър) TODO" onChange={(e) => setSchool_year(e)} /> {/* todo */}
+                    <InputDropdown label="Период на подаване в АдминУни(семестър)" options={optionsSubmission_period_in_adminuni} onChange={(e) => setSubmission_period_in_adminuni(e)} />
                     <InputText label="Учебна година" onChange={(e) => setSchool_year(e)} />
                     <InputText label='Три имена' onChange={(e) => setNames(e)} />
                     <InputText label='Телефон' onChange={(e) => setPhone_number(e)} />
@@ -181,6 +181,7 @@ export default function Createmaster() {
                     <InputText label="Дата на платена сем. такса" onChange={(e) => setDate_of_sem_fee_paid(e)} />
                     <InputText label="Сем. Такса" onChange={(e) => setSem_Fee(e)} />
 
+
                     <div className="Separator"></div>
                     <div className="Separator"></div>
 
@@ -198,7 +199,6 @@ export default function Createmaster() {
                     <InputDropdown label="Начин на кандидатстване" options={optionsMethod_of_application} onChange={(e) => setMethod_of_application(e)} />
                     <InputText label='Дата на първоначален контакт' onChange={(e) => setDate_of_initial_contact(e)} />
                     <InputText label="Коментар - документи за КСК" onChange={(e) => setComment_ksk(e)} />
-                    <InputDropdown label="Период на подаване в АдминУни" options={optionsSubmission_period_in_adminuni} onChange={(e) => setSubmission_period_in_adminuni(e)} />
                     <InputText label="Дата на издаване на договор" onChange={(e) => setContract_issue_date(e)} />
                     <InputText label="Отстъпка" onChange={(e) => setDiscount(e)} />
                     <InputText label="Коментар" onChange={(e) => setComment(e)} />

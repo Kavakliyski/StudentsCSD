@@ -103,25 +103,13 @@ export default function Update({ id, studentData }: IStudentGetData) {
 
                 <StudentFormUpdateStudent>
 
-                    <TextField id="outlined-basic" variant="outlined"
-                        label="Отличителност"
-                        name="distinction"
-                        value={studentFetchedData.distinction || ''}
-                        onChange={handleChange}
-                    />
-
-                    <TextField id="outlined-basic" variant="outlined"
-                        label="Факултетен номер"
-                        name="faculty_number"
-                        value={studentFetchedData.faculty_number || ''}
-                        onChange={handleChange}
-                    />
+                    {/* Marketing */}
 
                     <FormControl variant="standard">
-                        <InputLabel id="demo-simple-select-label">Статус на КСК</InputLabel>
-                        <Select value={studentFetchedData.status_of_ksk || ''} name="status_of_ksk" onChange={handleSelectChange}>
+                        <InputLabel id="demo-simple-select-label">Период на подаване в АдминУни(семестър)</InputLabel>
+                        <Select value={studentFetchedData.submission_period_in_adminuni || ''} name="submission_period_in_adminuni" onChange={handleSelectChange}>
                             {
-                                optionsStatus_of_ksk.map((option) =>
+                                optionsSubmission_period_in_adminuni.map((option) =>
                                     <MenuItem key={option.value} value={option.value}>
                                         {option.value ? option.label : <br />}
                                     </MenuItem>
@@ -131,9 +119,9 @@ export default function Update({ id, studentData }: IStudentGetData) {
                     </FormControl>
 
                     <TextField id="outlined-basic" variant="outlined"
-                        label="№ на заповед за записване"
-                        name="n_of_enrollment_order"
-                        value={studentFetchedData.n_of_enrollment_order || ''}
+                        label="Учебна година"
+                        name="school_year"
+                        value={studentFetchedData.school_year || ''}
                         onChange={handleChange}
                     />
 
@@ -145,30 +133,17 @@ export default function Update({ id, studentData }: IStudentGetData) {
                     />
 
                     <TextField id="outlined-basic" variant="outlined"
-                        label="Имена на латиница"
-                        name="names_latin"
-                        value={studentFetchedData.names_latin || ''}
-                        onChange={handleChange}
-                    />
-
-                    <TextField id="outlined-basic" variant="outlined"
                         label="Телефон"
                         name="phone_number"
                         value={studentFetchedData.phone_number || ''}
                         onChange={handleChange}
                     />
 
+
                     <TextField id="outlined-basic" variant="outlined"
                         label="Имейл"
                         name="email"
                         value={studentFetchedData.email || ''}
-                        onChange={handleChange}
-                    />
-
-                    <TextField id="outlined-basic" variant="outlined"
-                        label="ЕГН"
-                        name="egn"
-                        value={studentFetchedData.egn || ''}
                         onChange={handleChange}
                     />
 
@@ -185,32 +160,6 @@ export default function Update({ id, studentData }: IStudentGetData) {
                         value={studentFetchedData.location_of_the_transitional_educationa_institution || ''}
                         onChange={handleChange}
                     />
-
-                    <FormControl variant="standard">
-                        <InputLabel id="demo-simple-select-label">Професионално направление / квалификация</InputLabel>
-                        <Select value={studentFetchedData.professional_qualification || ''} name="professional_qualification" onChange={handleSelectChange}>
-                            {
-                                optionsProfessional_qualification.map((option) =>
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.value ? option.label : <br />}
-                                    </MenuItem>
-                                )
-                            }
-                        </Select>
-                    </FormControl>
-
-                    <FormControl variant="standard">
-                        <InputLabel id="demo-simple-select-label">Потвърждение от Нацид</InputLabel>
-                        <Select value={studentFetchedData.confirmation_by_nacid || ''} name="confirmation_by_nacid" onChange={handleSelectChange}>
-                            {
-                                optionsConfirmation_by_nacid.map((option) =>
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.value ? option.label : <br />}
-                                    </MenuItem>
-                                )
-                            }
-                        </Select>
-                    </FormControl>
 
                     <FormControl variant="standard">
                         <InputLabel id="demo-simple-select-label">Желана Специалност</InputLabel>
@@ -238,6 +187,121 @@ export default function Update({ id, studentData }: IStudentGetData) {
                         </Select>
                     </FormControl>
 
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Източник на контакт"
+                        name="contact_source"
+                        value={studentFetchedData.contact_source || ''}
+                        onChange={handleChange}
+                    />
+
+                    <FormControl variant="standard">
+                        <InputLabel id="demo-simple-select-label">Статус на КСК</InputLabel>
+                        <Select value={studentFetchedData.status_of_ksk || ''} name="status_of_ksk" onChange={handleSelectChange}>
+                            {
+                                optionsStatus_of_ksk.map((option) =>
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.value ? option.label : <br />}
+                                    </MenuItem>
+                                )
+                            }
+                        </Select>
+                    </FormControl>
+
+                    <div>ДАТА НА ОБРАБОТКА ОТ УЧЕБЕН ОТДЕЛ</div>
+
+                    <div>ПОПЪЛНЕНА ОНЛАЙН ФОРМА</div>
+
+                    <FormControl variant="standard">
+                        <InputLabel id="demo-simple-select-label">Заплатил КСК</InputLabel>
+                        <Select value={studentFetchedData.paid_ksk || ''} name="paid_ksk" onChange={handleSelectChange}>
+                            {
+                                optionsPaid_ksk.map((option) =>
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.value ? option.label : <br />}
+                                    </MenuItem>
+                                )
+                            }
+                        </Select>
+                    </FormControl>
+
+
+                    <div className="Separator"></div>
+                    <div className="Separator"></div>
+
+
+                    {/* UO infromation */}
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Платена сем. такса"
+                        name="sem_fee_paid"
+                        value={studentFetchedData.sem_fee_paid || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Отличителност"
+                        name="distinction"
+                        value={studentFetchedData.distinction || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Факултетен номер"
+                        name="faculty_number"
+                        value={studentFetchedData.faculty_number || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="№ на заповед за записване"
+                        name="n_of_enrollment_order"
+                        value={studentFetchedData.n_of_enrollment_order || ''}
+                        onChange={handleChange}
+                    />
+
+
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Имена на латиница"
+                        name="names_latin"
+                        value={studentFetchedData.names_latin || ''}
+                        onChange={handleChange}
+                    />
+
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="ЕГН"
+                        name="egn"
+                        value={studentFetchedData.egn || ''}
+                        onChange={handleChange}
+                    />
+
+
+                    <FormControl variant="standard">
+                        <InputLabel id="demo-simple-select-label">Професионално направление / квалификация</InputLabel>
+                        <Select value={studentFetchedData.professional_qualification || ''} name="professional_qualification" onChange={handleSelectChange}>
+                            {
+                                optionsProfessional_qualification.map((option) =>
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.value ? option.label : <br />}
+                                    </MenuItem>
+                                )
+                            }
+                        </Select>
+                    </FormControl>
+
+                    <FormControl variant="standard">
+                        <InputLabel id="demo-simple-select-label">Потвърждение от Нацид</InputLabel>
+                        <Select value={studentFetchedData.confirmation_by_nacid || ''} name="confirmation_by_nacid" onChange={handleSelectChange}>
+                            {
+                                optionsConfirmation_by_nacid.map((option) =>
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.value ? option.label : <br />}
+                                    </MenuItem>
+                                )
+                            }
+                        </Select>
+                    </FormControl>
 
                     <FormControl variant="standard">
                         <InputLabel id="demo-simple-select-label">Продължителност на обучение и дали съкращава</InputLabel>
@@ -292,25 +356,6 @@ export default function Update({ id, studentData }: IStudentGetData) {
                         onChange={handleChange}
                     />
 
-                    <TextField id="outlined-basic" variant="outlined"
-                        label="Източник на контакт"
-                        name="contact_source"
-                        value={studentFetchedData.contact_source || ''}
-                        onChange={handleChange}
-                    />
-
-                    <FormControl variant="standard">
-                        <InputLabel id="demo-simple-select-label">Заплатил КСК</InputLabel>
-                        <Select value={studentFetchedData.paid_ksk || ''} name="paid_ksk" onChange={handleSelectChange}>
-                            {
-                                optionsPaid_ksk.map((option) =>
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.value ? option.label : <br />}
-                                    </MenuItem>
-                                )
-                            }
-                        </Select>
-                    </FormControl>
 
                     <TextField id="outlined-basic" variant="outlined"
                         label="Дата плащане КСК"
@@ -327,36 +372,9 @@ export default function Update({ id, studentData }: IStudentGetData) {
                     />
 
                     <TextField id="outlined-basic" variant="outlined"
-                        label="Платена сем. такса"
-                        name="sem_fee_paid"
-                        value={studentFetchedData.sem_fee_paid || ''}
-                        onChange={handleChange}
-                    />
-
-                    <TextField id="outlined-basic" variant="outlined"
                         label="Дата на платена сем. такса"
                         name="date_of_sem_fee_paid"
                         value={studentFetchedData.date_of_sem_fee_paid || ''}
-                        onChange={handleChange}
-                    />
-
-                    <FormControl variant="standard">
-                        <InputLabel id="demo-simple-select-label">Период на подаване в АдминУни</InputLabel>
-                        <Select value={studentFetchedData.submission_period_in_adminuni || ''} name="submission_period_in_adminuni" onChange={handleSelectChange}>
-                            {
-                                optionsSubmission_period_in_adminuni.map((option) =>
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.value ? option.label : <br />}
-                                    </MenuItem>
-                                )
-                            }
-                        </Select>
-                    </FormControl>
-
-                    <TextField id="outlined-basic" variant="outlined"
-                        label="Учебна година"
-                        name="school_year"
-                        value={studentFetchedData.school_year || ''}
                         onChange={handleChange}
                     />
 

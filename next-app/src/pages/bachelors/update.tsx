@@ -148,7 +148,6 @@ export default function UpdateBachelor({ id, studentData }: IStudentGetDataBache
                         value={studentFetchedData.names_latin || ''}
                         onChange={handleChange}
                     />
-
                 </StudentFormUpdateStudent>
 
                 <div>

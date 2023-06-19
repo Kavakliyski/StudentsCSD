@@ -3,7 +3,6 @@ import { useState } from "react";
 
 // styles
 import { StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
-import EditIcon from "public/edit_icon.svg"
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 
 // interfaces
@@ -42,6 +41,7 @@ export default function BachelorMarketingStudentsTable({ studentsGetData }: IStu
                         <th id="column-sticky">Три Имена</th>
                         <th>Телефон</th>
                         <th>Имейл</th>
+                        <th>Редактиране</th>
                         <th>Пред. Учебно Заведение</th>
                         <th>Местонахождение на предходното училище</th>
                         <th>Желана Специалност</th>
@@ -83,6 +83,11 @@ export default function BachelorMarketingStudentsTable({ studentsGetData }: IStu
                                     ><p>{student.names}</p></td>
                                     <td>{student.phone_number}</td>
                                     <td>{student.email}</td>
+                                    <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
+                                        <a href={`/bachelors/update?id=${student._id}`}>
+                                            <ModeEditOutlineIcon sx={{ fontSize: 60 }} />
+                                        </a>
+                                    </td>
                                     <td>{student.in_front_of_school}</td>
                                     <td>{student.location_of_the_transitional_educationa_institution}</td>
                                     <td>{student.desired_major}</td>
