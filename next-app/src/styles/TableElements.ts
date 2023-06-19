@@ -17,7 +17,7 @@ export const StudentsTableStyles = styled.table`
   th {
     color: white;
     font-weight: bold;
-    background-color: #1c53e9;
+    background-color: #1976d2;
   }
 
   tr {

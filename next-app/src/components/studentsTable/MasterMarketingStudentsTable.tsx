@@ -49,7 +49,6 @@ export default function MasterMarketingStudentsTable({ studentsGetData }: IStude
                         <th>От къде идва контакт</th>
 
                         <th>В процес - Учебен Отдел</th>
-                        <th>Дата на обработка от Учебен Отдел</th>
                         <th>Попълнена онлайн форма</th>
                         <th>Заплатено КСК</th>
                         <th>Заплатил сем такса</th>
@@ -98,8 +97,7 @@ export default function MasterMarketingStudentsTable({ studentsGetData }: IStude
                                                 student.status_of_ksk === 'Отписан' ? 'red' :
                                                     student.status_of_ksk === 'В процес' ? 'orange' : 'transparent'
                                     }}>{student.status_of_ksk}</td>
-                                    <td>todo: дата на обработка</td>
-                                    <td>todo: онлайн форма</td>
+                                    <td>{student.egn}</td>
                                     <td>{student.paid_ksk}</td>
                                     <td>{student.sem_fee_paid}</td>
 

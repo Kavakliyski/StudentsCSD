@@ -207,10 +207,6 @@ export default function Update({ id, studentData }: IStudentGetData) {
                         </Select>
                     </FormControl>
 
-                    <div>ДАТА НА ОБРАБОТКА ОТ УЧЕБЕН ОТДЕЛ</div>
-
-                    <div>ПОПЪЛНЕНА ОНЛАЙН ФОРМА</div>
-
                     <FormControl variant="standard">
                         <InputLabel id="demo-simple-select-label">Заплатил КСК</InputLabel>
                         <Select value={studentFetchedData.paid_ksk || ''} name="paid_ksk" onChange={handleSelectChange}>

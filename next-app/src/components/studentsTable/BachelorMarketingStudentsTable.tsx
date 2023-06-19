@@ -51,7 +51,6 @@ export default function BachelorMarketingStudentsTable({ studentsGetData }: IStu
                         <th>От къде идва контакт</th>
                         <th>Изпратен имейл с информация</th>
                         <th>В процес - Учебен Отдел</th>
-                        <th>Дата на обработка от Учебен Отдел</th>
                         <th>Попълнена онлайн форма</th>
                         <th>Заплатено КСК</th>
                         <th>Заплатил сем такса</th>
@@ -96,9 +95,13 @@ export default function BachelorMarketingStudentsTable({ studentsGetData }: IStu
                                     <td>{student.date_of_initial_contact}</td>
                                     <td>{student.contact_source}</td>
                                     <td>Изпратен имейл с информация</td>
-                                    <td>{student.status_of_ksk}</td>
-                                    <td>ДАТА НА ОБРАБОТКА ОТ УЧЕБЕН ОТДЕЛ</td>
-                                    <td>Попълнена онлайн форма</td>
+                                    <td style={{
+                                        backgroundColor:
+                                            student.status_of_ksk === 'Приет' ? 'green' :
+                                                student.status_of_ksk === 'Отписан' ? 'red' :
+                                                    student.status_of_ksk === 'В процес' ? 'orange' : 'transparent'
+                                    }}>{student.status_of_ksk}</td>
+                                    <td>{student.egn}</td>
                                     <td>{student.paid_ksk}</td>
                                     <td>{student.sem_fee_paid}</td>
 
