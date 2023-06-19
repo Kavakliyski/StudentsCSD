@@ -122,7 +122,7 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                                 <td>{student.egn}</td>
 
                                 <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
-                                    <a href={`/bachelors/update?id=${student._id}`}>
+                                    <a href={`/bachelors/update?id=${student._id}&returnUrl=${encodeURIComponent(window.location.pathname)}`}>
                                         <ModeEditOutlineIcon sx={{ fontSize: 60 }} />
                                     </a>
                                 </td>

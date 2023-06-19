@@ -152,6 +152,7 @@ export interface IStudentBachelor {
 
 export interface IStudentGetDataBachelor {
     id: string;
+    returnUrl?: string;
     studentData: {
         student: {
             distinction: string;

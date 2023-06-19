@@ -32,7 +32,7 @@ import { MajorsMasters } from '@/majors/MajorsMasters';
 const API_URL_PATCH = `/api/students/bachelors/update`;
 
 
-export default function UpdateBachelor({ id, studentData }: IStudentGetDataBachelor) {
+export default function UpdateBachelor({ id, studentData, returnUrl }: IStudentGetDataBachelor) {
 
     const router = useRouter();
     const { user } = useAuth();                                       // get user email
@@ -81,7 +81,7 @@ export default function UpdateBachelor({ id, studentData }: IStudentGetDataBache
 
                 console.log("Post updated:", res.data);
                 setErrorAdd(null);              // reset error state on success
-                router.push("/bachelors")
+                router.push(`${returnUrl}`)
             })
             .catch((err) => {
 
@@ -194,7 +194,8 @@ export const getServerSideProps: GetServerSideProps<any> = async (context) => {
     return {
         props: {
             id,
-            studentData
+            studentData,
+            returnUrl: context.query.returnUrl || '',
         },
     };
 };
