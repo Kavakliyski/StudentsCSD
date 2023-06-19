@@ -48,6 +48,7 @@ export interface IStudent {
 
 export interface IStudentGetData {
     id: string;
+    returnUrl?: string;
     studentData: {
         student: {
             sem_fee_paid: string;

@@ -29,10 +29,11 @@ import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_s
 import { MajorsMasters } from '@/majors/MajorsMasters';
 
 
-const API_URL_PATCH = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/update`;
+// const API_URL_PATCH = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/update`;
+const API_URL_PATCH = '/api/students/masters/update';
 
 
-export default function Update({ id, studentData }: IStudentGetData) {
+export default function Update({ id, studentData, returnUrl }: IStudentGetData) {
 
     const router = useRouter();
     const { user } = useAuth();                                       // get user email
@@ -81,7 +82,7 @@ export default function Update({ id, studentData }: IStudentGetData) {
 
                 console.log("Post updated:", res.data);
                 setErrorAdd(null);              // reset error state on success
-                router.push("/masters")
+                router.push(`${returnUrl}`)
             })
             .catch((err) => {
 
@@ -100,7 +101,7 @@ export default function Update({ id, studentData }: IStudentGetData) {
 
                 <h1>Редактиране на МАГИСТЪР с ID: {id}</h1>
                 <p><strong>Тук можете да редактирате записите за - {studentFetchedData.names}</strong></p>
-
+                <h1>{returnUrl}</h1>
                 <StudentFormUpdateStudent>
 
                     {/* Marketing */}
@@ -521,7 +522,8 @@ export const getServerSideProps: GetServerSideProps<any> = async (context) => {
     return {
         props: {
             id,
-            studentData
+            studentData,
+            returnUrl: context.query.returnUrl || '',
         },
     };
 };

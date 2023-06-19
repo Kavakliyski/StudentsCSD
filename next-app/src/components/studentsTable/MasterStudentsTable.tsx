@@ -115,7 +115,7 @@ export default function MasterStudentsTable({ studentsGetData }: IStudentsTableP
                                 <td>{student.egn}</td>
 
                                 <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
-                                    <a href={`/masters/update?id=${student._id}`}>
+                                    <a href={`/masters/update?id=${student._id}&returnUrl=${encodeURIComponent(window.location.pathname)}`}>
                                         <ModeEditOutlineIcon sx={{ fontSize: 60 }} />
                                     </a>
                                 </td>

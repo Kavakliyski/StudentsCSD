@@ -81,7 +81,7 @@ export default function MasterMarketingStudentsTable({ studentsGetData }: IStude
                                     <td>{student.phone_number}</td>
                                     <td>{student.email}</td>
                                     <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
-                                        <a href={`/masters/update?id=${student._id}`}>
+                                        <a href={`/masters/update?id=${student._id}&returnUrl=${encodeURIComponent(window.location.pathname)}`}>
                                             <ModeEditOutlineIcon sx={{ fontSize: 60 }} />
                                         </a>
                                     </td>
