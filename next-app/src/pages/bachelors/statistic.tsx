@@ -16,9 +16,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 
 
-// const API_STATISTIC_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/masters/get_statistic`;
-const API_STATISTIC_URL = '/api/students/masters/get_statistic';
-
+const API_STATISTIC_URL = '/api/students/bachelors/get_statistic';
 
 export default function Statistic() {
 

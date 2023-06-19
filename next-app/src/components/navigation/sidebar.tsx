@@ -24,6 +24,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 // styles
 import { SidebarStudentsHeader } from '@/styles/LayoutElements';
@@ -199,6 +200,25 @@ export default function Sidebar() {
                     </ListItem>
 
                     <ListItem
+                        onClick={() => router.push('/bachelors/statistic')}
+                        disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton sx={{
+                            minHeight: 48,
+                            justifyContent: open ? 'initial' : 'center',
+                            px: 2.5,
+                        }}>
+                            <ListItemIcon sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : 'auto',
+                                justifyContent: 'center',
+                            }}>
+                                <BarChartIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'Статистика'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem
                         onClick={() => router.push('/bachelors/query')}
                         disablePadding sx={{ display: 'block' }}>
                         <ListItemButton sx={{
@@ -338,8 +358,34 @@ export default function Sidebar() {
                             <ListItemText primary={'Маркетинг Фуния'} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </ListItem>
-                    <Divider />
+                </List>
 
+                <Divider />
+
+                <List>
+                    <SidebarStudentsHeader>
+                        {
+                            open ? <h3>РЪКОВОДСТВО</h3> : <h3>Р</h3>
+                        }
+                    </SidebarStudentsHeader>
+                    <ListItem
+                        onClick={() => router.push('/guidance')}
+                        disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton sx={{
+                            minHeight: 48,
+                            justifyContent: open ? 'initial' : 'center',
+                            px: 2.5,
+                        }}>
+                            <ListItemIcon sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : 'auto',
+                                justifyContent: 'center',
+                            }}>
+                                <DescriptionIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'Ръководство'} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
                 </List>
             </Drawer>
         </Box>
