@@ -123,5 +123,5 @@ export const optionsMethod_of_applicationBach = [
     { label: "По документи", value: "По документи" },
     { label: "Интервю", value: "Интервю" },
     { label: "Препоръка", value: "Препоръка" },
-    { label: "Друго", value: "Друго" },
+    { label: "Друг", value: "Друг" },
 ];

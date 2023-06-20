@@ -20,7 +20,7 @@ import InputText from "@/components/inputs/InputText";
 import InputDropdown from "@/components/inputs/InputDropdown";
 
 // majors, options
-import { MajorsMasters } from "@/majors/MajorsMasters";
+import { MajorsMasters } from "@/majors/Majors";
 import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_shape, optionsEmail_sent_to_access_moodle, optionsEntered_in_admin, optionsEntered_into_cohort, optionsLength_of_study, optionsMethod_of_application, optionsMoodle_profile_created, optionsPaid_ksk, optionsProfessional_qualification, optionsSent_faculty_number, optionsStatus_of_ksk, optionsSubmission_period_in_adminuni } from "@/components/inputs/selectorsForDropdown";
 
 

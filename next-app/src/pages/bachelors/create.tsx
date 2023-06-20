@@ -20,8 +20,20 @@ import InputText from "@/components/inputs/InputText";
 import InputDropdown from "@/components/inputs/InputDropdown";
 
 // majors, options
-import { MajorsMasters } from "@/majors/MajorsMasters";
-import { optionsBachelor_course, optionsCertificate_from_ruo, optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_shape, optionsEmail_sent_to_access_moodle, optionsEntered_in_admin, optionsEntered_into_cohort, optionsLength_of_study, optionsMethod_of_application, optionsMethod_of_applicationBach, optionsMoodle_profile_created, optionsPaid_ksk, optionsProfessional_qualification, optionsSent_faculty_number, optionsStatus_of_ksk, optionsSubmission_period_in_adminuni } from "@/components/inputs/selectorsForDropdown";
+import { MajorsBachelors } from "@/majors/Majors";
+import {
+    optionsBachelor_course,
+    optionsCertificate_from_ruo,
+    optionsDesired_shape,
+    optionsEmail_sent_to_access_moodle,
+    optionsEntered_in_admin, optionsEntered_into_cohort,
+    optionsMethod_of_applicationBach,
+    optionsMoodle_profile_created,
+    optionsPaid_ksk,
+    optionsSent_faculty_number,
+    optionsStatus_of_ksk,
+    optionsSubmission_period_in_adminuni
+} from "@/components/inputs/selectorsForDropdown";
 
 
 const API_URL = '/api/students/bachelors/add';
@@ -170,7 +182,7 @@ export default function Createbachelor() {
                     <InputText label="Имейл" onChange={(e) => setemail(e)} />
                     <InputText label="Пред. Учебно Заведение" onChange={(e) => setin_front_of_school(e)} />
                     <InputText label="Местонахождение на предходното училище" onChange={(e) => setlocation_of_the_transitional_educationa_institution(e)} />
-                    <InputDropdown label="Желана Специалност" options={MajorsMasters} onChange={(e) => setdesired_major(e)} />
+                    <InputDropdown label="Желана Специалност" options={MajorsBachelors} onChange={(e) => setdesired_major(e)} />
                     <InputDropdown label="Желана форма" options={optionsDesired_shape} onChange={(e) => setdesired_shape(e)} />
                     <InputDropdown label="Начин на кандидатстване" options={optionsMethod_of_applicationBach} onChange={(e) => setmethod_of_application(e)} />
 
