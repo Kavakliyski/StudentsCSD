@@ -51,6 +51,7 @@ interface Student {
     comment: string;
     sent_faculty_number: string;
     university_email: string;
+    university_mail_group: string;
     moodle_profile_created: string;
     email_sent_to_access_moodle: string;
     entered_into_cohort: string;

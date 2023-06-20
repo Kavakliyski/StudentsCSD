@@ -74,6 +74,7 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                         <th>Основание за отстъпката</th>
                         <th>Изпратен имейл с факултетен номер</th>
                         <th>Студентски имейл</th>
+                        <th>Мейл група</th>
                         <th>Създаден профил в Мудъл</th>
                         <th>Изпратен имейл за достъп до Мудъл</th>
                         <th>Въведени в Админ/Регистъра</th>
@@ -152,6 +153,7 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                                 <td>{student.reason_for_discount}</td>
                                 <td>{student.email_sent_with_faculty_number}</td>
                                 <td>{student.university_email}</td>
+                                <td>{student.university_mail_group}</td>
                                 <td>{student.moodle_profile_created}</td>
                                 <td>{student.email_sent_to_access_moodle}</td>
                                 <td>{student.entered_in_admin}</td>

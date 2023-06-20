@@ -105,6 +105,7 @@ export default function ExportXLSXButtonBachelors({ data }: any) {
                 student.reason_for_discount,
                 student.email_sent_with_faculty_number,
                 student.university_email,
+                student.university_mail_group,
                 student.moodle_profile_created,
                 student.email_sent_to_access_moodle,
                 student.entered_in_admin,

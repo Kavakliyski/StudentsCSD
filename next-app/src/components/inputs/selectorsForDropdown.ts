@@ -97,3 +97,31 @@ export const optionsEntered_in_admin = [
     { label: "Да", value: "Да" },
     { label: "Не", value: "Не" },
 ];
+
+export const optionsCertificate_from_ruo = [
+    { label: "", value: "" },
+    { label: "Да, има", value: "Да, има" },
+    { label: "Не, няма", value: "Не, няма" },
+    { label: "Не е необходимо", value: "Не е необходимо" },
+];
+
+export const optionsBachelor_course = [
+    { label: "", value: "" },
+    { label: "I", value: "I" },
+    { label: "II", value: "II" },
+    { label: "III", value: "III" },
+    { label: "IV", value: "IV" },
+    { label: "I + II", value: "I + II" },
+    { label: "II + III", value: "II + III" },
+    { label: "III + IV", value: "III + IV" },
+];
+
+export const optionsMethod_of_applicationBach = [
+    { label: "", value: "" },
+    { label: "Трансфер", value: "Трансфер" },
+    { label: "Есе", value: "Есе" },
+    { label: "По документи", value: "По документи" },
+    { label: "Интервю", value: "Интервю" },
+    { label: "Препоръка", value: "Препоръка" },
+    { label: "Друго", value: "Друго" },
+];

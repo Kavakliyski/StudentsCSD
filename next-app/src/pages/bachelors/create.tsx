@@ -21,7 +21,7 @@ import InputDropdown from "@/components/inputs/InputDropdown";
 
 // majors, options
 import { MajorsMasters } from "@/majors/MajorsMasters";
-import { optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_shape, optionsEmail_sent_to_access_moodle, optionsEntered_in_admin, optionsEntered_into_cohort, optionsLength_of_study, optionsMethod_of_application, optionsMoodle_profile_created, optionsPaid_ksk, optionsProfessional_qualification, optionsSent_faculty_number, optionsStatus_of_ksk, optionsSubmission_period_in_adminuni } from "@/components/inputs/selectorsForDropdown";
+import { optionsBachelor_course, optionsCertificate_from_ruo, optionsCohort_in_moodle, optionsConfirmation_by_nacid, optionsDesired_shape, optionsEmail_sent_to_access_moodle, optionsEntered_in_admin, optionsEntered_into_cohort, optionsLength_of_study, optionsMethod_of_application, optionsMethod_of_applicationBach, optionsMoodle_profile_created, optionsPaid_ksk, optionsProfessional_qualification, optionsSent_faculty_number, optionsStatus_of_ksk, optionsSubmission_period_in_adminuni } from "@/components/inputs/selectorsForDropdown";
 
 
 const API_URL = '/api/students/bachelors/add';
@@ -68,6 +68,7 @@ export default function Createbachelor() {
     const [reason_for_discount, setreason_for_discount] = useState("");
     const [email_sent_with_faculty_number, setemail_sent_with_faculty_number] = useState("");
     const [university_email, setuniversity_email] = useState("");
+    const [university_mail_group, setuniversity_mail_group] = useState("");
     const [moodle_profile_created, setmoodle_profile_created] = useState("");
     const [email_sent_to_access_moodle, setemail_sent_to_access_moodle] = useState("");
     const [entered_in_admin, setentered_in_admin] = useState("");
@@ -122,6 +123,7 @@ export default function Createbachelor() {
                 reason_for_discount: reason_for_discount,
                 email_sent_with_faculty_number: email_sent_with_faculty_number,
                 university_email: university_email,
+                university_mail_group: university_mail_group,
                 moodle_profile_created: moodle_profile_created,
                 email_sent_to_access_moodle: email_sent_to_access_moodle,
                 entered_in_admin: entered_in_admin,
@@ -161,52 +163,57 @@ export default function Createbachelor() {
 
                     {/* marketing information */}
 
+                    <InputDropdown label="Период на подаване в АдминУни(семестър)" options={optionsSubmission_period_in_adminuni} onChange={(e) => setsubmission_period_in_adminuni(e)} />
+                    <InputText label="Учебна година" onChange={(e) => setschool_year(e)} />
+                    <InputText label="Три имена" onChange={(e) => setnames(e)} />
+                    <InputText label="Телефон" onChange={(e) => setphone_number(e)} />
+                    <InputText label="Имейл" onChange={(e) => setemail(e)} />
+                    <InputText label="Пред. Учебно Заведение" onChange={(e) => setin_front_of_school(e)} />
+                    <InputText label="Местонахождение на предходното училище" onChange={(e) => setlocation_of_the_transitional_educationa_institution(e)} />
+                    <InputDropdown label="Желана Специалност" options={MajorsMasters} onChange={(e) => setdesired_major(e)} />
+                    <InputDropdown label="Желана форма" options={optionsDesired_shape} onChange={(e) => setdesired_shape(e)} />
+                    <InputDropdown label="Начин на кандидатстване" options={optionsMethod_of_applicationBach} onChange={(e) => setmethod_of_application(e)} />
 
+                    <InputText label="Дата на първоначален контакт" onChange={(e) => setdate_of_initial_contact(e)} />
+                    <InputText label="Източник на контакт" onChange={(e) => setcontact_source(e)} />
+                    <div>Изпратен имейл с информация</div>
+                    <InputDropdown label="Статус на КСК" options={optionsStatus_of_ksk} onChange={(e) => setstatus_of_ksk(e)} />
+                    <InputText label="Попълнена онлайн форма(ЕГН)" onChange={(e) => setegn(e)} />
+                    <InputDropdown label="Заплатил КСК" options={optionsPaid_ksk} onChange={(e) => setpaid_ksk(e)} />
+                    <InputText label="Дата плащане КСК" onChange={(e) => setdate_of_payment_ksk(e)} />
 
-
+                    <div className="Separator"></div>
+                    <div className="Separator"></div>
+                    <div className="Separator"></div>
 
                     {/* UO infromation */}
 
-                    <InputText label="Отличителност" onChange={(e) => setdistinction(e)} /> 
-                    <InputText label="Факултетен номер" onChange={(e) => setfaculty_number(e)} /> 
-                    <InputText label="Статус на КСК" onChange={(e) => setstatus_of_ksk(e)} /> 
-                    <InputText label="№ на заповед за записване" onChange={(e) => setn_of_enrollment_order(e)} /> 
-                    <InputText label="Три имена" onChange={(e) => setnames(e)} /> 
-                    <InputText label="Имена на латиница" onChange={(e) => setnames_latin(e)} /> 
-                    <InputText label="Телефон" onChange={(e) => setphone_number(e)} /> 
-                    <InputText label="Имейл" onChange={(e) => setemail(e)} /> 
-                    <InputText label="ЕГН" onChange={(e) => setegn(e)} /> 
-                    <InputText label="Лице за контакт (като коментар)" onChange={(e) => setperson_to_contact(e)} /> 
-                    <InputText label="Пред. Учебно Заведение" onChange={(e) => setin_front_of_school(e)} /> 
-                    <InputText label="Местонахождение на предходното училище" onChange={(e) => setlocation_of_the_transitional_educationa_institution(e)} /> 
-                    <InputText label="Среден успех от дипломата за средно образование" onChange={(e) => sethigh_school_diploma_gpa(e)} /> 
-                    <InputText label="Удостоверение от РУО" onChange={(e) => setcertificate_from_ruo(e)} /> 
-                    <InputText label="Желана Специалност" onChange={(e) => setdesired_major(e)} /> 
-                    <InputText label="Желана форма" onChange={(e) => setdesired_shape(e)} /> 
-                    <InputText label="Курс" onChange={(e) => setbachelor_course(e)} /> 
-                    <InputText label="Продължителност семестри" onChange={(e) => setduration_semesters(e)} /> 
-                    <InputText label="Начин на обучение" onChange={(e) => setform_of_study(e)} /> 
-                    <InputText label="Начин на кандидатстване" onChange={(e) => setmethod_of_application(e)} /> 
-                    <InputText label="Дата на първоначален контакт" onChange={(e) => setdate_of_initial_contact(e)} /> 
-                    <InputText label="Източник на контакт" onChange={(e) => setcontact_source(e)} /> 
-                    <InputText label="Заплатил КСК" onChange={(e) => setpaid_ksk(e)} /> 
-                    <InputText label="Дата плащане КСК" onChange={(e) => setdate_of_payment_ksk(e)} /> 
-                    <InputText label="Платена сем. такса" onChange={(e) => setsem_fee_paid(e)} /> 
-                    <InputText label="Дата на платена сем. такса" onChange={(e) => setdate_of_paid_sem_fee(e)} /> 
-                    <InputText label="Период на подаване в АдминУни" onChange={(e) => setsubmission_period_in_adminuni(e)} /> 
-                    <InputText label="Учебна година" onChange={(e) => setschool_year(e)} /> 
-                    <InputText label="Дата на издаване на договор" onChange={(e) => setcontract_issue_date(e)} /> 
-                    <InputText label="Сем. Такса" onChange={(e) => setsem_Fee(e)} /> 
-                    <InputText label="Отстъпка" onChange={(e) => setdiscount(e)} /> 
-                    <InputText label="Основание за отстъпката" onChange={(e) => setreason_for_discount(e)} /> 
-                    <InputText label="Изпратен имейл с факултетен номер" onChange={(e) => setemail_sent_with_faculty_number(e)} /> 
-                    <InputText label="Студентски имейл" onChange={(e) => setuniversity_email(e)} /> 
-                    <InputText label="Създаден профил в Мудъл" onChange={(e) => setmoodle_profile_created(e)} /> 
-                    <InputText label="Изпратен имейл за достъп до Мудъл" onChange={(e) => setemail_sent_to_access_moodle(e)} /> 
-                    <InputText label="Въведени в Админ/Регистъра" onChange={(e) => setentered_in_admin(e)} /> 
-                    <InputText label="Вкаран в кохорт в Moodle" onChange={(e) => setentered_into_cohort(e)} /> 
-                    <div className="Separator"></div>
-                    <div className="Separator"></div>
+                    <InputText label="Отличителност" onChange={(e) => setdistinction(e)} />
+                    <InputText label="Факултетен номер" onChange={(e) => setfaculty_number(e)} />
+                    <InputText label="№ на заповед за записване" onChange={(e) => setn_of_enrollment_order(e)} />
+                    <InputText label="Имена на латиница" onChange={(e) => setnames_latin(e)} />
+                    <InputText label="Лице за контакт (като коментар)" onChange={(e) => setperson_to_contact(e)} />
+                    <InputText label="Среден успех от дипломата за средно образование" onChange={(e) => sethigh_school_diploma_gpa(e)} />
+                    <InputDropdown label="Удостоверение от РУО" options={optionsCertificate_from_ruo} onChange={(e) => setcertificate_from_ruo(e)} />
+
+                    <InputDropdown label="Курс" options={optionsBachelor_course} onChange={(e) => setbachelor_course(e)} />
+                    <InputText label="Продължителност семестри" onChange={(e) => setduration_semesters(e)} />
+                    <InputText label="Начин на обучение" onChange={(e) => setform_of_study(e)} />
+                    <InputText label="Платена сем. такса" onChange={(e) => setsem_fee_paid(e)} />
+                    <InputText label="Дата на платена сем. такса" onChange={(e) => setdate_of_paid_sem_fee(e)} />
+                    <InputText label="Дата на издаване на договор" onChange={(e) => setcontract_issue_date(e)} />
+                    <InputText label="Сем. Такса" onChange={(e) => setsem_Fee(e)} />
+                    <InputText label="Отстъпка" onChange={(e) => setdiscount(e)} />
+                    <InputText label="Основание за отстъпката" onChange={(e) => setreason_for_discount(e)} />
+                    <InputDropdown label="Изпратен имейл с факултетен номер" options={optionsSent_faculty_number} onChange={(e) => setemail_sent_with_faculty_number(e)} />
+
+                    <InputText label="Студентски имейл" onChange={(e) => setuniversity_email(e)} />
+                    <InputText label="Добавен в Мейл Група" onChange={(e) => setuniversity_mail_group(e)} />
+                    <InputDropdown label="Създаден профил в Мудъл" options={optionsMoodle_profile_created} onChange={(e) => setmoodle_profile_created(e)} />
+                    <InputDropdown label="Изпратен имейл за достъп до Мудъл" options={optionsEmail_sent_to_access_moodle} onChange={(e) => setemail_sent_to_access_moodle(e)} />
+                    <InputDropdown label="Въведени в Админ/Регистъра" options={optionsEntered_in_admin} onChange={(e) => setentered_in_admin(e)} />
+                    <InputDropdown label="Вкаран в кохорт в Moodle" options={optionsEntered_into_cohort} onChange={(e) => setentered_into_cohort(e)} />
+
                 </StudentFormCU>
 
 

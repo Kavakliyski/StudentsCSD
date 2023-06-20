@@ -36,6 +36,7 @@ const bachelorStudentSchema = new Schema({
     reason_for_discount: 'string',
     email_sent_with_faculty_number: 'string',
     university_email: 'string',
+    university_mail_group: 'string',
     moodle_profile_created: 'string',
     email_sent_to_access_moodle: 'string',
     entered_in_admin: 'string',
