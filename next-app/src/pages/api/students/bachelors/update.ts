@@ -95,6 +95,7 @@ export default async function updateStudent(req: NextApiRequest, res: NextApiRes
                     reason_for_discount,
                     email_sent_with_faculty_number,
                     university_email,
+                    university_mail_group,
                     moodle_profile_created,
                     email_sent_to_access_moodle,
                     entered_in_admin,

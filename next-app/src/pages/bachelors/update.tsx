@@ -31,6 +31,7 @@ import {
     optionsDesired_shape,
     optionsEmail_sent_to_access_moodle,
     optionsEntered_in_admin, optionsEntered_into_cohort,
+    optionsForm_of_study,
     optionsMethod_of_applicationBach,
     optionsMoodle_profile_created,
     optionsPaid_ksk,
@@ -242,7 +243,7 @@ export default function UpdateBachelor({ id, studentData, returnUrl }: IStudentG
                     />
 
                     <TextField id="outlined-basic" variant="outlined"
-                        label="Заплетил КСК"
+                        label="Заплатил КСК"
                         name="paid_ksk"
                         value={studentFetchedData.paid_ksk || ''}
                         onChange={handleChange}
@@ -307,11 +308,142 @@ export default function UpdateBachelor({ id, studentData, returnUrl }: IStudentG
                         </Select>
                     </FormControl>
 
-
                     <FormControl variant="standard">
                         <InputLabel id="demo-simple-select-label">Курс</InputLabel>
                         <Select value={studentFetchedData.bachelor_course || ''} name="bachelor_course" onChange={handleSelectChange}>
                             {optionsBachelor_course.map((option) =>
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.value ? option.label : <br />}
+                                </MenuItem>
+                            )}
+                        </Select>
+                    </FormControl>
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Продължителност семестри"
+                        name="duration_semesters"
+                        value={studentFetchedData.duration_semesters || ''}
+                        onChange={handleChange}
+                    />
+
+                    <FormControl variant="standard">
+                        <InputLabel id="demo-simple-select-label">Начин на обучение</InputLabel>
+                        <Select value={studentFetchedData.form_of_study || ''} name="form_of_study" onChange={handleSelectChange}>
+                            {optionsForm_of_study.map((option) =>
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.value ? option.label : <br />}
+                                </MenuItem>
+                            )}
+                        </Select>
+                    </FormControl>
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Платена сем. такса"
+                        name="sem_fee_paid"
+                        value={studentFetchedData.sem_fee_paid || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Дата на платена сем. такса"
+                        name="date_of_paid_sem_fee"
+                        value={studentFetchedData.date_of_paid_sem_fee || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Дата на издаване на договор"
+                        name="contract_issue_date"
+                        value={studentFetchedData.contract_issue_date || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Сем. Такса"
+                        name="sem_Fee"
+                        value={studentFetchedData.sem_Fee || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Сем. Такса"
+                        name="sem_Fee"
+                        value={studentFetchedData.sem_Fee || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Отстъпка"
+                        name="discount"
+                        value={studentFetchedData.discount || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Основание за отстъпката"
+                        name="reason_for_discount"
+                        value={studentFetchedData.reason_for_discount || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Изпратен имейл с факултетен номер"
+                        name="email_sent_with_faculty_number"
+                        value={studentFetchedData.email_sent_with_faculty_number || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Създаден g-mail"
+                        name="university_email"
+                        value={studentFetchedData.university_email || ''}
+                        onChange={handleChange}
+                    />
+
+                    <TextField id="outlined-basic" variant="outlined"
+                        label="Добавен в Мейл Група"
+                        name="university_mail_group"
+                        value={studentFetchedData.university_mail_group || ''}
+                        onChange={handleChange}
+                    />
+
+                    <FormControl variant="standard">
+                        <InputLabel id="demo-simple-select-label">Създаден профил в Мудъл</InputLabel>
+                        <Select value={studentFetchedData.moodle_profile_created || ''} name="moodle_profile_created" onChange={handleSelectChange}>
+                            {optionsMoodle_profile_created.map((option) =>
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.value ? option.label : <br />}
+                                </MenuItem>
+                            )}
+                        </Select>
+                    </FormControl>
+
+                    <FormControl variant="standard">
+                        <InputLabel id="demo-simple-select-label">Изпратен имейл за достъп до Мудъл</InputLabel>
+                        <Select value={studentFetchedData.email_sent_to_access_moodle || ''} name="email_sent_to_access_moodle" onChange={handleSelectChange}>
+                            {optionsEmail_sent_to_access_moodle.map((option) =>
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.value ? option.label : <br />}
+                                </MenuItem>
+                            )}
+                        </Select>
+                    </FormControl>
+
+                    <FormControl variant="standard">
+                        <InputLabel id="demo-simple-select-label">Въведени в Админ/Регистъра</InputLabel>
+                        <Select value={studentFetchedData.entered_in_admin || ''} name="entered_in_admin" onChange={handleSelectChange}>
+                            {optionsEntered_into_cohort.map((option) =>
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.value ? option.label : <br />}
+                                </MenuItem>
+                            )}
+                        </Select>
+                    </FormControl>
+
+                    <FormControl variant="standard">
+                        <InputLabel id="demo-simple-select-label">Вкаран в кохорт в Moodle</InputLabel>
+                        <Select value={studentFetchedData.entered_into_cohort || ''} name="entered_into_cohort" onChange={handleSelectChange}>
+                            {optionsEntered_in_admin.map((option) =>
                                 <MenuItem key={option.value} value={option.value}>
                                     {option.value ? option.label : <br />}
                                 </MenuItem>

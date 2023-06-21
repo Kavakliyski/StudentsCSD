@@ -125,3 +125,9 @@ export const optionsMethod_of_applicationBach = [
     { label: "Препоръка", value: "Препоръка" },
     { label: "Друг", value: "Друг" },
 ];
+
+export const optionsForm_of_study = [
+    { label: "", value: "" },
+    { label: "По учебен план", value: "По учебен план" },
+    { label: "Индивидуален план на обучение", value: "Индивидуален план на обучение" },
+];
