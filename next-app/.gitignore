@@ -38,3 +38,6 @@ annotation.txt
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+vuzf-studentscsd-firebase-adminsdk.json
