@@ -1,6 +1,6 @@
 // next
 import Head from 'next/head'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 // styles
@@ -8,6 +8,8 @@ import { PageConfig } from '@/styles/PagesConfigElements';
 
 // components
 import { Button } from '@mui/material';
+import { auth } from '../../firebase/firebase';
+
 
 
 
@@ -16,6 +18,36 @@ import { Button } from '@mui/material';
 export default function Home() {
 
     const router = useRouter()
+
+
+    const fetchData = async () => {
+        const currentUser = auth.currentUser;
+        if (currentUser) {
+            const userToken = await currentUser.getIdToken();
+
+            const response = await fetch('/api/hello', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: userToken,
+                },
+            });
+            if (response.ok) {
+                const responseBody = await response.json();
+                const message = responseBody.message;
+                console.log('Message from backend:', message);
+            } else {
+                console.error('Error:', response.status);
+            }
+        }
+    };
+
+    fetchData();
+
+
+
+
+
 
     return (
         <>
