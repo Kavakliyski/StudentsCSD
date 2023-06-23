@@ -31,7 +31,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/hooks/auth.ts"
-  ],
+, "utils/firebase-adminsdk.ts"  ],
   "exclude": [
     "node_modules"
   ]
