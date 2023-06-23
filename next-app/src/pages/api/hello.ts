@@ -2,39 +2,52 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import admin from 'firebase-admin';
 import { firebaseServiceAccount } from '../../../utils/firebase-adminsdk';
+import checkEmailExists from 'utils/checkEmailExists';
 
 type Data = {
-  name?: string;
-  message?: string;
-  error?: any;
+    name?: string;
+    message?: string;
+    error?: any;
 }
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
 
-  if (!admin.apps.length) {
+    if (!admin.apps.length) {
 
-    admin.initializeApp({
-      credential: admin.credential.cert(firebaseServiceAccount)
-    });
-  }
+        admin.initializeApp({
+            credential: admin.credential.cert(firebaseServiceAccount)
+        });
+    }
 
-  const token = req.headers.authorization
+    const token = req.headers.authorization
 
-  if (!token) {
+    if (!token) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
 
-    console.log('====================================');
-    // console.log(firebaseServiceAccount);
-    console.log('====================================');
-
-    return res.status(401).json({ error: 'Unauthorized' });
-  } else {
 
     try {
-      res.status(200).json({ message: 'Success' });
+        const decodedToken = await admin.auth().verifyIdToken(token);
+        const userId = decodedToken.uid;
+        const userEmail = decodedToken.email;
+
+        console.log('====================================');
+        console.log(userId);
+        console.log(userEmail);
+        
+        if (userEmail) checkEmailExists(userEmail)
+            .then((exists) => {
+                console.log(`Email exists: ${exists}`);
+            })
+            .catch((error) => {
+                console.error('Error checking email:', error);
+            });
+        console.log('====================================');
+
+        res.status(200).json({ message: 'Success' });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: error });
+        console.error('Token verification failed:', error);
+        res.status(401).json({ error: 'Invalid token' });
     }
-  }
 };
