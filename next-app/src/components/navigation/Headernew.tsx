@@ -1,8 +1,9 @@
 // styles
 import styled from "styled-components"
 
-// auth
-import { useAuth } from "@/context/AuthContext"
+// auth0
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { useRouter } from "next/router";
 
 
 const Navigation = styled.nav`
@@ -60,23 +61,21 @@ const LogoutButton = styled.button`
     border-radius: 8px;
 `
 
+
 export const Headernew = () => {
 
-    const { user, logout } = useAuth();
-
-    const handleLogout = () => {
-        logout();
-    }
+    const { user } = useUser();
+    const router = useRouter()
 
     return (
         <header style={{ paddingBottom: '100px' }}>
             <Navigation>
                 <div className="TextHolder">
 
-                    Здравей, {user.email}
+                    Здравей, {user?.nickname}
 
                     <div className="ButtonHolder">
-                        <LogoutButton onClick={handleLogout}>
+                        <LogoutButton onClick={() => router.push('/api/auth/logout')}>
                             ИЗЛИЗАНЕ
                         </LogoutButton>
                     </div>

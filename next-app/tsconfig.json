@@ -31,7 +31,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/hooks/auth.ts"
-  ],
+, "src/pages/api/auth/[...nextuath].js"  ],
   "exclude": [
     "node_modules"
   ]
