@@ -8,10 +8,8 @@ type Data = {
 }
 
 export default withApiAuthRequired(
-    function GET(
-        req: NextApiRequest,
-        res: NextApiResponse<Data>
-    ) {
-        res.status(200).json({ name: 'protcted api' })
+    function GET(req: NextApiRequest, res: NextApiResponse<Data>) {
+        console.log(req)
+        res.status(200).json({ name: 'this must be protcted api' })
     }
 );

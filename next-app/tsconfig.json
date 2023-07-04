@@ -25,13 +25,11 @@
       ]
     }
   },
-  // "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/hooks/auth.ts", "src/pages/api/test/add.js", "src/context/WebSocketContext.js"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/hooks/auth.ts"
-, "src/pages/api/auth/[...nextuath].js"  ],
+  ],
   "exclude": [
     "node_modules"
   ]

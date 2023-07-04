@@ -3,30 +3,32 @@ import masterStudent from 'models/studentModel/MasterStudentModel';
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+import { withApiAuthRequired } from '@auth0/nextjs-auth0'
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-    try {
+export default withApiAuthRequired(
+    async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-        connectMongoDB();
-        console.log('(Query) getting entries for Student Master...');
+        try {
 
-        const { query } = req;
-        const searchParams: any = {};
+            connectMongoDB();
+            console.log('(Query) getting entries for Student Master...');
 
-        Object.entries(query).forEach(([key, value]) => {
-            searchParams[key] = new RegExp((value as string), 'i');
-        });
-                
+            const { query } = req;
+            const searchParams: any = {};
 
-        const entries = await masterStudent.find(searchParams).sort({ dateOfCreation: -1 });
-        
-        console.log('\x1b[32m%s\x1b[0m', `Mongoose: Students MASTER Query --> Mongoose found items ${entries.length}`)
-        res.status(200).json(entries);
-    } catch (error) {
+            Object.entries(query).forEach(([key, value]) => {
+                searchParams[key] = new RegExp((value as string), 'i');
+            });
 
-        res.status(500).send(error);
+
+            const entries = await masterStudent.find(searchParams).sort({ dateOfCreation: -1 });
+
+            console.log('\x1b[32m%s\x1b[0m', `Mongoose: Students MASTER Query --> Mongoose found items ${entries.length}`)
+            res.status(200).json(entries);
+        } catch (error) {
+
+            res.status(500).send(error);
+        }
     }
-}
-
-export default handler;
+);
