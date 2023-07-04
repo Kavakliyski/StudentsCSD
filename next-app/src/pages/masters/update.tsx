@@ -14,7 +14,7 @@ import { StudentFormUpdateStudent, StudentFormWrapper } from '@/styles/FormEleme
 import { PageConfig } from '@/styles/PagesConfigElements';
 
 // auth
-import { useAuth } from "@/context/AuthContext";
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 // components
 import TextField from '@mui/material/TextField';
@@ -35,7 +35,7 @@ const API_URL_PATCH = '/api/students/masters/update';
 export default function Update({ id, studentData, returnUrl }: IStudentGetData) {
 
     const router = useRouter();
-    const { user } = useAuth();                                       // get user email
+    const { user } = useUser();                                       // get user email
 
     const [studentFetchedData, setStudentFetchedData] = useState(studentData.student);
     const [errorAdd, setErrorAdd] = useState(null);                   // error on update
@@ -54,7 +54,7 @@ export default function Update({ id, studentData, returnUrl }: IStudentGetData) 
         setStudentFetchedData({
             ...studentFetchedData,
             [e.target.name]: e.target.value,
-            lastEditEmail: user.email,
+            lastEditEmail: user?.email ?? 'грешка в имейла',
             lastEditDate: formattedDate
         });
     };

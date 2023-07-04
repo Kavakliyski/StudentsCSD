@@ -10,7 +10,8 @@ import TextField from '@mui/material/TextField';
 import { FormControl } from "@mui/material";
 
 // auth
-import { useAuth } from "@/context/AuthContext";
+import { useUser } from "@auth0/nextjs-auth0/client";
+
 
 // const API_URL = `${process.env.NEXT_PUBLIC_MONGODB_URL}/api/students/bachelor/add`;
 const API_URL = '/api/students/bachelor/add';
@@ -23,7 +24,7 @@ interface IHandleClose {
 export default function StudentFormContent(props: IHandleClose) {
 
 
-    const { user } = useAuth();                                       // get user email
+    const { user } = useUser();                                       // get user email
     const [errorAdd, setErrorAdd] = useState(null);                   // error on adding
 
     const [distinction, setDistinction] = useState("");
@@ -120,9 +121,9 @@ export default function StudentFormContent(props: IHandleClose) {
                 entered_in_admin: entered_in_admin,
 
 
-                lastEditEmail: user.email,
+                lastEditEmail: user?.email,
                 lastEditDate: formattedDate,
-                email_of_creation: user.email,
+                email_of_creation: user?.email,
                 dateOfCreation: formattedDate,
             })
             .then((res) => {

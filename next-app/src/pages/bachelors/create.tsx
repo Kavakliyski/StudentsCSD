@@ -3,7 +3,7 @@ import { PageConfig } from "@/styles/PagesConfigElements";
 import { StudentFormCU, StudentFormWrapper } from "@/styles/FormElements";
 
 // auth
-import { useAuth } from "@/context/AuthContext";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 // axios
 import axios from "axios";
@@ -43,7 +43,7 @@ export default function Createbachelor() {
 
     const Router = useRouter();
 
-    const { user } = useAuth();                                       // get user email
+    const { user } = useUser();                                       // get user email
     const [errorAdd, setErrorAdd] = useState(null);                   // error on adding
 
     const [distinction, setdistinction] = useState("");
@@ -141,9 +141,9 @@ export default function Createbachelor() {
                 entered_in_admin: entered_in_admin,
                 entered_into_cohort: entered_into_cohort,
 
-                lastEditEmail: user.email,
+                lastEditEmail: user?.email,
                 lastEditDate: formattedDate,
-                email_of_creation: user.email,
+                email_of_creation: user?.email,
                 dateOfCreation: formattedDate,
             })
             .then((res) => {

@@ -22,7 +22,7 @@ import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
 
 // auth
-import { useAuth } from "@/context/AuthContext";
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 // majors. options
 import {
@@ -48,7 +48,7 @@ const API_URL_PATCH = `/api/students/bachelors/update`;
 export default function UpdateBachelor({ id, studentData, returnUrl }: IStudentGetDataBachelor) {
 
     const router = useRouter();
-    const { user } = useAuth();                                       // get user email
+    const { user } = useUser();                                       // get user email
 
     const [studentFetchedData, setStudentFetchedData] = useState(studentData.student);
     const [errorAdd, setErrorAdd] = useState(null);                   // error on update
@@ -67,7 +67,7 @@ export default function UpdateBachelor({ id, studentData, returnUrl }: IStudentG
         setStudentFetchedData({
             ...studentFetchedData,
             [e.target.name]: e.target.value,
-            lastEditEmail: user.email,
+            lastEditEmail: user?.email ?? 'грешка в имейла',
             lastEditDate: formattedDate
         });
     };
