@@ -1,34 +1,38 @@
 import connectMongoDB from 'utils/connectMongoDB';
 import bachelorStudent from "models/studentModel/BachelorStudentModel";
 
-
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function getOneStudent(req: NextApiRequest, res: NextApiResponse) {
+import { withApiAuthRequired } from '@auth0/nextjs-auth0'
 
-    if (req.method === 'GET') {
 
-        try {
+export default withApiAuthRequired(
+    async function getOneStudent(req: NextApiRequest, res: NextApiResponse) {
 
-            connectMongoDB();                           // Connect to the MongoDB database
+        if (req.method === 'GET') {
 
-            const { id } = req.query;
-            const student = await bachelorStudent.findById(id);
+            try {
 
-            if (student) {
+                connectMongoDB();                           // Connect to the MongoDB database
 
-                res.status(200).json({ message: 'Student Bachelor found', student });
-            } else {
+                const { id } = req.query;
+                const student = await bachelorStudent.findById(id);
 
-                res.status(404).json({ message: 'Student Bachelor not found' });
+                if (student) {
+
+                    res.status(200).json({ message: 'Student Bachelor found', student });
+                } else {
+
+                    res.status(404).json({ message: 'Student Bachelor not found' });
+                }
+            } catch (error) {
+
+                console.error(error);
+                res.status(500).json({ message: 'Student Bachelor - Server error' });
             }
-        } catch (error) {
+        } else {
 
-            console.error(error);
-            res.status(500).json({ message: 'Student Bachelor - Server error' });
+            res.status(405).json({ message: 'Student Bachelor - Method not allowed' });
         }
-    } else {
-
-        res.status(405).json({ message: 'Student Bachelor - Method not allowed' });
     }
-}
+);
