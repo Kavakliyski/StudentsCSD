@@ -45,7 +45,7 @@ const bachelorStudentSchema = new Schema({
     lastEditEmail: 'string',
     lastEditDate: 'string',
     email_of_creation: 'string',
-    dateOfCreation: 'string',
+    dateOfCreation: Date,
 });
 
 const bachelorStudent = models.BachelorStudent || model('BachelorStudent', bachelorStudentSchema);

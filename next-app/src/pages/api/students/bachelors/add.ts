@@ -53,13 +53,14 @@ export default withApiAuthRequired(
             lastEditEmail,
             lastEditDate,
             email_of_creation,
-            dateOfCreation,
+            // dateOfCreation,
         } = req.body;
 
         try {
 
             connectMongoDB();
             console.log('Trying to create document for Student Bachelor...');
+            const currentDate = new Date();
 
             const doc = await bachelorStudent.create({
                 distinction,
@@ -105,7 +106,7 @@ export default withApiAuthRequired(
                 lastEditEmail,
                 lastEditDate,
                 email_of_creation,
-                dateOfCreation,
+                dateOfCreation: currentDate,
             });
             res.status(201).json(doc);
 

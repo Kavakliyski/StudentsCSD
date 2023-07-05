@@ -2,8 +2,11 @@
 import { useState } from "react";
 
 // styles
-import { StudentsTablePageNumbers, StudentsTableStyles } from "@/styles/TableElements";
-import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
+import {
+    StudentsTablePageNumbers,
+    StudentsTableStyles,
+} from "@/styles/TableElements";
+import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 
 // interfaces
 import { IStudentBachelor } from "@/interfaces/IStudent";
@@ -11,14 +14,14 @@ interface IStudentsTableProps {
     studentsGetData: IStudentBachelor[];
 }
 
-
-
-export default function BachelorStudentsTable({ studentsGetData }: IStudentsTableProps) {
-
+export default function BachelorStudentsTable({
+    studentsGetData,
+}: IStudentsTableProps) {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(50);
-
     const [isSelected, setIsSelected] = useState<string | null>(null);
+
+    console.log(studentsGetData);
 
     const handlePageChange = (newPage: number) => {
         setCurrentPage(newPage);
@@ -29,10 +32,18 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
         return Array.from({ length: totalPages }, (_, i) => i + 1);
     };
 
-
     return (
         <>
-            <p>Общият брой на всички записи в таблицата е: <strong>{studentsGetData && studentsGetData.length == 0 ? <>Няма намерени записи</> : <>{studentsGetData.length}</>}</strong></p>
+            <p>
+                Общият брой на всички записи в таблицата е:{" "}
+                <strong>
+                    {studentsGetData && studentsGetData.length == 0 ? (
+                        <>Няма намерени записи</>
+                    ) : (
+                        <>{studentsGetData.length}</>
+                    )}
+                </strong>
+            </p>
 
             <StudentsTableStyles>
                 <thead>
@@ -85,52 +96,92 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                         <th>Имейл на създаване</th>
                         <th>Дата на създаване</th>
                         <th>Идентификатор (_id)</th>
-
                     </tr>
                 </thead>
 
                 <tbody>
                     {studentsGetData
-                        .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+                        .slice(
+                            (currentPage - 1) * itemsPerPage,
+                            currentPage * itemsPerPage
+                        )
                         .map((student) => (
                             <tr
                                 key={student._id}
                                 onClick={() => setIsSelected(student._id)}
                                 style={{
-                                    backgroundColor: isSelected === student._id ? 'lightblue' : '',
+                                    backgroundColor:
+                                        isSelected === student._id
+                                            ? "lightblue"
+                                            : "",
                                 }}
                             >
                                 <td>{student.distinction}</td>
                                 <td>{student.faculty_number}</td>
 
-                                <td style={{
-                                    backgroundColor:
-                                        student.status_of_ksk === 'Приет' ? 'green' :
-                                            student.status_of_ksk === 'Отписан' ? 'red' :
-                                                student.status_of_ksk === 'В процес' ? 'orange' : 'transparent'
-                                }}>{student.status_of_ksk}</td>
+                                <td
+                                    style={{
+                                        backgroundColor:
+                                            student.status_of_ksk === "Приет"
+                                                ? "green"
+                                                : student.status_of_ksk ===
+                                                  "Отписан"
+                                                ? "red"
+                                                : student.status_of_ksk ===
+                                                  "В процес"
+                                                ? "orange"
+                                                : "transparent",
+                                    }}
+                                >
+                                    {student.status_of_ksk}
+                                </td>
 
                                 <td>{student.n_of_enrollment_order}</td>
 
-                                <td className="column-sticky"
-
-                                    style={{ backgroundColor: isSelected === student._id ? 'lightblue' : '', }}
-                                ><p>{student.names}</p></td>
+                                <td
+                                    className="column-sticky"
+                                    style={{
+                                        backgroundColor:
+                                            isSelected === student._id
+                                                ? "lightblue"
+                                                : "",
+                                    }}
+                                >
+                                    <p>{student.names}</p>
+                                </td>
 
                                 <td>{student.names_latin}</td>
                                 <td>{student.phone_number}</td>
                                 <td>{student.email}</td>
                                 <td>{student.egn}</td>
 
-                                <td style={{ textAlign: 'center', verticalAlign: 'middle', cursor: 'pointer' }}>
-                                    <a href={`/bachelors/update?id=${student._id}&returnUrl=${encodeURIComponent(window.location.pathname)}`}>
-                                        <ModeEditOutlineIcon sx={{ fontSize: 60 }} />
+                                <td
+                                    style={{
+                                        textAlign: "center",
+                                        verticalAlign: "middle",
+                                        cursor: "pointer",
+                                    }}
+                                >
+                                    <a
+                                        href={`/bachelors/update?id=${
+                                            student._id
+                                        }&returnUrl=${encodeURIComponent(
+                                            window.location.pathname
+                                        )}`}
+                                    >
+                                        <ModeEditOutlineIcon
+                                            sx={{ fontSize: 60 }}
+                                        />
                                     </a>
                                 </td>
 
                                 <td>{student.person_to_contact}</td>
                                 <td>{student.in_front_of_school}</td>
-                                <td>{student.location_of_the_transitional_educationa_institution}</td>
+                                <td>
+                                    {
+                                        student.location_of_the_transitional_educationa_institution
+                                    }
+                                </td>
                                 <td>{student.high_school_diploma_gpa}</td>
                                 <td>{student.certificate_from_ruo}</td>
                                 <td>{student.desired_major}</td>
@@ -151,7 +202,9 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                                 <td>{student.sem_Fee}</td>
                                 <td>{student.discount}</td>
                                 <td>{student.reason_for_discount}</td>
-                                <td>{student.email_sent_with_faculty_number}</td>
+                                <td>
+                                    {student.email_sent_with_faculty_number}
+                                </td>
                                 <td>{student.university_email}</td>
                                 <td>{student.university_mail_group}</td>
                                 <td>{student.moodle_profile_created}</td>
@@ -169,26 +222,35 @@ export default function BachelorStudentsTable({ studentsGetData }: IStudentsTabl
                 </tbody>
             </StudentsTableStyles>
             <StudentsTablePageNumbers>
-
-                {
-                    getPageNumbers(studentsGetData.length, itemsPerPage).length > 1 ? (
-                        getPageNumbers(studentsGetData.length, itemsPerPage).map((pageNumber) => (
-                            <button
-                                key={pageNumber}
-                                onClick={() => handlePageChange(pageNumber)}
-                                style={{
-                                    background: pageNumber === currentPage ? "#1976d2" : "white",
-                                    boxShadow: pageNumber === currentPage ? "0px 0px 0px 3px #1976d2" : "",
-                                    color: pageNumber === currentPage ? "white" : "black",
-                                    zIndex: pageNumber === currentPage ? "1" : "",
-                                }}
-                            >
-                                {pageNumber}
-                            </button>
-                        ))
-                    ) : null
-                }
+                {getPageNumbers(studentsGetData.length, itemsPerPage).length > 1
+                    ? getPageNumbers(studentsGetData.length, itemsPerPage).map(
+                          (pageNumber) => (
+                              <button
+                                  key={pageNumber}
+                                  onClick={() => handlePageChange(pageNumber)}
+                                  style={{
+                                      background:
+                                          pageNumber === currentPage
+                                              ? "#1976d2"
+                                              : "white",
+                                      boxShadow:
+                                          pageNumber === currentPage
+                                              ? "0px 0px 0px 3px #1976d2"
+                                              : "",
+                                      color:
+                                          pageNumber === currentPage
+                                              ? "white"
+                                              : "black",
+                                      zIndex:
+                                          pageNumber === currentPage ? "1" : "",
+                                  }}
+                              >
+                                  {pageNumber}
+                              </button>
+                          )
+                      )
+                    : null}
             </StudentsTablePageNumbers>
         </>
-    )
+    );
 }
