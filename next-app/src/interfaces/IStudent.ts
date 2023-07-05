@@ -244,5 +244,5 @@ export interface IBachelorStudentFetchedData {
     lastEditEmail: string;
     lastEditDate: string;
     email_of_creation: string;
-    dateOfCreation: string;
+    dateOfCreation: Date;
 }

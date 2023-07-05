@@ -48,7 +48,7 @@ const masterStudentSchema = new Schema({
     lastEditEmail: 'string',
     lastEditDate: 'string',
     email_of_creation: 'string',
-    dateOfCreation: 'string'
+    dateOfCreation: Date
 });
 
 const masterStudent = models.MasterStudent || model('MasterStudent', masterStudentSchema);

@@ -132,7 +132,6 @@ export default function Createmaster() {
                 lastEditEmail: user?.email,
                 lastEditDate: formattedDate,
                 email_of_creation: user?.email,
-                dateOfCreation: formattedDate,
             })
             .then((res) => {
 
