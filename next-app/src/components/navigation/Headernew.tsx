@@ -72,7 +72,7 @@ export const Headernew = () => {
             <Navigation>
                 <div className="TextHolder">
 
-                    Здравей, {user?.nickname}
+                    Здравей, {user?.name}
 
                     <div className="ButtonHolder">
                         <LogoutButton onClick={() => router.push('/api/auth/logout')}>

@@ -1,6 +1,6 @@
 // next
 import Head from 'next/head'
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 
 // styles
@@ -13,22 +13,6 @@ import { Button } from '@mui/material';
 export default function Home() {
 
     const router = useRouter()
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch('/api/hello');
-            const jsonData = await response.json();
-            console.log(jsonData);
-            
-        } catch (error) {
-            console.log('Error:', error);
-        }
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
 
     return (
         <>
