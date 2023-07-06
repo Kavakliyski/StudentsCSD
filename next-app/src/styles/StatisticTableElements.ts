@@ -6,6 +6,10 @@ export const StatisticTableContainer = styled.div`
     justify-content: center;
     align-items: center;
 
+    h2 {
+      font-size: 40px;  
+    }
+
     table,
     th,
     td {
