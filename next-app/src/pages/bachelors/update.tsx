@@ -81,7 +81,7 @@ export default function UpdateBachelor({
         };
 
         fetchStudent();
-    }, []);
+    }, [id]);
 
     // format the date - dd.mm.year clock
     const formattedDate = new Date().toLocaleString("bg-BG", {
