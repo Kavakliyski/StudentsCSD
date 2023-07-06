@@ -1,9 +1,26 @@
 import { StatisticTableContainer } from "@/styles/StatisticTableElements";
 
-export default function StatisticTableFromOfStudy(Statistic: any) {
+interface IStatisticTableFromOfStudy {
+    schoolYear?: string;
+    majors?: {
+        desiredMajor: string;
+        desiredShape: string;
+        count: number;
+    }[];
+    StudyYear: any;
+}
 
+interface IStatFormMajor {
+    desiredMajor: string;
+    desiredShape: string;
+    count: number;
+}
+
+export default function StatisticTableFromOfStudy(
+    Statistic: IStatisticTableFromOfStudy
+) {
     const combinedData: any = [];
-    Statistic.StudyYear.majors.forEach((item: any) => {
+    Statistic.StudyYear.majors.forEach((item: IStatFormMajor) => {
         const existingItem = combinedData.find(
             (combinedItem: any) =>
                 combinedItem.desiredMajor === item.desiredMajor
@@ -32,17 +49,17 @@ export default function StatisticTableFromOfStudy(Statistic: any) {
 
     // Calculate the totals
     const distanceTotal = combinedData.reduce(
-        (total: number, item: { distancionnoCount: any }) =>
+        (total: number, item: { distancionnoCount: any }): number =>
             total + parseInt(item.distancionnoCount || 0),
         0
     );
     const partTimeTotal = combinedData.reduce(
-        (total: number, item: { zadocnoCount: any }) =>
+        (total: number, item: { zadocnoCount: any }): number =>
             total + parseInt(item.zadocnoCount || 0),
         0
     );
     const regularTotal = combinedData.reduce(
-        (total: number, item: { redovnoCount: any }) =>
+        (total: number, item: { redovnoCount: any }): number =>
             total + parseInt(item.redovnoCount || 0),
         0
     );

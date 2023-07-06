@@ -45,7 +45,6 @@ export default function Statistic() {
         setActiveTab(index);
     };
 
-
     return (
         <PageConfig>
             <h1>Справка от кандидатстудентска кампания - Бакалаври</h1>
@@ -69,7 +68,7 @@ export default function Statistic() {
                                 role="tab"
                                 aria-selected={activeTab === 0}
                             >
-                                Статистика З/П/З
+                                Всички запитвания, подали и записани
                             </a>
                         </li>
                         <li
@@ -88,7 +87,7 @@ export default function Statistic() {
                                 role="tab"
                                 aria-selected={activeTab === 1}
                             >
-                                Статистика Д/З/Р
+                                Всички Записани - прием 23/24 г.
                             </a>
                         </li>
                         <li
@@ -114,7 +113,7 @@ export default function Statistic() {
                 </nav>
 
                 <section
-                    id="stat1"
+                    // id="stat1"
                     role="tabpanel"
                     aria-labelledby="tab-1"
                     hidden={activeTab !== 0}
@@ -136,7 +135,7 @@ export default function Statistic() {
                 </section>
 
                 <section
-                    id="stat2"
+                    // id="stat2"
                     role="tabpanel"
                     aria-labelledby="tab-2"
                     hidden={activeTab !== 1}
@@ -157,7 +156,7 @@ export default function Statistic() {
                 </section>
 
                 <section
-                    id="stat2"
+                    // id="stat2"
                     role="tabpanel"
                     aria-labelledby="tab-2"
                     hidden={activeTab !== 2}

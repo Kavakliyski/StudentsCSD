@@ -32,7 +32,7 @@ export const StatisticTableContainer = styled.div`
     }
 
     table {
-        width: 90%;
+        width: 70%;
         border-radius: 10px;
         box-shadow: 0px 0px 10px 1px black;
     }
