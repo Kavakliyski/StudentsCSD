@@ -1,9 +1,16 @@
 import styled from "styled-components";
 
 export const StatisticTableContainer = styled.div`
-    table, tr, th, td {
-        border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    table,
+    th,
+    td {
         padding: 10px;
+        border: 1px solid black;
 
         thead {
             border: 1px solid black;
@@ -11,11 +18,18 @@ export const StatisticTableContainer = styled.div`
 
         .GrandTotal {
             color: white;
-            background-color: #1976d2;
+            background-color: green;
         }
     }
 
-    table {
-        border-radius: 10px;
+    thead {
+        background-color: #1976d2;
+        color: white;
     }
-`
+
+    table {
+        width: 90%;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 1px black;
+    }
+`;

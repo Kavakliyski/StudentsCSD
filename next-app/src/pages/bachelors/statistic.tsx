@@ -20,6 +20,8 @@ const API_STATISTIC_URL = '/api/students/bachelors/get_statistic';
 
 export default function Statistic() {
 
+    const [stats, setStats] = useState<IStatisticData[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         axios
@@ -28,10 +30,7 @@ export default function Statistic() {
             .catch((err) => console.log("Error fetching students:", err))
         setIsLoading(false);
     }, [])
-
-    const [stats, setStats] = useState<IStatisticData[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-
+    
 
     return (
         <PageConfig>
