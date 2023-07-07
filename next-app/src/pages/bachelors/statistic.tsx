@@ -48,122 +48,120 @@ export default function Statistic() {
     return (
         <PageConfig>
             <h1>Справка от кандидатстудентска кампания - Бакалаври</h1>
-
-            <div className="tabs-container">
-                <nav className="tabs-title" role="tablist">
-                    <ul>
-                        <li
-                            style={{
-                                cursor: "pointer",
-                                boxShadow:
-                                    activeTab === 0
-                                        ? "inset 0 0 10px #1976d2"
-                                        : "",
-                            }}
-                            onClick={() => handleTabSelect(0)}
-                        >
-                            <a
-                                id="tab-1"
-                                href="#stat1"
-                                role="tab"
-                                aria-selected={activeTab === 0}
+            {isLoading ? (
+                <>
+                    <Box sx={{ width: "99%" }}>
+                        <LinearProgress />
+                    </Box>
+                </>
+            ) : (
+                <div className="tabs-container">
+                    <nav className="tabs-title" role="tablist">
+                        <ul>
+                            <li
+                                style={{
+                                    cursor: "pointer",
+                                    boxShadow:
+                                        activeTab === 0
+                                            ? "inset 0 0 10px #1976d2"
+                                            : "",
+                                }}
+                                onClick={() => handleTabSelect(0)}
                             >
-                                Всички запитвания, подали и записани
-                            </a>
-                        </li>
-                        <li
-                            style={{
-                                cursor: "pointer",
-                                boxShadow:
-                                    activeTab === 1
-                                        ? "inset 0 0 10px #1976d2"
-                                        : "",
-                            }}
-                            onClick={() => handleTabSelect(1)}
-                        >
-                            <a
-                                id="tab-2"
-                                href="#stat2"
-                                role="tab"
-                                aria-selected={activeTab === 1}
+                                <a
+                                    id="tab-1"
+                                    href="#stat1"
+                                    role="tab"
+                                    aria-selected={activeTab === 0}
+                                >
+                                    Всички запитвания, подали и записани
+                                </a>
+                            </li>
+                            <li
+                                style={{
+                                    cursor: "pointer",
+                                    boxShadow:
+                                        activeTab === 1
+                                            ? "inset 0 0 10px #1976d2"
+                                            : "",
+                                }}
+                                onClick={() => handleTabSelect(1)}
                             >
-                                Всички Записани - прием 23/24 г.
-                            </a>
-                        </li>
-                        <li
-                            style={{
-                                cursor: "pointer",
-                                boxShadow:
-                                    activeTab === 2
-                                        ? "inset 0 0 10px #1976d2"
-                                        : "",
-                            }}
-                            onClick={() => handleTabSelect(2)}
-                        >
-                            <a
-                                id="tab-3"
-                                href="#stat3"
-                                role="tab"
-                                aria-selected={activeTab === 2}
+                                <a
+                                    id="tab-2"
+                                    href="#stat2"
+                                    role="tab"
+                                    aria-selected={activeTab === 1}
+                                >
+                                    Всички Записани - прием по години
+                                </a>
+                            </li>
+                            <li
+                                style={{
+                                    cursor: "pointer",
+                                    boxShadow:
+                                        activeTab === 2
+                                            ? "inset 0 0 10px #1976d2"
+                                            : "",
+                                }}
+                                onClick={() => handleTabSelect(2)}
                             >
-                                Още една
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                                <a
+                                    id="tab-3"
+                                    href="#stat3"
+                                    role="tab"
+                                    aria-selected={activeTab === 2}
+                                >
+                                    Още една
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
 
-                <section
-                    // id="stat1"
-                    role="tabpanel"
-                    aria-labelledby="tab-1"
-                    hidden={activeTab !== 0}
-                >
-                    {isLoading ? (
-                        <>
-                            <Box sx={{ width: "99%" }}>
-                                <LinearProgress />
-                            </Box>
-                        </>
-                    ) : (
-                        stats
-                            .slice()
-                            .reverse()
-                            .map((stat, index) => (
-                                <StatisticTable key={index} StudyYear={stat} />
-                            ))
-                    )}
-                </section>
+                    <>
+                        <section
+                            // id="stat1"
+                            role="tabpanel"
+                            aria-labelledby="tab-1"
+                            hidden={activeTab !== 0}
+                        >
+                            {stats
+                                .slice()
+                                .reverse()
+                                .map((stat, index) => (
+                                    <StatisticTable
+                                        key={index}
+                                        StudyYear={stat}
+                                    />
+                                ))}
+                        </section>
 
-                <section
-                    // id="stat2"
-                    role="tabpanel"
-                    aria-labelledby="tab-2"
-                    hidden={activeTab !== 1}
-                >
-                    {isLoading ? (
-                        <>
-                            <Box sx={{ width: "99%" }}>
-                                <LinearProgress />
-                            </Box>
-                        </>
-                    ) : (
-                        statsForm.map((stat) => (
-                            <div key={stat.schoolYear}>
-                                <StatisticTableFormOfStudy StudyYear={stat} />
-                            </div>
-                        ))
-                    )}
-                </section>
+                        <section
+                            // id="stat2"
+                            role="tabpanel"
+                            aria-labelledby="tab-2"
+                            hidden={activeTab !== 1}
+                        >
+                            {statsForm.map((stat) => (
+                                <div key={stat.schoolYear}>
+                                    <StatisticTableFormOfStudy
+                                        StudyYear={stat}
+                                    />
+                                </div>
+                            ))}
+                        </section>
 
-                <section
-                    // id="stat2"
-                    role="tabpanel"
-                    aria-labelledby="tab-2"
-                    hidden={activeTab !== 2}
-                >
-                    Още една
-                </section>
-            </div>
+                        <section
+                            // id="stat2"
+                            role="tabpanel"
+                            aria-labelledby="tab-2"
+                            hidden={activeTab !== 2}
+                        >
+                            Още една
+                        </section>
+                    </>
+                </div>
+            )}
         </PageConfig>
     );
 }
