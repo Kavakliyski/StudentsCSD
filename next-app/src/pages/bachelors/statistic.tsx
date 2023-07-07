@@ -1,5 +1,4 @@
 // styles
-import StatisticTable from "@/components/statistic/StatisticTable";
 import { PageConfig } from "@/styles/PagesConfigElements";
 
 // next
@@ -14,6 +13,9 @@ import { IStatisticData } from "@/interfaces/IStatistics";
 // Material UI Spinner
 import LinearProgress from "@mui/material/LinearProgress";
 import Box from "@mui/material/Box";
+
+// components
+import StatisticTable from "@/components/statistic/StatisticTable";
 import StatisticTableFormOfStudy from "@/components/statistic/StatisticTableFormOfStudy";
 
 const API_STATISTIC_URL = "/api/students/bachelors/get_statistic";
@@ -24,6 +26,7 @@ export default function Statistic() {
     const [stats, setStats] = useState<IStatisticData[]>([]);
     const [statsForm, setStatsForm] = useState<IStatisticData[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [activeTab, setActiveTab] = useState(0);
 
     useEffect(() => {
         axios
@@ -38,8 +41,6 @@ export default function Statistic() {
 
         setIsLoading(false);
     }, []);
-
-    const [activeTab, setActiveTab] = useState(0);
 
     const handleTabSelect = (index: number) => {
         setActiveTab(index);
